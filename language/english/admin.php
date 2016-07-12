@@ -21,7 +21,9 @@ define('_AM_XMCONTENT_ACTION', 'Action');
 define('_AM_XMCONTENT_ADD', 'Add');
 define('_AM_XMCONTENT_DEL', 'Delete');
 define('_AM_XMCONTENT_EDIT', 'Edit');
+define('_AM_XMCONTENT_NO', 'No');
 define('_AM_XMCONTENT_REDIRECT_SAVE', 'Successfully saved');
+define('_AM_XMCONTENT_YES', 'Yes');
 define('_AM_XMCONTENT_VIEW', 'View Details');
 
 // index

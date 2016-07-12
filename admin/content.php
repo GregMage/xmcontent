@@ -88,26 +88,56 @@ switch ($op) {
         
         $content_id = XoopsRequest::getInt('content_id', 0);
         $content = $content_Handler->get($content_id);
+        echo $content_id;
         
         if ($content->getVar('content_status') == 0){
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_NA . '</span>';
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_A . '</span>';
         }
-
-        /*$request_arr = array(_AM_XMCONTACT_CATEGORY => $category_title,
-                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
-                             _AM_XMCONTACT_REQUEST_SUBMITTER => $request->getVar('request_name'),
-                             _AM_XMCONTACT_REQUEST_SUBJECT => $request->getVar('request_subject'),
-                             _AM_XMCONTACT_REQUEST_EMAIL => $request->getVar('request_email'),
-                             _AM_XMCONTACT_REQUEST_PHONE => $request->getVar('request_phone'),
-                             _AM_XMCONTACT_REQUEST_IP => $request->getVar('request_ip'),
-                             _AM_XMCONTACT_REQUEST_DATES => formatTimestamp($request->getVar('request_date_e')),
-                             _AM_XMCONTACT_REQUEST_DATER => $date_r,
-                             _AM_XMCONTACT_STATUS => $status,
-                             _AM_XMCONTACT_REQUEST_MESSAGE => $request->getVar('request_message', 'show'),
-                             );*/
-
+        if ($content->getVar('content_maindisplay') == 0){
+            $maindisplay = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        if ($content->getVar('content_dopdf') == 0){
+            $dopdf = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $dopdf = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        if ($content->getVar('content_doprint') == 0){
+            $doprint = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $doprint = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        if ($content->getVar('content_dosocial') == 0){
+            $dosocial = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $dosocial = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        if ($content->getVar('content_domail') == 0){
+            $domail = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $domail = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        if ($content->getVar('content_dotitle') == 0){
+            $dotitle = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $dotitle = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
+        $content_arr = array(_AM_XMCONTENT_CONTENT_TITLE => $content->getVar('content_title'),
+                             _AM_XMCONTENT_CONTENT_TEXT => $content->getVar('content_text', 'show'),
+                             _AM_XMCONTENT_CONTENT_WEIGHT => $content->getVar('content_weight'),
+                             _AM_XMCONTENT_CONTENT_STATUS => $status,
+                             _AM_XMCONTENT_CONTENT_KEYWORD => $content->getVar('content_mkeyword'),
+                             _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
+                             _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
+                             _AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
+                             _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
+                             _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
+                             _AM_XMCONTENT_CONTENT_DOMAIL => $domail,
+                             _AM_XMCONTENT_CONTENT_DOTITLE => $dotitle
+                             );
         $xoopsTpl->assign('content_arr', $content_arr);
         $xoopsTpl->assign('content_id', $content_id);
         break;

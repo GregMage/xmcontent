@@ -78,10 +78,10 @@
             <tr class="<{cycle values='even,odd'}> alignmiddle">
                 <td><{$smarty.const._AM_XMCONTENT_ACTION}></td>
                 <td class="xo-actions txtleft">
-                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
+                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
                         <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/>
                     </a>
-                    <a class="tooltip" href="content.php?op=del&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
+                    <a class="tooltip" href="content.php?op=del&amp;content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
                         <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/>
                     </a>
                 </td>
