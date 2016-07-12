@@ -17,7 +17,12 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // all
-
+define('_AM_XMCONTENT_ACTION', 'Action');
+define('_AM_XMCONTENT_ADD', 'Add');
+define('_AM_XMCONTENT_DEL', 'Delete');
+define('_AM_XMCONTENT_EDIT', 'Edit');
+define('_AM_XMCONTENT_REDIRECT_SAVE', 'Successfully saved');
+define('_AM_XMCONTENT_VIEW', 'View Details');
 
 // index
 define('_AM_XMCONTENT_INDEX_CONTENT', 'Contents');
@@ -25,6 +30,25 @@ define('_AM_XMCONTENT_INDEX_CONTENT_ACTIVE', 'There are %s active content');
 define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active content');
 
 // content
-
+define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
+define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Description');
+define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
+define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
+define('_AM_XMCONTENT_CONTENT_DOPRINT', 'View the print icon');
+define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'View social icons');
+define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
+define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
+define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Keywords');
+define('_AM_XMCONTENTT_CONTENT_LIST', 'List of content');
+define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');
+define('_AM_XMCONTENT_CONTENT_STATUS', 'Status');
+define('_AM_XMCONTENT_CONTENT_STATUS_A', 'Active');
+define('_AM_XMCONTENT_CONTENT_STATUS_NA', 'Disabled');
+define('_AM_XMCONTENT_CONTENT_SUREDEL', 'Sure to delete this content? %s');
+define('_AM_XMCONTENT_CONTENT_TEXT', 'Text');
+define('_AM_XMCONTENT_CONTENT_TITLE', 'Title');
+define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Weight');
 
 // error
+define('_AM_XMCONTENT_ERROR_CONTENT', 'There are no contents in the database');
+define('_AM_XMCONTENT_ERROR_WEIGHT', 'Weight must be a number');

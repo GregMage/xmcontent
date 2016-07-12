@@ -58,19 +58,69 @@ class xmcontent_content extends XoopsObject
         }
         include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
         
-        $form = new XoopsThemeForm(_AM_XMCONTACT_EDITSTATUS, 'form', $action, 'post', true);
+        global $xoopsModuleConfig;
         
-        // submitter
-        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBMITTER, $this->getVar('request_name'), 'name'));
-        // subject
-        $form->addElement(new XoopsFormLabel(_AM_XMCONTACT_REQUEST_SUBJECT, $this->getVar('request_subject'), 'subject'));    
-        // status
-        $status = new XoopsFormRadio(_AM_XMCONTACT_STATUS, 'request_status', $this->getVar('request_status'));
-        $options = array('0' =>_AM_XMCONTACT_REQUEST_STATUS_NR, '1' => _AM_XMCONTACT_REQUEST_STATUS_R);
-        $status->addOptionArray($options);
-        $form->addElement($status);
+        //form title
+        $title = $this->isNew() ? sprintf(_AM_XMCONTENT_ADD) : sprintf(_AM_XMCONTENT_EDIT);
+        
+        $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
+        
+        if (!$this->isNew()) {
+            $form->addElement(new XoopsFormHidden('content_id', $this->getVar('content_id')));
+            $status = $this->getVar('content_status');
+            $weight = $this->getVar('content_weight');
+        } else {
+            $status = 1;
+            $weight = 0;
+        }
 
-        $form->addElement(new XoopsFormHidden('request_id', $this->getVar('request_id')));
+        // title
+        $form->addElement(new XoopsFormText(_AM_XMCONTENT_CONTENT_TITLE, 'content_title', 50, 255, $this->getVar('content_title')), true);
+        
+        // text
+        $editor_configs=array();
+        $editor_configs["name"] ='content_text';
+        $editor_configs["value"] = $this->getVar('content_text', 'e');
+        $editor_configs["rows"] = 20;
+        $editor_configs["cols"] = 160;
+        $editor_configs["width"] = "100%";
+        $editor_configs["height"] = "400px";
+        $editor_configs["editor"] = $xoopsModuleConfig['admin_editor'];
+        $form->addElement( new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
+        
+        // weight
+        $form->addElement(new XoopsFormText(_AM_XMCONTENT_CONTENT_WEIGHT, 'content_weight', 5, 5, $weight), true);
+        
+        // status
+        $form_status = new XoopsFormRadio(_AM_XMCONTENT_CONTENT_STATUS, 'content_status', $status);
+        $options = array(1 => _AM_XMCONTENT_CONTENT_STATUS_A, 0 =>_AM_XMCONTENT_CONTENT_STATUS_NA,);
+        $form_status->addOptionArray($options);
+        $form->addElement($form_status);
+        
+        // keyword
+        $form->addElement(new XoopsFormTextArea (_AM_XMCONTENT_CONTENT_KEYWORD, 'content_mkeyword', $this->getVar('content_mkeyword', 'e'), 2, 60), false);
+        
+        // description
+        $form->addElement(new XoopsFormTextArea (_AM_XMCONTENT_CONTENT_DESCRIPTION, 'content_mdescription', $this->getVar('content_mdescription', 'e'), 2, 60), false);
+        
+        // maindisplay
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_MAINDISPLAY, 'content_maindisplay', $this->getVar('content_maindisplay')));
+        
+        // dopdf
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPDF, 'content_dopdf', $this->getVar('content_dopdf')));
+        
+        // doprint
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPRINT, 'content_doprint', $this->getVar('content_doprint')));
+        
+        // dosocial
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOSOCIAL, 'content_dosocial', $this->getVar('content_dosocial')));
+        
+        // domail
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOMAIL, 'content_domail', $this->getVar('content_domail')));
+        
+        // dotitle
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));
+
         $form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
