@@ -30,6 +30,13 @@ define('_MI_XMCONTENT_MENU_ABOUT_DESC', 'About this module');
 define('_MI_XMCONTENT_MENU_HELP', 'Help');
 define('_MI_XMCONTENT_MENU_HELP_DESC', 'Module help');
 // Pref.
+define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
+define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Number of column for content View');
+define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Number of content that can be viewed in index: 1, 2 or 3 columns');
+define('_MI_XMCONTENT_PREF_HEADER', 'Header index page');
+define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page');
+define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');
+define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Text Editor');
 define('_MI_XMCONTENT_PREF_ITEMPERPAGE', 'Number of items per page in the Admin view');

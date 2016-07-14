@@ -69,9 +69,9 @@ $modversion['tables'][1] = 'xmcontent_content';
 
 // Pref.
 
-/*$modversion['config'][] = array(
+$modversion['config'][] = array(
     'name'        => 'break',
-    'title'       => '_MI_XMCONTACT_PREF_HEAD_INFORMATION',
+    'title'       => '_MI_XMCONTENT_PREF_HEAD_INDEX',
     'description' => '',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
@@ -79,36 +79,9 @@ $modversion['tables'][1] = 'xmcontent_content';
 );
 
 $modversion['config'][] = array(
-    'name'        => 'info_captcha',
-    'title'       => '_MI_XMCONTACT_PREF_CAPTCHA',
-    'description' => '_MI_XMCONTACT_PREF_CAPTCHA_DESC',
-    'formtype'    => 'yesno',
-    'valuetype'   => 'int',
-    'default'     => 0
-);
-
-$modversion['config'][] = array(
-    'name'        => 'info_cpatcha_webkey',
-    'title'       => '_MI_XMCONTACT_PREF_WEBKEY',
-    'description' => '_MI_XMCONTACT_PREF_WEBKEY_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'string',
-    'default'     => ''
-);
-
-$modversion['config'][] = array(
-    'name'        => 'info_cpatcha_secretkey',
-    'title'       => '_MI_XMCONTACT_PREF_SECRETKEY',
-    'description' => '_MI_XMCONTACT_PREF_SECRETKEY_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'string',
-    'default'     => ''
-);
-
-$modversion['config'][] = array(
-    'name'        => 'info_columncat',
-    'title'       => '_MI_XMCONTACT_PREF_COLUMNCAT',
-    'description' => '_MI_XMCONTACT_PREF_COLUMNCAT_DESC',
+    'name'        => 'info_columncontent',
+    'title'       => '_MI_XMCONTENT_PREF_COLUMNCONTENT',
+    'description' => '_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC',
     'formtype'    => 'select',
     'valuetype'   => 'int',
     'default'     => 2,
@@ -116,50 +89,23 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
-    'name'        => 'info_header',
-    'title'       => '_MI_XMCONTACT_PREF_HEADER',
-    'description' => '_MI_XMCONTACT_PREF_HEADER_DESC',
+    'name'        => 'index_header',
+    'title'       => '_MI_XMCONTENT_PREF_HEADER',
+    'description' => '_MI_XMCONTENT_PREF_HEADER_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
 );
 
 $modversion['config'][] = array(
-    'name'        => 'info_footer',
-    'title'       => '_MI_XMCONTACT_PREF_FOOTER',
-    'description' => '_MI_XMCONTACT_PREF_FOOTER_DESC',
+    'name'        => 'index_footer',
+    'title'       => '_MI_XMCONTENT_PREF_FOOTER',
+    'description' => '_MI_XMCONTENT_PREF_FOOTER_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
 );
 
-$modversion['config'][] = array(
-    'name'        => 'info_addresse',
-    'title'       => '_MI_XMCONTACT_PREF_ADDRESSE',
-    'description' => '_MI_XMCONTACT_PREF_ADDRESSE_DESC',
-    'formtype'    => 'textarea',
-    'valuetype'   => 'text',
-    'default'     => ''
-);
-
-$modversion['config'][] = array(
-    'name'        => 'info_googlemaps',
-    'title'       => '_MI_XMCONTACT_PREF_GOOGLEMAPS',
-    'description' => '_MI_XMCONTACT_PREF_GOOGLEMAPS_DESC',
-    'formtype'    => 'textarea',
-    'valuetype'   => 'text',
-    'default'     => ''
-);
-
-$modversion['config'][] = array(
-    'name'        => 'info_notification',
-    'title'       => '_MI_XMCONTACT_PREF_NOTIFICATION',
-    'description' => '_MI_XMCONTACT_PREF_NOTIFICATION_DESC',
-    'formtype'    => 'yesno',
-    'valuetype'   => 'int',
-    'default'     => 1
-);
-*/
 $modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTENT_PREF_HEAD_ADMIN',
