@@ -79,7 +79,7 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
-    'name'        => 'info_columncontent',
+    'name'        => 'index_columncontent',
     'title'       => '_MI_XMCONTENT_PREF_COLUMNCONTENT',
     'description' => '_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC',
     'formtype'    => 'select',
