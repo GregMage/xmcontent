@@ -56,7 +56,7 @@ $i                                          = 1;
 $modversion['templates'][$i]['file']        = 'xmcontent_index.tpl';
 $modversion['templates'][$i]['description'] = '';
 $i++;
-$modversion['templates'][$i]['file']        = 'xmcontent_content.tpl';
+$modversion['templates'][$i]['file']        = 'xmcontent_viewcontent.tpl';
 $modversion['templates'][$i]['description'] = '';
 // Menu
 $modversion['hasMain'] = 1;
