@@ -17,5 +17,9 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // index.php
-
 define('_MD_XMCONTENT_INDEX_MORE', 'Read more...');
+
+// viewcontent.php
+define('_AM_XMCONTENT_VIEWCONTENT_NACTIVE', 'Error: Disable content!');
+define('_AM_XMCONTENT_VIEWCONTENT_NOCONTENT', 'Error: No content!');
+
