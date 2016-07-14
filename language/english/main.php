@@ -17,3 +17,5 @@
  * @author          Mage Gregory (AKA Mage)
  */
 // index.php
+
+define('_MD_XMCONTENT_INDEX_MORE', 'Read more...');
