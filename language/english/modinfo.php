@@ -32,7 +32,7 @@ define('_MI_XMCONTENT_MENU_HELP_DESC', 'Module help');
 // Pref.
 define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Number of column for content View');
-define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Number of content that can be viewed in index: 1, 2 or 3 columns');
+define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Number of content that can be viewed in index: 1, 2, 3 or 4 columns');
 define('_MI_XMCONTENT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');

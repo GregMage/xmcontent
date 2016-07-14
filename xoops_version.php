@@ -85,7 +85,7 @@ $modversion['config'][] = array(
     'formtype'    => 'select',
     'valuetype'   => 'int',
     'default'     => 2,
-    'options'     => array(1 => 1, 2 => 2, 3 => 3)
+    'options'     => array(1 => 1, 2 => 2, 3 => 3, 4 => 4)
 );
 
 $modversion['config'][] = array(
