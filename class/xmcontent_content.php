@@ -106,17 +106,21 @@ class xmcontent_content extends XoopsObject
         // maindisplay
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_MAINDISPLAY, 'content_maindisplay', $this->getVar('content_maindisplay')));
         
-        // dopdf
-        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPDF, 'content_dopdf', $this->getVar('content_dopdf')));
+        // dopdf for next version (Xoops 2.6)
+        //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPDF, 'content_dopdf', $this->getVar('content_dopdf')));
+		$form->addElement(new XoopsFormHidden('content_dopdf', 0));
         
-        // doprint
-        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPRINT, 'content_doprint', $this->getVar('content_doprint')));
+        // doprint for next version (Xoops 2.6)
+        //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPRINT, 'content_doprint', $this->getVar('content_doprint')));
+		$form->addElement(new XoopsFormHidden('content_doprint', 0));
         
-        // dosocial
-        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOSOCIAL, 'content_dosocial', $this->getVar('content_dosocial')));
+        // dosocial for next version (Xoops 2.6)
+        //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOSOCIAL, 'content_dosocial', $this->getVar('content_dosocial')));
+		$form->addElement(new XoopsFormHidden('content_dosocial', 0));
         
-        // domail
-        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOMAIL, 'content_domail', $this->getVar('content_domail')));
+        // domail for next version (Xoops 2.6)
+        //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOMAIL, 'content_domail', $this->getVar('content_domail')));
+		$form->addElement(new XoopsFormHidden('content_domail', 0));
         
         // dotitle
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));

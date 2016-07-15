@@ -64,7 +64,11 @@ switch ($op) {
 				} else {
 					$content['maindisplay'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
 				}
-
+				if ($content_arr[$i]->getVar('content_dotitle') == 0){
+					$content['dotitle'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+				} else {
+					$content['dotitle'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+				}
                 $xoopsTpl->append_by_ref('content', $content);
                 unset($content);
             }
@@ -93,7 +97,6 @@ switch ($op) {
         
         $content_id = XoopsRequest::getInt('content_id', 0);
         $content = $content_Handler->get($content_id);
-        echo $content_id;
         
         if ($content->getVar('content_status') == 0){
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_NA . '</span>';
@@ -105,7 +108,8 @@ switch ($op) {
         } else {
             $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
-        if ($content->getVar('content_dopdf') == 0){
+		// for next version (Xoops 2.6)
+        /*if ($content->getVar('content_dopdf') == 0){
             $dopdf = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $dopdf = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
@@ -124,7 +128,7 @@ switch ($op) {
             $domail = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $domail = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
-        }
+        }*/
         if ($content->getVar('content_dotitle') == 0){
             $dotitle = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
@@ -137,10 +141,10 @@ switch ($op) {
                              _AM_XMCONTENT_CONTENT_KEYWORD => $content->getVar('content_mkeyword'),
                              _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
                              _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
-                             _AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
+                             /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
                              _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
                              _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
-                             _AM_XMCONTENT_CONTENT_DOMAIL => $domail,
+                             _AM_XMCONTENT_CONTENT_DOMAIL => $domail,*/
                              _AM_XMCONTENT_CONTENT_DOTITLE => $dotitle
                              );
         $xoopsTpl->assign('content_arr', $content_arr);

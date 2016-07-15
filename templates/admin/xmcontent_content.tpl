@@ -24,6 +24,7 @@
             <th class="txtcenter width5"><{$smarty.const._AM_XMCONTENT_CONTENT_WEIGHT}></th>
             <th class="txtcenter width5"><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS}></th>
 			<th class="txtcenter width10"><{$smarty.const._AM_XMCONTENT_CONTENT_MAINDISPLAY}></th>
+			<th class="txtcenter width10"><{$smarty.const._AM_XMCONTENT_CONTENT_DOTITLE}></th>
             <th class="txtcenter width10"><{$smarty.const._AM_XMCONTENT_ACTION}></th>
         </tr>
         </thead>
@@ -41,6 +42,7 @@
                     title="<{if $content.status}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_A}><{/if}>"/>
                 </td>
 				<td class="txtcenter"><{$content.maindisplay}></td>
+				<td class="txtcenter"><{$content.dotitle}></td>
                 <td class="xo-actions txtcenter">
                     <a class="tooltip" href="content.php?op=view&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/>
