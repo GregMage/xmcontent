@@ -60,7 +60,12 @@ $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', strip_tags($content->getVar('content_title') . ' - ' . $xoopsModule->name()));
 //description
-$xoTheme->addMeta('meta', 'description', $content->getVar('content_mdescription'));
+if ($content->getVar('content_mdescription') == ''){
+	$xoTheme->addMeta('meta', 'description', $content->getVar('content_title'));
+} else {
+	$xoTheme->addMeta('meta', 'description', $content->getVar('content_mdescription'));
+}
+
 //keywords
 $xoTheme->addMeta('meta', 'keywords', $content->getVar('mkeyword'));
 
