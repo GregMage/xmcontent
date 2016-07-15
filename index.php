@@ -30,6 +30,7 @@ $criteria = new CriteriaCompo();
 $criteria->setSort('content_weight ASC, content_title');
 $criteria->setOrder('ASC');
 $criteria->add(new Criteria('content_status', 1));
+$criteria->add(new Criteria('content_maindisplay', 1));
 $content_arr = $content_Handler->getall($criteria);
 $content_count = $content_Handler->getCount($criteria);
 $xoopsTpl->assign('content_count', $content_count);
