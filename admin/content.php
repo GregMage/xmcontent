@@ -59,6 +59,11 @@ switch ($op) {
                 $content['title'] = $content_arr[$i]->getVar('content_title');
                 $content['weight'] = $content_arr[$i]->getVar('content_weight');
                 $content['status'] = $content_arr[$i]->getVar('content_status');
+				if ($content_arr[$i]->getVar('content_maindisplay') == 0){
+					$content['maindisplay'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+				} else {
+					$content['maindisplay'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+				}
 
                 $xoopsTpl->append_by_ref('content', $content);
                 unset($content);
