@@ -278,6 +278,32 @@ switch ($op) {
             }
         }
         break;
+		
+	// clone
+    case 'clone':
+        $content_id = XoopsRequest::getInt('content_id', 0);
+        if ($content_id > 0) {
+			$content = $content_Handler->get($content_id);
+			$newobj = $content_Handler->create();
+			$newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
+			$newobj->setVar('content_text', $content->getVar('content_text'));
+			$newobj->setVar('content_weight', 0);
+			$newobj->setVar('content_status', $content->getVar('content_status'));
+			$newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));
+			$newobj->setVar('content_mdescription', $content->getVar('content_mdescription'));
+			$newobj->setVar('content_maindisplay', $content->getVar('content_maindisplay'));
+			$newobj->setVar('content_dopdf', $content->getVar('content_dopdf'));
+			$newobj->setVar('content_doprint', $content->getVar('content_doprint'));
+			$newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));
+			$newobj->setVar('content_domail', $content->getVar('content_domail'));
+			$newobj->setVar('content_dotitle', $content->getVar('content_dotitle'));
+            if ($content_Handler->insert($newobj)) {
+				redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
+                exit;
+            }
+            $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
+        }
+        break;
 
     // update status
     case 'content_update_status':
@@ -289,7 +315,7 @@ switch ($op) {
             if ($content_Handler->insert($obj)) {
                 exit;
             }
-            echo $obj->getHtmlErrors();
+			$xoopsTpl->assign('message_error', $obj->getHtmlErrors());
         }
         break;
 }

@@ -19,6 +19,8 @@
 // all
 define('_AM_XMCONTENT_ACTION', 'Action');
 define('_AM_XMCONTENT_ADD', 'Add');
+define('_AM_XMCONTENT_CLONE', 'Clone');
+define('_AM_XMCONTENT_CONTENT_COPY', 'Copy: ');
 define('_AM_XMCONTENT_DEL', 'Delete');
 define('_AM_XMCONTENT_EDIT', 'Edit');
 define('_AM_XMCONTENT_NO', 'No');
