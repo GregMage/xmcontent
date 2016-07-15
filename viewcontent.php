@@ -24,11 +24,26 @@ $content_id = XoopsRequest::getInt('content_id', 0);
 
 if ($content_id == 0){
 	redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
+	exit();
 }
 $content= $content_Handler->get($content_id);
 
 if ($content->getVar('content_status') == 0){
 	redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NACTIVE);
+	exit();
+}
+
+// permission to view
+$gperm_Handler = xoops_gethandler('groupperm');
+if (is_object($xoopsUser)) {
+    $groups = $xoopsUser->getGroups();
+} else {
+    $groups = XOOPS_GROUP_ANONYMOUS;
+}
+$perm_view = $gperm_Handler->checkRight('xmcontent_contentview', $content_id, $groups, $xoopsModule->getVar('mid'), false);
+if (!$perm_view) {
+	redirect_header('index.php', 2, _NOPERM);
+    exit();
 }
 
 

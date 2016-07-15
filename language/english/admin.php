@@ -39,6 +39,7 @@ define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
 define('_AM_XMCONTENT_CONTENT_DOPRINT', 'View the print icon');
 define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'View social icons');
 define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
+define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Keywords');
 define('_AM_XMCONTENTT_CONTENT_LIST', 'List of content');

@@ -258,6 +258,20 @@ switch ($op) {
             $xoopsTpl->assign('form', $form->render());
         }else{
             if ($content_Handler->insert($obj)) {
+				// update permissions
+				$newcontent_id = $obj->get_new_enreg();
+				$perm_id = $content_id > 0 ? $content_id : $newcontent_id;
+                $gperm_handler = xoops_gethandler('groupperm');
+                $criteria = new CriteriaCompo();
+                $criteria->add(new Criteria('gperm_itemid', $perm_id, '='));
+                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'),'='));
+                $criteria->add(new Criteria('gperm_name', 'xmcontent_contentview', '='));
+                $gperm_handler->deleteAll($criteria);
+                if(isset($_POST['groups_view'])) {
+                    foreach($_POST['groups_view'] as $onegroup_id) {
+                        $gperm_handler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
+                    }
+                }			
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
             }else {
                 $xoopsTpl->assign('message_error', $obj->getHtmlErrors());

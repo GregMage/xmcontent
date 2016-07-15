@@ -124,6 +124,23 @@ class xmcontent_content extends XoopsObject
         
         // dotitle
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));
+		
+		// permission
+		$member_handler = xoops_gethandler('member');
+        $group_list = $member_handler->getGroupList();
+        $gperm_handler = xoops_gethandler('groupperm');
+        $full_list = array_keys($group_list);
+        global $xoopsModule;
+        if(!$this->isNew()) {
+            $groups_ids_view = $gperm_handler->getGroupIds('xmcontent_contentview', $this->getVar('content_id'), $xoopsModule->getVar('mid'));
+            $groups_ids_view = array_values($groups_ids_view);
+            $groups_news_can_view_checkbox = new XoopsFormCheckBox(_AM_XMCONTENT_CONTENT_GROUPSVIEW, 'groups_view[]', $groups_ids_view);
+        } else {
+            $groups_news_can_view_checkbox = new XoopsFormCheckBox(_AM_XMCONTENT_CONTENT_GROUPSVIEW, 'groups_view[]', $full_list);
+        }
+        $groups_news_can_view_checkbox->addOptionArray($group_list);
+        $form->addElement($groups_news_can_view_checkbox);
+		
 
         $form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt
