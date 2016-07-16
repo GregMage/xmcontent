@@ -37,6 +37,7 @@ define('_MI_XMCONTENT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');
 define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Set HTML codes to show in index page');
+define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Number of items per page in the Admin view');
 define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Text Editor');
-define('_MI_XMCONTENT_PREF_ITEMPERPAGE', 'Number of items per page in the Admin view');
+define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Number of items per page in the Admin view');

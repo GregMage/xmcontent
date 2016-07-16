@@ -60,6 +60,13 @@
         <{/if}>
     <{/if}>
     <{/foreach}>
+	<{if $nav_menu}>
+	<div class="row">
+		<div class="col-sm-12" style="padding-bottom: 10px; padding-top: 5px; padding-right: 60px; text-align: right;">
+			<{$nav_menu}>
+		</div>
+	</div>
+    <{/if}>
 <{/if}>
 
 <{if $index_footer}>

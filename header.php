@@ -20,6 +20,10 @@
 include '../../mainfile.php';
 require_once dirname(dirname(__FILE__)) . '/system/include/functions.php';
 XoopsLoad::load('XoopsRequest');
+include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+
+// Config
+$nb_limit = $xoopsModuleConfig['index_perpage'];
 
 // Get handler
 $content_Handler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');

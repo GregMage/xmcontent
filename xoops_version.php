@@ -105,6 +105,14 @@ $modversion['config'][] = array(
     'valuetype'   => 'text',
     'default'     => ''
 );
+$modversion['config'][] = array(
+    'name'        => 'index_perpage',
+    'title'       => '_MI_XMCONTENT_PREF_INDEXPERPAGE',
+    'description' => '',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 15
+);
 
 $modversion['config'][] = array(
     'name'        => 'break',
@@ -129,7 +137,7 @@ $modversion['config'][] = array(
 
 $modversion['config'][] = array(
     'name'        => 'admin_perpage',
-    'title'       => '_MI_XMCONTENT_PREF_ITEMPERPAGE',
+    'title'       => '_MI_XMCONTENT_PREF_ADMINPERPAGE',
     'description' => '',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',

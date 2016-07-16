@@ -25,14 +25,19 @@ $keywords = '';
 $xoopsTpl->assign('index_header', $xoopsModuleConfig['index_header']);
 $xoopsTpl->assign('index_footer', $xoopsModuleConfig['index_footer']);
 $xoopsTpl->assign('index_columncontent', $xoopsModuleConfig['index_columncontent']);
+// Get start pager
+$start = XoopsRequest::getInt('start', 0);
 // Criteria
 $criteria = new CriteriaCompo();
 $criteria->setSort('content_weight ASC, content_title');
 $criteria->setOrder('ASC');
+$criteria->setStart($start);
+$criteria->setLimit($nb_limit);
 $criteria->add(new Criteria('content_status', 1));
 $criteria->add(new Criteria('content_maindisplay', 1));
 $content_arr = $content_Handler->getall($criteria);
-$content_count = $content_Handler->getCount($criteria);
+$content_count_total = $content_Handler->getCount($criteria);
+$content_count = count($content_arr);
 $xoopsTpl->assign('content_count', $content_count);
 $count = 1;
 $count_row = 1;
@@ -58,8 +63,11 @@ if ($content_count > 0) {
 		$keywords .= $content['title'] . ',';
 		unset($content);
 	}
-} else {
-	$xoopsTpl->assign('simple_contact', true);
+	// Display Page Navigation
+	if ($content_count_total > $nb_limit) {
+		$nav = new XoopsPageNav($content_count_total, $nb_limit, $start, 'start');
+		$xoopsTpl->assign('nav_menu', $nav->renderNav(4));
+	}
 }
 //SEO
 //description
