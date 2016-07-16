@@ -282,8 +282,11 @@ switch ($op) {
 	// clone
     case 'clone':
         $content_id = XoopsRequest::getInt('content_id', 0);
-        if ($content_id > 0) {
-			$content = $content_Handler->get($content_id);
+		$content = $content_Handler->get($content_id);
+		if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+            if (!$GLOBALS['xoopsSecurity']->check()) {
+                redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
+            }
 			$newobj = $content_Handler->create();
 			$newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
 			$newobj->setVar('content_text', $content->getVar('content_text'));
@@ -297,11 +300,27 @@ switch ($op) {
 			$newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));
 			$newobj->setVar('content_domail', $content->getVar('content_domail'));
 			$newobj->setVar('content_dotitle', $content->getVar('content_dotitle'));
-            if ($content_Handler->insert($newobj)) {
+			if ($content_Handler->insert($newobj)) {
+				// clone permissions
+				$perm_id = $newobj->get_new_enreg();
+				$module_mid = $xoopsModule->getVar('mid');
+				$gperm_handler = xoops_gethandler('groupperm');
+				$groups = array_values($gperm_handler->getGroupIds('xmcontent_contentview', $content_id, $module_mid));
+				if (count($groups) != 0) {
+					foreach ($groups as $group_id) {
+						$gperm_handler->addRight('xmcontent_contentview', $perm_id, $group_id, $module_mid);
+					}
+				}
 				redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
-                exit;
-            }
-            $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
+				exit;
+			}
+			$xoopsTpl->assign('message_error', $newobj->getHtmlErrors());
+			
+        } else {
+            xoops_confirm(array(
+                              'ok' => 1,
+                              'content_id' => $content_id,
+                              'op' => 'clone'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTENT_CONTENT_SURECLONE, $content->getVar('content_title')));
         }
         break;
 

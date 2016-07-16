@@ -50,6 +50,7 @@ define('_AM_XMCONTENT_CONTENT_STATUS', 'Status');
 define('_AM_XMCONTENT_CONTENT_STATUS_A', 'Active');
 define('_AM_XMCONTENT_CONTENT_STATUS_NA', 'Disabled');
 define('_AM_XMCONTENT_CONTENT_SUREDEL', 'Sure to delete this content? %s');
+define('_AM_XMCONTENT_CONTENT_SURECLONE', 'Sure to clone this content? %s');
 define('_AM_XMCONTENT_CONTENT_TEXT', 'Text');
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Title');
 define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Weight');
