@@ -21,7 +21,7 @@ require dirname(__FILE__) . '/header.php';
 // header
 xoops_cp_header();
 
-// request
+// content
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('content_status', 1));
 $content_active = $content_Handler->getCount($criteria);
