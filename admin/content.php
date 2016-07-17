@@ -88,7 +88,7 @@ switch ($op) {
         $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENTT_CONTENT_LIST, 'content.php', 'list');
+        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
@@ -157,7 +157,7 @@ switch ($op) {
         $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENTT_CONTENT_LIST, 'content.php', 'list');
+        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         
         // Create form
@@ -174,11 +174,11 @@ switch ($op) {
         $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
-        $admin_class->addItemButton(_AM_XMCONTENTT_CONTENT_LIST, 'content.php', 'list');
+        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         
         // Create form
-        $obj  = $content_Handler->get($start = XoopsRequest::getInt('content_id', 0));
+        $obj  = $content_Handler->get(XoopsRequest::getInt('content_id', 0));
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -251,7 +251,7 @@ switch ($op) {
 
         if ($message_error != '') {
             // Define button addItemButton
-            $admin_class->addItemButton(_AM_XMCONTENTT_CONTENT_LIST, 'content_.php', 'list');
+            $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
             $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
             $xoopsTpl->assign('message_error', $message_error);
             $form = $obj->getForm();

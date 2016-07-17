@@ -30,8 +30,8 @@ define('_AM_XMCONTENT_VIEW', 'View Details');
 
 // index
 define('_AM_XMCONTENT_INDEX_CONTENT', 'Contents');
-define('_AM_XMCONTENT_INDEX_CONTENT_ACTIVE', 'There are %s active content');
-define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active content');
+define('_AM_XMCONTENT_INDEX_CONTENT_ACTIVE', 'There are %s active contents');
+define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active contents');
 
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
@@ -44,7 +44,7 @@ define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Keywords');
-define('_AM_XMCONTENTT_CONTENT_LIST', 'List of content');
+define('_AM_XMCONTENT_CONTENT_LIST', 'List of content');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');
 define('_AM_XMCONTENT_CONTENT_STATUS', 'Status');
 define('_AM_XMCONTENT_CONTENT_STATUS_A', 'Active');
