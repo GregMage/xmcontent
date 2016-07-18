@@ -28,6 +28,11 @@ if ($content_id == 0){
 }
 $content= $content_Handler->get($content_id);
 
+if (count($content) == 0){
+	redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
+	exit();
+}
+
 if ($content->getVar('content_status') == 0){
 	redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NACTIVE);
 	exit();
