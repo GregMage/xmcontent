@@ -72,6 +72,6 @@ if ($content->getVar('content_mdescription') == ''){
 }
 
 //keywords
-$xoTheme->addMeta('meta', 'keywords', $content->getVar('mkeyword'));
+$xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
 
 include XOOPS_ROOT_PATH.'/footer.php';
