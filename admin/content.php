@@ -220,7 +220,7 @@ switch ($op) {
         $message_error = '';
         $content_id = XoopsRequest::getInt('content_id', 0, 'POST');
         $content['title'] = XoopsRequest::getString('content_title', '', 'POST');
-        $content['text'] = XoopsRequest::getString('content_text', '', 'POST');
+        $content['text'] = XoopsRequest::getText('content_text', '', 'POST');
         $content['weight'] = $_POST['content_weight'];
         $content['status'] = XoopsRequest::getInt('content_status', 0, 'POST');
         $content['mkeyword'] = XoopsRequest::getString('content_mkeyword', '', 'POST');
