@@ -37,7 +37,7 @@ $modversion['help']                = 'page=help';
 $modversion['release_date']         = '2016/07/31';
 $modversion['module_website_url']   = 'http://www.xoops.org/';
 $modversion['module_website_name']  = 'XOOPS';
-$modversion['module_status']        = 'Alpha';
+$modversion['module_status']        = 'Final';
 $modversion['min_php']              = '5.3';
 $modversion['min_xoops']            = '2.5.8';
 $modversion['min_db']               = array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7');
