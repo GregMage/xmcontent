@@ -16,7 +16,7 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require dirname(__FILE__) . '/header.php';
+require __DIR__ . '/header.php';
 
 // header
 xoops_cp_header();
@@ -24,10 +24,10 @@ xoops_cp_header();
 // content
 $criteria = new CriteriaCompo();
 $criteria->add(new Criteria('content_status', 1));
-$content_active = $content_Handler->getCount($criteria);
-$criteria = new CriteriaCompo();
+$content_active = $contentHandler->getCount($criteria);
+$criteria       = new CriteriaCompo();
 $criteria->add(new Criteria('content_status', 0));
-$content_nactive = $content_Handler->getCount($criteria);
+$content_nactive = $contentHandler->getCount($criteria);
 $admin_class->addInfoBox(_AM_XMCONTENT_INDEX_CONTENT);
 $admin_class->addInfoBoxLine(_AM_XMCONTENT_INDEX_CONTENT, _AM_XMCONTENT_INDEX_CONTENT_ACTIVE, $content_active, 'green');
 $admin_class->addInfoBoxLine(_AM_XMCONTENT_INDEX_CONTENT, _AM_XMCONTENT_INDEX_CONTENT_NACTIVE, $content_nactive, 'red');

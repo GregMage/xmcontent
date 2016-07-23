@@ -16,11 +16,10 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require dirname(__FILE__) . '/header.php';
+require __DIR__ . '/header.php';
 
 // Header
 xoops_cp_header();
-
 
 // Get Action type
 $op = XoopsRequest::getCmd('op', 'list');
@@ -28,7 +27,7 @@ $op = XoopsRequest::getCmd('op', 'list');
 switch ($op) {
     // list of content
     case 'list':
-        default:
+    default:
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
         $xoTheme->addScript('browse.php?Frameworks/jquery/jquery.js');
@@ -48,27 +47,27 @@ switch ($op) {
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
         $criteria->setLimit($nb_limit);
-        $content_arr = $content_Handler->getall($criteria);
-        $content_count = $content_Handler->getCount($criteria);
+        $content_arr   = $contentHandler->getall($criteria);
+        $content_count = $contentHandler->getCount($criteria);
         $xoopsTpl->assign('content_count', $content_count);
 
         if ($content_count > 0) {
             foreach (array_keys($content_arr) as $i) {
-                $content_id = $content_arr[$i]->getVar('content_id');
-                $content['id'] = $content_id;
-                $content['title'] = $content_arr[$i]->getVar('content_title');
+                $content_id        = $content_arr[$i]->getVar('content_id');
+                $content['id']     = $content_id;
+                $content['title']  = $content_arr[$i]->getVar('content_title');
                 $content['weight'] = $content_arr[$i]->getVar('content_weight');
                 $content['status'] = $content_arr[$i]->getVar('content_status');
-				if ($content_arr[$i]->getVar('content_maindisplay') == 0){
-					$content['maindisplay'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
-				} else {
-					$content['maindisplay'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
-				}
-				if ($content_arr[$i]->getVar('content_dotitle') == 0){
-					$content['dotitle'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
-				} else {
-					$content['dotitle'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
-				}
+                if ($content_arr[$i]->getVar('content_maindisplay') == 0) {
+                    $content['maindisplay'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+                } else {
+                    $content['maindisplay'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+                }
+                if ($content_arr[$i]->getVar('content_dotitle') == 0) {
+                    $content['dotitle'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+                } else {
+                    $content['dotitle'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+                }
                 $xoopsTpl->append_by_ref('content', $content);
                 unset($content);
             }
@@ -77,11 +76,11 @@ switch ($op) {
                 $nav = new XoopsPageNav($content_count, $nb_limit, $start, 'start');
                 $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
             }
-        } else{
+        } else {
             $xoopsTpl->assign('message_error', _AM_XMCONTENT_ERROR_CONTENT);
         }
         break;
-        
+
     // view content
     case 'view':
         //navigation
@@ -92,23 +91,23 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
-        
+
         $xoopsTpl->assign('view', 'view');
-        
+
         $content_id = XoopsRequest::getInt('content_id', 0);
-        $content = $content_Handler->get($content_id);
-        
-        if ($content->getVar('content_status') == 0){
+        $content    = $contentHandler->get($content_id);
+
+        if ($content->getVar('content_status') == 0) {
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_NA . '</span>';
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_A . '</span>';
         }
-        if ($content->getVar('content_maindisplay') == 0){
+        if ($content->getVar('content_maindisplay') == 0) {
             $maindisplay = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
-		// for next version (Xoops 2.6)
+        // for next version (Xoops 2.6)
         /*if ($content->getVar('content_dopdf') == 0){
             $dopdf = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
@@ -129,24 +128,25 @@ switch ($op) {
         } else {
             $domail = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }*/
-        if ($content->getVar('content_dotitle') == 0){
+        if ($content->getVar('content_dotitle') == 0) {
             $dotitle = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $dotitle = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
-        $content_arr = array(_AM_XMCONTENT_CONTENT_TITLE => $content->getVar('content_title'),
-                             _AM_XMCONTENT_CONTENT_TEXT => $content->getVar('content_text', 'show'),
-                             _AM_XMCONTENT_CONTENT_WEIGHT => $content->getVar('content_weight'),
-                             _AM_XMCONTENT_CONTENT_STATUS => $status,
-                             _AM_XMCONTENT_CONTENT_KEYWORD => $content->getVar('content_mkeyword'),
-                             _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
-                             _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
-                             /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
-                             _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
-                             _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
-                             _AM_XMCONTENT_CONTENT_DOMAIL => $domail,*/
-                             _AM_XMCONTENT_CONTENT_DOTITLE => $dotitle
-                             );
+        $content_arr = array(
+            _AM_XMCONTENT_CONTENT_TITLE       => $content->getVar('content_title'),
+            _AM_XMCONTENT_CONTENT_TEXT        => $content->getVar('content_text', 'show'),
+            _AM_XMCONTENT_CONTENT_WEIGHT      => $content->getVar('content_weight'),
+            _AM_XMCONTENT_CONTENT_STATUS      => $status,
+            _AM_XMCONTENT_CONTENT_KEYWORD     => $content->getVar('content_mkeyword'),
+            _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
+            _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
+            /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
+            _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
+            _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
+            _AM_XMCONTENT_CONTENT_DOMAIL => $domail,*/
+            _AM_XMCONTENT_CONTENT_DOTITLE     => $dotitle
+        );
         $xoopsTpl->assign('content_arr', $content_arr);
         $xoopsTpl->assign('content_id', $content_id);
         break;
@@ -159,9 +159,9 @@ switch ($op) {
         // Define button addItemButton
         $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-        
+
         // Create form
-        $obj  = $content_Handler->create();
+        $obj  = $contentHandler->create();
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -176,9 +176,9 @@ switch ($op) {
         $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
         $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-        
+
         // Create form
-        $obj  = $content_Handler->get(XoopsRequest::getInt('content_id', 0));
+        $obj  = $contentHandler->get(XoopsRequest::getInt('content_id', 0));
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -188,22 +188,23 @@ switch ($op) {
     case 'del':
         // Create form
         $content_id = XoopsRequest::getInt('content_id', 0);
-        $obj  = $content_Handler->get($content_id);
+        $obj        = $contentHandler->get($content_id);
 
         if (isset($_POST['ok']) && $_POST['ok'] == 1) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
-            if ($content_Handler->delete($obj)) {
+            if ($contentHandler->delete($obj)) {
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
             } else {
                 xoops_error($obj->getHtmlErrors());
             }
         } else {
             xoops_confirm(array(
-                              'ok' => 1,
+                              'ok'         => 1,
                               'content_id' => $content_id,
-                              'op' => 'del'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTENT_CONTENT_SUREDEL, $obj->getVar('content_title')));
+                              'op'         => 'del'
+                          ), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTENT_CONTENT_SUREDEL, $obj->getVar('content_title')));
         }
         break;
     // save content
@@ -212,27 +213,27 @@ switch ($op) {
             redirect_header('content.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         if (isset($_POST['content_id'])) {
-            $obj = $content_Handler->get(XoopsRequest::getInt('content_id', 0));
+            $obj = $contentHandler->get(XoopsRequest::getInt('content_id', 0));
         } else {
-            $obj = $content_Handler->create();
+            $obj = $contentHandler->create();
         }
-        
-        $message_error = '';
-        $content_id = XoopsRequest::getInt('content_id', 0, 'POST');
-        $content['title'] = XoopsRequest::getString('content_title', '', 'POST');
-        $content['text'] = XoopsRequest::getText('content_text', '', 'POST');
-        $content['weight'] = $_POST['content_weight'];
-        $content['status'] = XoopsRequest::getInt('content_status', 0, 'POST');
-        $content['mkeyword'] = XoopsRequest::getString('content_mkeyword', '', 'POST');
+
+        $message_error           = '';
+        $content_id              = XoopsRequest::getInt('content_id', 0, 'POST');
+        $content['title']        = XoopsRequest::getString('content_title', '', 'POST');
+        $content['text']         = XoopsRequest::getText('content_text', '', 'POST');
+        $content['weight']       = $_POST['content_weight'];
+        $content['status']       = XoopsRequest::getInt('content_status', 0, 'POST');
+        $content['mkeyword']     = XoopsRequest::getString('content_mkeyword', '', 'POST');
         $content['mdescription'] = XoopsRequest::getString('content_mdescription', '', 'POST');
-        $content['maindisplay'] = XoopsRequest::getInt('content_maindisplay', 0, 'POST');
-        $content['dopdf'] = XoopsRequest::getInt('content_dopdf', 0, 'POST');
-        $content['doprint'] = XoopsRequest::getInt('content_doprint', 0, 'POST');
-        $content['dosocial'] = XoopsRequest::getInt('content_dosocial', 0, 'POST');
-        $content['domail'] = XoopsRequest::getInt('content_domail', 0, 'POST');
-        $content['dotitle'] = XoopsRequest::getInt('content_dotitle', 0, 'POST');
+        $content['maindisplay']  = XoopsRequest::getInt('content_maindisplay', 0, 'POST');
+        $content['dopdf']        = XoopsRequest::getInt('content_dopdf', 0, 'POST');
+        $content['doprint']      = XoopsRequest::getInt('content_doprint', 0, 'POST');
+        $content['dosocial']     = XoopsRequest::getInt('content_dosocial', 0, 'POST');
+        $content['domail']       = XoopsRequest::getInt('content_domail', 0, 'POST');
+        $content['dotitle']      = XoopsRequest::getInt('content_dotitle', 0, 'POST');
         // error
-        if (intval($content['weight'])==0 && $content['weight'] != '0') {
+        if ((int)$content['weight'] == 0 && $content['weight'] != '0') {
             $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
             $content['weight'] = 0;
         }
@@ -256,71 +257,71 @@ switch ($op) {
             $xoopsTpl->assign('message_error', $message_error);
             $form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
-        }else{
-            if ($content_Handler->insert($obj)) {
-				// update permissions
-				$newcontent_id = $obj->get_new_enreg();
-				$perm_id = $content_id > 0 ? $content_id : $newcontent_id;
-                $gperm_handler = xoops_gethandler('groupperm');
-                $criteria = new CriteriaCompo();
+        } else {
+            if ($contentHandler->insert($obj)) {
+                // update permissions
+                $newcontent_id = $obj->get_new_enreg();
+                $perm_id       = $content_id > 0 ? $content_id : $newcontent_id;
+                $gpermHandler = xoops_getHandler('groupperm');
+                $criteria      = new CriteriaCompo();
                 $criteria->add(new Criteria('gperm_itemid', $perm_id, '='));
-                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'),'='));
+                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'), '='));
                 $criteria->add(new Criteria('gperm_name', 'xmcontent_contentview', '='));
-                $gperm_handler->deleteAll($criteria);
-                if(isset($_POST['groups_view'])) {
-                    foreach($_POST['groups_view'] as $onegroup_id) {
-                        $gperm_handler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
+                $gpermHandler->deleteAll($criteria);
+                if (isset($_POST['groups_view'])) {
+                    foreach ($_POST['groups_view'] as $onegroup_id) {
+                        $gpermHandler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
                     }
-                }			
+                }
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
-            }else {
+            } else {
                 $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
             }
         }
         break;
-		
-	// clone
+
+    // clone
     case 'clone':
         $content_id = XoopsRequest::getInt('content_id', 0);
-		$content = $content_Handler->get($content_id);
-		if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+        $content    = $contentHandler->get($content_id);
+        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
-			$newobj = $content_Handler->create();
-			$newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
-			$newobj->setVar('content_text', $content->getVar('content_text'));
-			$newobj->setVar('content_weight', 0);
-			$newobj->setVar('content_status', $content->getVar('content_status'));
-			$newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));
-			$newobj->setVar('content_mdescription', $content->getVar('content_mdescription'));
-			$newobj->setVar('content_maindisplay', $content->getVar('content_maindisplay'));
-			$newobj->setVar('content_dopdf', $content->getVar('content_dopdf'));
-			$newobj->setVar('content_doprint', $content->getVar('content_doprint'));
-			$newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));
-			$newobj->setVar('content_domail', $content->getVar('content_domail'));
-			$newobj->setVar('content_dotitle', $content->getVar('content_dotitle'));
-			if ($content_Handler->insert($newobj)) {
-				// clone permissions
-				$perm_id = $newobj->get_new_enreg();
-				$module_mid = $xoopsModule->getVar('mid');
-				$gperm_handler = xoops_gethandler('groupperm');
-				$groups = array_values($gperm_handler->getGroupIds('xmcontent_contentview', $content_id, $module_mid));
-				if (count($groups) != 0) {
-					foreach ($groups as $group_id) {
-						$gperm_handler->addRight('xmcontent_contentview', $perm_id, $group_id, $module_mid);
-					}
-				}
-				redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
-				exit;
-			}
-			$xoopsTpl->assign('message_error', $newobj->getHtmlErrors());
-			
+            $newobj = $contentHandler->create();
+            $newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
+            $newobj->setVar('content_text', $content->getVar('content_text'));
+            $newobj->setVar('content_weight', 0);
+            $newobj->setVar('content_status', $content->getVar('content_status'));
+            $newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));
+            $newobj->setVar('content_mdescription', $content->getVar('content_mdescription'));
+            $newobj->setVar('content_maindisplay', $content->getVar('content_maindisplay'));
+            $newobj->setVar('content_dopdf', $content->getVar('content_dopdf'));
+            $newobj->setVar('content_doprint', $content->getVar('content_doprint'));
+            $newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));
+            $newobj->setVar('content_domail', $content->getVar('content_domail'));
+            $newobj->setVar('content_dotitle', $content->getVar('content_dotitle'));
+            if ($contentHandler->insert($newobj)) {
+                // clone permissions
+                $perm_id       = $newobj->get_new_enreg();
+                $module_mid    = $xoopsModule->getVar('mid');
+                $gpermHandler = xoops_getHandler('groupperm');
+                $groups        = array_values($gpermHandler->getGroupIds('xmcontent_contentview', $content_id, $module_mid));
+                if (count($groups) != 0) {
+                    foreach ($groups as $group_id) {
+                        $gpermHandler->addRight('xmcontent_contentview', $perm_id, $group_id, $module_mid);
+                    }
+                }
+                redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
+                exit;
+            }
+            $xoopsTpl->assign('message_error', $newobj->getHtmlErrors());
         } else {
             xoops_confirm(array(
-                              'ok' => 1,
+                              'ok'         => 1,
                               'content_id' => $content_id,
-                              'op' => 'clone'), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTENT_CONTENT_SURECLONE, $content->getVar('content_title')));
+                              'op'         => 'clone'
+                          ), $_SERVER['REQUEST_URI'], sprintf(_AM_XMCONTENT_CONTENT_SURECLONE, $content->getVar('content_title')));
         }
         break;
 
@@ -328,13 +329,13 @@ switch ($op) {
     case 'content_update_status':
         $content_id = XoopsRequest::getInt('content_id', 0);
         if ($content_id > 0) {
-            $obj = $content_Handler->get($content_id);
+            $obj = $contentHandler->get($content_id);
             $old = $obj->getVar('content_status');
             $obj->setVar('content_status', !$old);
-            if ($content_Handler->insert($obj)) {
+            if ($contentHandler->insert($obj)) {
                 exit;
             }
-			$xoopsTpl->assign('message_error', $obj->getHtmlErrors());
+            $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
         }
         break;
 }

@@ -16,9 +16,9 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-include 'header.php';
+include __DIR__ . '/header.php';
 $xoopsOption['template_main'] = 'xmcontent_index.tpl';
-include_once XOOPS_ROOT_PATH.'/header.php';
+include_once XOOPS_ROOT_PATH . '/header.php';
 
 $keywords = '';
 
@@ -35,45 +35,45 @@ $criteria->setStart($start);
 $criteria->setLimit($nb_limit);
 $criteria->add(new Criteria('content_status', 1));
 $criteria->add(new Criteria('content_maindisplay', 1));
-$content_arr = $content_Handler->getall($criteria);
-$content_count_total = $content_Handler->getCount($criteria);
-$content_count = count($content_arr);
+$content_arr         = $contentHandler->getall($criteria);
+$content_count_total = $contentHandler->getCount($criteria);
+$content_count       = count($content_arr);
 $xoopsTpl->assign('content_count', $content_count);
-$count = 1;
+$count     = 1;
 $count_row = 1;
 if ($content_count > 0) {
-	foreach (array_keys($content_arr) as $i) {
-		$content_id                 = $content_arr[$i]->getVar('content_id');
-		$content['id']              = $content_id;
-		$content['title']           = $content_arr[$i]->getVar('content_title');
-		$content['count']           = $count;
-		if ($count_row == $count){
-			$content['row'] = true;
-			$count_row = $count_row + $xoopsModuleConfig['index_columncontent'];
-		} else { 
-			$content['row'] = false;
-		}
-		if ($count == $content_count){
-			$content['end'] = true;
-		} else { 
-			$content['end'] = false;
-		}
-		$xoopsTpl->append_by_ref('content', $content);
-		$count++;
-		$keywords .= $content['title'] . ',';
-		unset($content);
-	}
-	// Display Page Navigation
-	if ($content_count_total > $nb_limit) {
-		$nav = new XoopsPageNav($content_count_total, $nb_limit, $start, 'start');
-		$xoopsTpl->assign('nav_menu', $nav->renderNav(4));
-	}
+    foreach (array_keys($content_arr) as $i) {
+        $content_id       = $content_arr[$i]->getVar('content_id');
+        $content['id']    = $content_id;
+        $content['title'] = $content_arr[$i]->getVar('content_title');
+        $content['count'] = $count;
+        if ($count_row == $count) {
+            $content['row'] = true;
+            $count_row      = $count_row + $xoopsModuleConfig['index_columncontent'];
+        } else {
+            $content['row'] = false;
+        }
+        if ($count == $content_count) {
+            $content['end'] = true;
+        } else {
+            $content['end'] = false;
+        }
+        $xoopsTpl->append_by_ref('content', $content);
+        $count++;
+        $keywords .= $content['title'] . ',';
+        unset($content);
+    }
+    // Display Page Navigation
+    if ($content_count_total > $nb_limit) {
+        $nav = new XoopsPageNav($content_count_total, $nb_limit, $start, 'start');
+        $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
+    }
 }
 //SEO
 //description
 $xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name()));
 //keywords
-$keywords = substr($keywords,0,-1);
+$keywords = substr($keywords, 0, -1);
 $xoTheme->addMeta('meta', 'keywords', $keywords);
 
-include XOOPS_ROOT_PATH.'/footer.php';
+include XOOPS_ROOT_PATH . '/footer.php';
