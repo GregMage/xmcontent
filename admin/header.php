@@ -17,16 +17,16 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
-require_once dirname(dirname(dirname(dirname(__FILE__)))) . '/include/cp_header.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
 include_once $GLOBALS['xoops']->path('Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
-require_once dirname(dirname(dirname(__FILE__))) . '/system/include/functions.php';
-include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+require_once dirname(dirname(__DIR__)) . '/system/include/functions.php';
+include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 
 global $xoopsModule;
 XoopsLoad::load('XoopsRequest');
 
 // Config
-$nb_limit = $xoopsModuleConfig['admin_perpage'];
+$nb_limit   = $xoopsModuleConfig['admin_perpage'];
 $pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
 $pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
 // Include language file
@@ -36,4 +36,4 @@ xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
 $admin_class = new ModuleAdmin();
 
 // Get handler
-$content_Handler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
+$contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
