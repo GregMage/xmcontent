@@ -1,4 +1,14 @@
 ﻿-------------------------------------------------
+Version: 0.2 Alpha
+Date:    22.07.2016
+-------------------------------------------------
+
+- Possibilité d'ajouter un fichier css par article
+- Possibilité d'ajouter un template par article
+- Ajout de la recherche xoops
+
+
+-------------------------------------------------
 Version: 0.10 Final
 Date:    22.07.2016
 -------------------------------------------------
