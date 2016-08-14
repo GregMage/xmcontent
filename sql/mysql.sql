@@ -7,6 +7,8 @@ CREATE TABLE `xmcontent_content` (
   `content_mdescription` text NOT NULL,
   `content_maindisplay` tinyint(1) NOT NULL DEFAULT '0',
   `content_weight` int(5) NOT NULL DEFAULT '0',
+  `content_css` varchar(255) NOT NULL DEFAULT '',
+  `content_template` varchar(255) NOT NULL DEFAULT '',
   `content_dopdf` tinyint(1) NOT NULL DEFAULT '0',
   `content_doprint` tinyint(1) NOT NULL DEFAULT '0',
   `content_dosocial` tinyint(1) NOT NULL DEFAULT '0',

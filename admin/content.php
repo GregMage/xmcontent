@@ -237,6 +237,47 @@ switch ($op) {
             $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
             $content['weight'] = 0;
         }
+		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
+		//css
+		if ($xoopsModuleConfig['options_css'] == true){
+			if ($_FILES['content_css']['error'] != UPLOAD_ERR_NO_FILE) {
+				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
+				if ($uploader_css->fetchMedia('content_css')) {
+					if (!$uploader_css->upload()) {
+						$message_error .= 'Css -' .$uploader_css->getErrors() . '<br />';
+					} else {
+						$obj->setVar('content_css', $uploader_css->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Css -' . $uploader_css->getErrors();
+				}
+			} else {
+				$obj->setVar('content_css', $_POST['content_css']);
+			}
+		}else{
+			$obj->setVar('content_css', '');
+		}
+		//template
+		if ($xoopsModuleConfig['options_template'] == true){
+			if ($_FILES['content_template']['error'] != UPLOAD_ERR_NO_FILE) {
+				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
+				if ($uploader_template->fetchMedia('content_template')) {
+					if (!$uploader_template->upload()) {
+						$message_error .= 'Template -' . $uploader_template->getErrors() . '<br />';
+					} else {
+						$obj->setVar('content_template', $uploader_template->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Template -' . $uploader_template->getErrors();
+				}
+			} else {
+				$obj->setVar('content_template', $_POST['content_template']);
+			}
+		}else{
+			$obj->setVar('content_template', '');
+		}
+		
+		
         $obj->setVar('content_title', $content['title']);
         $obj->setVar('content_text', $content['text']);
         $obj->setVar('content_weight', $content['weight']);

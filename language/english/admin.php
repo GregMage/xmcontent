@@ -35,6 +35,7 @@ define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active contents'
 
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
+define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
 define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Description');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
@@ -46,13 +47,17 @@ define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Keywords');
 define('_AM_XMCONTENT_CONTENT_LIST', 'List of content');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');
+define('_AM_XMCONTENT_CONTENT_PATH', 'Files are in: %s');
 define('_AM_XMCONTENT_CONTENT_STATUS', 'Status');
 define('_AM_XMCONTENT_CONTENT_STATUS_A', 'Active');
 define('_AM_XMCONTENT_CONTENT_STATUS_NA', 'Disabled');
 define('_AM_XMCONTENT_CONTENT_SUREDEL', 'Sure to delete this content? %s');
 define('_AM_XMCONTENT_CONTENT_SURECLONE', 'Sure to clone this content? %s');
+define('_AM_XMCONTENT_CONTENT_TEMPLATE', 'Template file');
 define('_AM_XMCONTENT_CONTENT_TEXT', 'Text');
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Title');
+define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Upload');
+define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Maximum size: %s kB');
 define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Weight');
 
 // error
