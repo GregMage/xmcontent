@@ -61,7 +61,7 @@ if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_
 }
 
 $xoopsTpl->assign('content_title', $content->getVar('content_title'));
-$xoopsTpl->assign('content_text', $content->getVar('content_text', 'show'));
+$xoopsTpl->assign('content_text' , str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
 $xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 $xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));
 $xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));

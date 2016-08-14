@@ -11,7 +11,8 @@
             <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
                 <div class="col-sm-12">
                     <h4><{$content.title}></h4>
-                    <p style="padding-top: 15px;">
+                    <p style="padding-top: 5px;">
+						<{$content.text}>
                         <a href="viewcontent.php?content_id=<{$content.id}>">
                             <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
                         </a>
@@ -25,7 +26,8 @@
             <{/if}>
             <div class="col-sm-6">
                 <h4><{$content.title}></h4>
-                <p style="padding-top: 15px;">
+                <p style="padding-top: 5px;">
+					<{$content.text}>
                     <a href="viewcontent.php?content_id=<{$content.id}>">
                         <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
                     </a>
@@ -41,7 +43,8 @@
             <{/if}>
             <div class="col-sm-4">
                 <h4><{$content.title}></h4>
-                <p style="padding-top: 15px;">
+                <p style="padding-top: 5px;">
+					<{$content.text}>
                     <a href="viewcontent.php?content_id=<{$content.id}>">
                         <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
                     </a>
@@ -57,7 +60,8 @@
             <{/if}>
             <div class="col-sm-3">
                 <h4><{$content.title}></h4>
-                <p style="padding-top: 15px;">
+                <p style="padding-top: 5px;">
+					<{$content.text}>
                     <a href="viewcontent.php?content_id=<{$content.id}>">
                         <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
                     </a>

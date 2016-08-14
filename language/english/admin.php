@@ -54,7 +54,7 @@ define('_AM_XMCONTENT_CONTENT_STATUS_NA', 'Disabled');
 define('_AM_XMCONTENT_CONTENT_SUREDEL', 'Sure to delete this content? %s');
 define('_AM_XMCONTENT_CONTENT_SURECLONE', 'Sure to clone this content? %s');
 define('_AM_XMCONTENT_CONTENT_TEMPLATE', 'Template file');
-define('_AM_XMCONTENT_CONTENT_TEXT', 'Text');
+define('_AM_XMCONTENT_CONTENT_TEXT', "Text<br /><br />Use the delimiter <span style='color:blue'>[break_dsc]</span> to define the size of the short description. <br> The short description is used in the homepage of the module");
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Title');
 define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Upload');
 define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Maximum size: %s kB');
