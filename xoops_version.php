@@ -159,7 +159,7 @@ xoops_load('xoopseditorhandler');
 $editorHandler         = XoopsEditorHandler::getInstance();
 $modversion['config'][] = array(
     'name'        => 'admin_editor',
-    'title'       => '_MI_XMCONTACT_PREF_EDITOR',
+    'title'       => '_MI_XMCONTENT_PREF_EDITOR',
     'description' => '',
     'formtype'    => 'select',
     'valuetype'   => 'text',
