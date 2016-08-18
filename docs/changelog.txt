@@ -1,6 +1,6 @@
 ﻿-------------------------------------------------
-Version: 0.2 Final
-Date:    15.08.2016
+Version: 0.21 Final
+Date:    18.08.2016
 -------------------------------------------------
 
 - Ajout d'une description courte au contenu sur la page d'accueil avec [break_dsc] dans le texte.
