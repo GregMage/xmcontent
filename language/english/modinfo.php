@@ -37,7 +37,7 @@ define('_MI_XMCONTENT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');
 define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Set HTML codes to show in index page');
-define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Number of items per page in the Admin view');
+define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Number of items per page in the Index view');
 define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-weight: bold;'>Options</span>");
 define('_MI_XMCONTENT_PREF_CSS', 'Use a css file personalized by content');
 define('_MI_XMCONTENT_PREF_CSS_DESC', 'If this option is enabled, you can add a custom css to a content');
