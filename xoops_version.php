@@ -18,7 +18,7 @@
  */
 
 $modversion['name']           = _MI_XMCONTENT_NAME;
-$modversion['version']        = '0.21';
+$modversion['version']        = '0.22';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
 $modversion['author']         = 'G. Mage';
@@ -34,10 +34,10 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '2016/08/18';
+$modversion['release_date']        = '2017/04/02';
 $modversion['module_website_url']  = 'http://www.xoops.org/';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['module_status']       = 'Final';
+$modversion['module_status']       = 'Beta 1';
 $modversion['min_php']             = '5.3';
 $modversion['min_xoops']           = '2.5.8';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');
