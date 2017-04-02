@@ -70,15 +70,19 @@ $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
 
 //SEO
 // pagetitle
-$xoopsTpl->assign('xoops_pagetitle', strip_tags($content->getVar('content_title') . ' - ' . $xoopsModule->name()));
+$xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));
 //description
-if ($content->getVar('content_mdescription') == '') {
-    $xoTheme->addMeta('meta', 'description', $content->getVar('content_title'));
+if ($content->getVar('content_mdescription') == '') {    
+    $xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($content->getVar('content_text'), 30));
 } else {
     $xoTheme->addMeta('meta', 'description', $content->getVar('content_mdescription'));
 }
-
 //keywords
-$xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
+if ($content->getVar('content_mkeyword') == '') {
+    $keywords = \Xmf\Metagen::generateKeywords($content->getVar('content_text'), 10);    
+    $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
+} else {
+    $xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
+}
 
 include XOOPS_ROOT_PATH . '/footer.php';
