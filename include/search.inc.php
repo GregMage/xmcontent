@@ -41,7 +41,7 @@ function xmcontent_search($queryarray, $andor, $limit, $offset, $userid)
     $i = 0;
     while($myrow = $xoopsDB->fetchArray($result))
     {
-        $ret[$i]["image"] = "images/xmcontent_search.png";
+        $ret[$i]["image"] = "assets/images/xmcontent_search.png";
         $ret[$i]["link"] = "viewcontent.php?content_id=" . $myrow["content_id"];
         $ret[$i]["title"] = $myrow["content_title"];
         $i++;
