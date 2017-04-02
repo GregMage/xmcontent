@@ -42,6 +42,7 @@ class xmcontent_content extends XoopsObject
         $this->initVar('content_weight', XOBJ_DTYPE_INT, 0, false, 5);
 		$this->initVar('content_css', XOBJ_DTYPE_TXTAREA, null, false);
 		$this->initVar('content_template', XOBJ_DTYPE_TXTAREA, null, false);
+        $this->initVar('content_docomment', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_dopdf', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_doprint', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_dosocial', XOBJ_DTYPE_INT, 1, false, 1);
@@ -120,6 +121,9 @@ class xmcontent_content extends XoopsObject
 
         // maindisplay
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_MAINDISPLAY, 'content_maindisplay', $this->getVar('content_maindisplay')));
+        
+        // docomment
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOCOMMENT, 'content_docomment', $this->getVar('content_docomment')));
 
         // dopdf for next version (Xoops 2.6)
         //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOPDF, 'content_dopdf', $this->getVar('content_dopdf')));

@@ -37,6 +37,7 @@ define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active contents'
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
 define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
 define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Description');
+define('_AM_XMCONTENT_CONTENT_DOCOMMENT', 'View comments');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
 define('_AM_XMCONTENT_CONTENT_DOPRINT', 'View the print icon');

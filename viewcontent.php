@@ -61,6 +61,7 @@ if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_
 
 $xoopsTpl->assign('content_title', $content->getVar('content_title'));
 $xoopsTpl->assign('content_text' , str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+$xoopsTpl->assign('content_docomment', $content->getVar('content_docomment'));
 $xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 $xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));
 $xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
@@ -83,5 +84,5 @@ if ($content->getVar('content_mkeyword') == '') {
 } else {
     $xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
 }
-
+include XOOPS_ROOT_PATH.'/include/comment_view.php';
 include XOOPS_ROOT_PATH . '/footer.php';

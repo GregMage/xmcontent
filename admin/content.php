@@ -107,6 +107,11 @@ switch ($op) {
         } else {
             $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
+        if ($content->getVar('content_docomment') == 0){
+            $docomment = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $docomment = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
         // for next version (Xoops 2.6)
         /*if ($content->getVar('content_dopdf') == 0){
             $dopdf = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
@@ -141,6 +146,7 @@ switch ($op) {
             _AM_XMCONTENT_CONTENT_KEYWORD     => $content->getVar('content_mkeyword'),
             _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
             _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
+            _AM_XMCONTENT_CONTENT_DOCOMMENT => $docomment,
             /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
             _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
             _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
@@ -227,6 +233,7 @@ switch ($op) {
         $content['mkeyword']     = XoopsRequest::getString('content_mkeyword', '', 'POST');
         $content['mdescription'] = XoopsRequest::getString('content_mdescription', '', 'POST');
         $content['maindisplay']  = XoopsRequest::getInt('content_maindisplay', 0, 'POST');
+        $content['docomment']    = XoopsRequest::getInt('content_docomment', 0, 'POST');
         $content['dopdf']        = XoopsRequest::getInt('content_dopdf', 0, 'POST');
         $content['doprint']      = XoopsRequest::getInt('content_doprint', 0, 'POST');
         $content['dosocial']     = XoopsRequest::getInt('content_dosocial', 0, 'POST');
@@ -285,6 +292,7 @@ switch ($op) {
         $obj->setVar('content_mkeyword', $content['mkeyword']);
         $obj->setVar('content_mdescription', $content['mdescription']);
         $obj->setVar('content_maindisplay', $content['maindisplay']);
+        $obj->setVar('content_docomment', $content['docomment']);
         $obj->setVar('content_dopdf', $content['dopdf']);
         $obj->setVar('content_doprint', $content['doprint']);
         $obj->setVar('content_dosocial', $content['dosocial']);
@@ -337,6 +345,7 @@ switch ($op) {
             $newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));
             $newobj->setVar('content_mdescription', $content->getVar('content_mdescription'));
             $newobj->setVar('content_maindisplay', $content->getVar('content_maindisplay'));
+            $newobj->setVar('content_docomment', $content->getVar('content_docomment'));
             $newobj->setVar('content_dopdf', $content->getVar('content_dopdf'));
             $newobj->setVar('content_doprint', $content->getVar('content_doprint'));
             $newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));

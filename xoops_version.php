@@ -18,7 +18,7 @@
  */
 
 $modversion['name']           = _MI_XMCONTENT_NAME;
-$modversion['version']        = '0.22';
+$modversion['version']        = '0.30';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
 $modversion['author']         = 'G. Mage';
@@ -42,10 +42,18 @@ $modversion['min_php']             = '5.3';
 $modversion['min_xoops']           = '2.5.8';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');
 
-// Recherche
+// Search
 $modversion['hasSearch'] = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'xmcontent_search';
+
+// Comments
+$modversion['hasComments'] = 1;
+$modversion['comments']['itemName']            = 'content_id';
+$modversion['comments']['pageName']            = 'viewcontent.php';
+$modversion['comments']['callbackFile']        = 'include/comment_functions.php';
+$modversion['comments']['callback']['approve'] = 'content_com_approve';
+$modversion['comments']['callback']['update']  = 'content_com_update';
 
 //install and update
 $modversion['onInstall']        = 'include/install.php';
