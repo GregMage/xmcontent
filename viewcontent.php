@@ -53,7 +53,6 @@ if (!$perm_view) {
 // css
 if ($xoopsModuleConfig['options_css'] == true && $content->getVar('content_css') != ''){
 	$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
-	echo 'CSS activé';
 }
 // template
 if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_template') != ''){
