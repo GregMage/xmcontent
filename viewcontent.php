@@ -50,9 +50,18 @@ if (!$perm_view) {
     redirect_header('index.php', 2, _NOPERM);
     exit();
 }
+// css
+if ($xoopsModuleConfig['options_css'] == true && $content->getVar('content_css') != ''){
+	$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
+}
+// template
+if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_template') != ''){
+	$xoopsTpl->assign('content_template', XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . $content->getVar('content_template'));
+}
 
 $xoopsTpl->assign('content_title', $content->getVar('content_title'));
-$xoopsTpl->assign('content_text', $content->getVar('content_text', 'show'));
+$xoopsTpl->assign('content_text' , str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+$xoopsTpl->assign('content_docomment', $content->getVar('content_docomment'));
 $xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 $xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));
 $xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
@@ -61,15 +70,19 @@ $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
 
 //SEO
 // pagetitle
-$xoopsTpl->assign('xoops_pagetitle', strip_tags($content->getVar('content_title') . ' - ' . $xoopsModule->name()));
+$xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));
 //description
-if ($content->getVar('content_mdescription') == '') {
-    $xoTheme->addMeta('meta', 'description', $content->getVar('content_title'));
+if ($content->getVar('content_mdescription') == '') {    
+    $xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($content->getVar('content_text'), 30));
 } else {
     $xoTheme->addMeta('meta', 'description', $content->getVar('content_mdescription'));
 }
-
 //keywords
-$xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
-
+if ($content->getVar('content_mkeyword') == '') {
+    $keywords = \Xmf\Metagen::generateKeywords($content->getVar('content_text'), 10);    
+    $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
+} else {
+    $xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
+}
+include XOOPS_ROOT_PATH.'/include/comment_view.php';
 include XOOPS_ROOT_PATH . '/footer.php';

@@ -32,6 +32,14 @@ $admin_class->addInfoBox(_AM_XMCONTENT_INDEX_CONTENT);
 $admin_class->addInfoBoxLine(_AM_XMCONTENT_INDEX_CONTENT, _AM_XMCONTENT_INDEX_CONTENT_ACTIVE, $content_active, 'green');
 $admin_class->addInfoBoxLine(_AM_XMCONTENT_INDEX_CONTENT, _AM_XMCONTENT_INDEX_CONTENT_NACTIVE, $content_nactive, 'red');
 
+// folder
+$folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',
+               XOOPS_ROOT_PATH . '/uploads/xmcontent/templates');
+foreach (array_keys($folder) as $i) {
+    $admin_class->addConfigBoxLine($folder[$i], 'folder');
+    $admin_class->addConfigBoxLine(array($folder[$i], '777'), 'chmod');
+}
+
 $xoopsTpl->assign('navigation', $admin_class->addNavigation('index.php'));
 $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
 

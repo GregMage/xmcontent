@@ -46,6 +46,13 @@ if ($content_count > 0) {
         $content_id       = $content_arr[$i]->getVar('content_id');
         $content['id']    = $content_id;
         $content['title'] = $content_arr[$i]->getVar('content_title');
+		$text             = $content_arr[$i]->getVar('content_text');
+		//short description
+        if (strpos($text,'[break_dsc]')==false){
+            $content['text'] = '';
+        }else{
+            $content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
+        }
         $content['count'] = $count;
         if ($count_row == $count) {
             $content['row'] = true;

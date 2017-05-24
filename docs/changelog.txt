@@ -1,4 +1,15 @@
 ﻿-------------------------------------------------
+Version: 0.21 Final
+Date:    18.08.2016
+-------------------------------------------------
+
+- Ajout d'une description courte au contenu sur la page d'accueil avec [break_dsc] dans le texte.
+- Possibilité d'ajouter un fichier css par article
+- Possibilité d'ajouter un template par article
+- Ajout de la recherche xoops
+
+
+-------------------------------------------------
 Version: 0.10 Final
 Date:    22.07.2016
 -------------------------------------------------

@@ -107,6 +107,11 @@ switch ($op) {
         } else {
             $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
+        if ($content->getVar('content_docomment') == 0){
+            $docomment = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $docomment = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }
         // for next version (Xoops 2.6)
         /*if ($content->getVar('content_dopdf') == 0){
             $dopdf = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
@@ -141,6 +146,7 @@ switch ($op) {
             _AM_XMCONTENT_CONTENT_KEYWORD     => $content->getVar('content_mkeyword'),
             _AM_XMCONTENT_CONTENT_DESCRIPTION => $content->getVar('content_mdescription'),
             _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
+            _AM_XMCONTENT_CONTENT_DOCOMMENT => $docomment,
             /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
             _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
             _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
@@ -227,6 +233,7 @@ switch ($op) {
         $content['mkeyword']     = XoopsRequest::getString('content_mkeyword', '', 'POST');
         $content['mdescription'] = XoopsRequest::getString('content_mdescription', '', 'POST');
         $content['maindisplay']  = XoopsRequest::getInt('content_maindisplay', 0, 'POST');
+        $content['docomment']    = XoopsRequest::getInt('content_docomment', 0, 'POST');
         $content['dopdf']        = XoopsRequest::getInt('content_dopdf', 0, 'POST');
         $content['doprint']      = XoopsRequest::getInt('content_doprint', 0, 'POST');
         $content['dosocial']     = XoopsRequest::getInt('content_dosocial', 0, 'POST');
@@ -237,6 +244,47 @@ switch ($op) {
             $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
             $content['weight'] = 0;
         }
+		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
+		//css
+		if ($xoopsModuleConfig['options_css'] == true){
+			if ($_FILES['content_css']['error'] != UPLOAD_ERR_NO_FILE) {
+				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
+				if ($uploader_css->fetchMedia('content_css')) {
+					if (!$uploader_css->upload()) {
+						$message_error .= 'Css -' .$uploader_css->getErrors() . '<br />';
+					} else {
+						$obj->setVar('content_css', $uploader_css->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Css -' . $uploader_css->getErrors();
+				}
+			} else {
+				$obj->setVar('content_css', $_POST['content_css']);
+			}
+		}else{
+			$obj->setVar('content_css', '');
+		}
+		//template
+		if ($xoopsModuleConfig['options_template'] == true){
+			if ($_FILES['content_template']['error'] != UPLOAD_ERR_NO_FILE) {
+				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
+				if ($uploader_template->fetchMedia('content_template')) {
+					if (!$uploader_template->upload()) {
+						$message_error .= 'Template -' . $uploader_template->getErrors() . '<br />';
+					} else {
+						$obj->setVar('content_template', $uploader_template->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Template -' . $uploader_template->getErrors();
+				}
+			} else {
+				$obj->setVar('content_template', $_POST['content_template']);
+			}
+		}else{
+			$obj->setVar('content_template', '');
+		}
+		
+		
         $obj->setVar('content_title', $content['title']);
         $obj->setVar('content_text', $content['text']);
         $obj->setVar('content_weight', $content['weight']);
@@ -244,6 +292,7 @@ switch ($op) {
         $obj->setVar('content_mkeyword', $content['mkeyword']);
         $obj->setVar('content_mdescription', $content['mdescription']);
         $obj->setVar('content_maindisplay', $content['maindisplay']);
+        $obj->setVar('content_docomment', $content['docomment']);
         $obj->setVar('content_dopdf', $content['dopdf']);
         $obj->setVar('content_doprint', $content['doprint']);
         $obj->setVar('content_dosocial', $content['dosocial']);
@@ -296,6 +345,7 @@ switch ($op) {
             $newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));
             $newobj->setVar('content_mdescription', $content->getVar('content_mdescription'));
             $newobj->setVar('content_maindisplay', $content->getVar('content_maindisplay'));
+            $newobj->setVar('content_docomment', $content->getVar('content_docomment'));
             $newobj->setVar('content_dopdf', $content->getVar('content_dopdf'));
             $newobj->setVar('content_doprint', $content->getVar('content_doprint'));
             $newobj->setVar('content_dosocial', $content->getVar('content_dosocial'));

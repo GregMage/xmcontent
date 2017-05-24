@@ -34,7 +34,7 @@
                 <td class="txtleft"><{$content.title}></td>
                 <td class="txtcenter"><{$content.weight}></td>
                 <td class="xo-actions txtcenter">
-                    <img id="loading_sml<{$content.id}>" src="../images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
+                    <img id="loading_sml<{$content.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
                     alt="<{$smarty.const._AM_SYSTEM_LOADING}>"/><img class="cursorpointer tooltip" id="sml<{$content.id}>"
                     onclick="system_setStatus( { op: 'content_update_status', content_id: <{$content.id}> }, 'sml<{$content.id}>', 'content.php' )"
                     src="<{if $content.status}><{xoAdminIcons success.png}><{else}><{xoAdminIcons cancel.png}><{/if}>"
