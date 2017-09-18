@@ -145,7 +145,7 @@ class xmcontent_content extends XoopsObject
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));
 		
 		// css
-		if ($xoopsModuleConfig['options_css'] == true){
+		if ($xoopsModuleConfig['options_css'] === true){
 			$uploadirectory = '/uploads/xmcontent/css';
 			$value_css      = $this->getVar('content_css') ? $this->getVar('content_css') : '';
 			$content_css    = new XoopsFormElementTray(_AM_XMCONTENT_CONTENT_CSS  . '<br /><br />' . sprintf(_AM_XMCONTENT_CONTENT_UPLOADSIZE, $upload_size/1000), '<br />');
@@ -167,7 +167,7 @@ class xmcontent_content extends XoopsObject
 		}
 		
 		// template
-		if ($xoopsModuleConfig['options_template'] == true){
+		if ($xoopsModuleConfig['options_template'] === true){
 			$uploadirectory = '/uploads/xmcontent/templates';
 			$value_template      = $this->getVar('content_template') ? $this->getVar('content_template') : '';
 			$content_template    = new XoopsFormElementTray(_AM_XMCONTENT_CONTENT_TEMPLATE  . '<br /><br />' . sprintf(_AM_XMCONTENT_CONTENT_UPLOADSIZE, $upload_size/1000), '<br />');

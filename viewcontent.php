@@ -51,11 +51,11 @@ if (!$perm_view) {
     exit();
 }
 // css
-if ($xoopsModuleConfig['options_css'] == true && $content->getVar('content_css') != ''){
+if ($xoopsModuleConfig['options_css'] === true && $content->getVar('content_css') != ''){
 	$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
 }
 // template
-if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_template') != ''){
+if ($xoopsModuleConfig['options_template'] === true && $content->getVar('content_template') != ''){
 	$xoopsTpl->assign('content_template', XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . $content->getVar('content_template'));
 }
 
