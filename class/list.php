@@ -61,7 +61,7 @@ class xmcontent_list extends XoopsLists
 		if ($handle = opendir($dirname)) {
 			while (false !== ($file = readdir($handle))) {
 				if (preg_match('/(\.htm|\.html|\.xhtml|\.tpl)$/i', $file) && !is_dir($file)) {
-					if ($file != "index.html"){
+					if ("index.html" != $file){
 						$file            = $prefix . $file;
 						$filelist[$file] = $prefix . $file;
 					}

@@ -48,7 +48,7 @@ if ($content_count > 0) {
         $content['title'] = $content_arr[$i]->getVar('content_title');
 		$text             = $content_arr[$i]->getVar('content_text');
 		//short description
-        if (strpos($text,'[break_dsc]')==false){
+        if (false == strpos($text, '[break_dsc]')){
             $content['text'] = '';
         }else{
             $content['text'] = substr($text,0,strpos($text,'[break_dsc]'));

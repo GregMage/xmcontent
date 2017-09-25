@@ -37,7 +37,7 @@ if ($com_itemid > 0) {
     // Get handler
     $contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
     $content = $contentHandler->get($com_itemid);
-    if ($content->getVar('content_docomment') == 0) {
+    if (0 == $content->getVar('content_docomment')) {
         redirect_header(XOOPS_URL, 2, _NOPERM);
         exit();
     }        
