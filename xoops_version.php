@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -35,7 +35,7 @@ $modversion['help']           = 'page=help';
 
 //about
 $modversion['release_date']        = '2017/04/02';
-$modversion['module_website_url']  = 'http://www.xoops.org/';
+$modversion['module_website_url']  = 'https://xoops.org/';
 $modversion['module_website_name'] = 'XOOPS';
 $modversion['module_status']       = 'Beta 1';
 $modversion['min_php']             = '5.3';

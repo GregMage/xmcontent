@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -48,7 +48,7 @@ if ($content_count > 0) {
         $content['title'] = $content_arr[$i]->getVar('content_title');
 		$text             = $content_arr[$i]->getVar('content_text');
 		//short description
-        if (strpos($text,'[break_dsc]')==false){
+        if (false == strpos($text, '[break_dsc]')){
             $content['text'] = '';
         }else{
             $content['text'] = substr($text,0,strpos($text,'[break_dsc]'));

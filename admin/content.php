@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -58,12 +58,12 @@ switch ($op) {
                 $content['title']  = $content_arr[$i]->getVar('content_title');
                 $content['weight'] = $content_arr[$i]->getVar('content_weight');
                 $content['status'] = $content_arr[$i]->getVar('content_status');
-                if ($content_arr[$i]->getVar('content_maindisplay') == 0) {
+                if (0 == $content_arr[$i]->getVar('content_maindisplay')) {
                     $content['maindisplay'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
                 } else {
                     $content['maindisplay'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
                 }
-                if ($content_arr[$i]->getVar('content_dotitle') == 0) {
+                if (0 == $content_arr[$i]->getVar('content_dotitle')) {
                     $content['dotitle'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
                 } else {
                     $content['dotitle'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
@@ -97,17 +97,17 @@ switch ($op) {
         $content_id = XoopsRequest::getInt('content_id', 0);
         $content    = $contentHandler->get($content_id);
 
-        if ($content->getVar('content_status') == 0) {
+        if (0 == $content->getVar('content_status')) {
             $status = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_NA . '</span>';
         } else {
             $status = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_CONTENT_STATUS_A . '</span>';
         }
-        if ($content->getVar('content_maindisplay') == 0) {
+        if (0 == $content->getVar('content_maindisplay')) {
             $maindisplay = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $maindisplay = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
-        if ($content->getVar('content_docomment') == 0){
+        if (0 == $content->getVar('content_docomment')){
             $docomment = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $docomment = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
@@ -133,7 +133,7 @@ switch ($op) {
         } else {
             $domail = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }*/
-        if ($content->getVar('content_dotitle') == 0) {
+        if (0 == $content->getVar('content_dotitle')) {
             $dotitle = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $dotitle = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
@@ -196,7 +196,7 @@ switch ($op) {
         $content_id = XoopsRequest::getInt('content_id', 0);
         $obj        = $contentHandler->get($content_id);
 
-        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+        if (isset($_POST['ok']) && 1 == $_POST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
@@ -240,14 +240,14 @@ switch ($op) {
         $content['domail']       = XoopsRequest::getInt('content_domail', 0, 'POST');
         $content['dotitle']      = XoopsRequest::getInt('content_dotitle', 0, 'POST');
         // error
-        if ((int)$content['weight'] == 0 && $content['weight'] != '0') {
+        if (0 == (int)$content['weight'] && '0' != $content['weight']) {
             $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
             $content['weight'] = 0;
         }
 		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
 		//css
-		if ($xoopsModuleConfig['options_css'] == true){
-			if ($_FILES['content_css']['error'] != UPLOAD_ERR_NO_FILE) {
+		if (true === $xoopsModuleConfig['options_css']){
+			if (UPLOAD_ERR_NO_FILE != $_FILES['content_css']['error']) {
 				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
 				if ($uploader_css->fetchMedia('content_css')) {
 					if (!$uploader_css->upload()) {
@@ -265,8 +265,8 @@ switch ($op) {
 			$obj->setVar('content_css', '');
 		}
 		//template
-		if ($xoopsModuleConfig['options_template'] == true){
-			if ($_FILES['content_template']['error'] != UPLOAD_ERR_NO_FILE) {
+		if (true === $xoopsModuleConfig['options_template']){
+			if (UPLOAD_ERR_NO_FILE != $_FILES['content_template']['error']) {
 				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
 				if ($uploader_template->fetchMedia('content_template')) {
 					if (!$uploader_template->upload()) {
@@ -299,7 +299,7 @@ switch ($op) {
         $obj->setVar('content_domail', $content['domail']);
         $obj->setVar('content_dotitle', $content['dotitle']);
 
-        if ($message_error != '') {
+        if ('' != $message_error) {
             // Define button addItemButton
             $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
             $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
@@ -333,7 +333,7 @@ switch ($op) {
     case 'clone':
         $content_id = XoopsRequest::getInt('content_id', 0);
         $content    = $contentHandler->get($content_id);
-        if (isset($_POST['ok']) && $_POST['ok'] == 1) {
+        if (isset($_POST['ok']) && 1 == $_POST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
@@ -357,7 +357,7 @@ switch ($op) {
                 $module_mid    = $xoopsModule->getVar('mid');
                 $gpermHandler = xoops_getHandler('groupperm');
                 $groups        = array_values($gpermHandler->getGroupIds('xmcontent_contentview', $content_id, $module_mid));
-                if (count($groups) != 0) {
+                if (0 != count($groups)) {
                     foreach ($groups as $group_id) {
                         $gpermHandler->addRight('xmcontent_contentview', $perm_id, $group_id, $module_mid);
                     }

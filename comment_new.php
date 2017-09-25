@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -37,7 +37,7 @@ if ($com_itemid > 0) {
     // Get handler
     $contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
     $content = $contentHandler->get($com_itemid);
-    if ($content->getVar('content_docomment') == 0) {
+    if (0 == $content->getVar('content_docomment')) {
         redirect_header(XOOPS_URL, 2, _NOPERM);
         exit();
     }        

@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -22,18 +22,18 @@ include_once XOOPS_ROOT_PATH . '/header.php';
 
 $content_id = XoopsRequest::getInt('content_id', 0);
 
-if ($content_id == 0) {
+if (0 == $content_id) {
     redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
     exit();
 }
 $content = $contentHandler->get($content_id);
 
-if (count($content) == 0) {
+if (0 == count($content)) {
     redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
     exit();
 }
 
-if ($content->getVar('content_status') == 0) {
+if (0 == $content->getVar('content_status')) {
     redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NACTIVE);
     exit();
 }
@@ -51,11 +51,11 @@ if (!$perm_view) {
     exit();
 }
 // css
-if ($xoopsModuleConfig['options_css'] == true && $content->getVar('content_css') != ''){
+if (true === $xoopsModuleConfig['options_css'] && '' != $content->getVar('content_css')){
 	$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
 }
 // template
-if ($xoopsModuleConfig['options_template'] == true && $content->getVar('content_template') != ''){
+if (true === $xoopsModuleConfig['options_template'] && '' != $content->getVar('content_template')){
 	$xoopsTpl->assign('content_template', XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . $content->getVar('content_template'));
 }
 
@@ -72,13 +72,13 @@ $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));
 //description
-if ($content->getVar('content_mdescription') == '') {    
+if ('' == $content->getVar('content_mdescription')) {
     $xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($content->getVar('content_text'), 30));
 } else {
     $xoTheme->addMeta('meta', 'description', $content->getVar('content_mdescription'));
 }
 //keywords
-if ($content->getVar('content_mkeyword') == '') {
+if ('' == $content->getVar('content_mkeyword')) {
     $keywords = \Xmf\Metagen::generateKeywords($content->getVar('content_text'), 10);    
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {

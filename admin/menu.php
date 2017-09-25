@@ -12,7 +12,7 @@
 /**
  * xmcontent module
  *
- * @copyright       XOOPS Project (http://xoops.org)
+ * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
@@ -20,24 +20,27 @@
 defined('XOOPS_ROOT_PATH') || die('XOOPS root path not defined');
 
 $moduleHandler = xoops_getHandler('module');
-$module         = $moduleHandler->getByDirname(basename(dirname(__DIR__)));
-$pathIcon32     = '../../' . $module->getInfo('icons32');
+$module        = $moduleHandler->getByDirname(basename(dirname(__DIR__)));
+$pathIcon32    = '../../' . $module->getInfo('icons32');
 xoops_loadLanguage('modinfo', $module->dirname());
 
-$adminmenu = array();
+$adminmenu[] = [
+    'title' => _MI_XMCONTENT_MENU_HOME,
+    'link'  => 'admin/index.php',
+    'desc'  => _MI_XMCONTENT_MENU_HOME_DESC,
+    'icon'  => $pathIcon32 . '/home.png',
+];
 
-$i                      = 1;
-$adminmenu[$i]['title'] = _MI_XMCONTENT_MENU_HOME;
-$adminmenu[$i]['link']  = 'admin/index.php';
-$adminmenu[$i]['desc']  = _MI_XMCONTENT_MENU_HOME_DESC;
-$adminmenu[$i]['icon']  = $pathIcon32 . '/home.png';
-$i++;
-$adminmenu[$i]['title'] = _MI_XMCONTENT_MENU_CONTENT;
-$adminmenu[$i]['link']  = 'admin/content.php';
-$adminmenu[$i]['desc']  = _MI_XMCONTENT_MENU_CONTENT_DESC;
-$adminmenu[$i]['icon']  = $pathIcon32 . '/content.png';
-$i++;
-$adminmenu[$i]['title'] = _MI_XMCONTENT_MENU_ABOUT;
-$adminmenu[$i]['link']  = 'admin/about.php';
-$adminmenu[$i]['desc']  = _MI_XMCONTENT_MENU_ABOUT_DESC;
-$adminmenu[$i]['icon']  = $pathIcon32 . '/about.png';
+$adminmenu[] = [
+    'title' => _MI_XMCONTENT_MENU_CONTENT,
+    'link'  => 'admin/content.php',
+    'desc'  => _MI_XMCONTENT_MENU_CONTENT_DESC,
+    'icon'  => $pathIcon32 . '/content.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_XMCONTENT_MENU_ABOUT,
+    'link'  => 'admin/about.php',
+    'desc'  => _MI_XMCONTENT_MENU_ABOUT_DESC,
+    'icon'  => $pathIcon32 . '/about.png',
+];
