@@ -48,11 +48,19 @@ if ($content_count > 0) {
         $content['title'] = $content_arr[$i]->getVar('content_title');
 		$text             = $content_arr[$i]->getVar('content_text');
 		//short description
-        if (false == strpos($text, '[break_dsc]')){
-            $content['text'] = '';
-        }else{
-            $content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
-        }
+		if (true == $helper->getConfig('options_template', 0) && '' != $content_arr[$i]->getVar('content_template')){
+			if (false == strpos($text, '[break_dsc]')){
+				$content['text'] = $text;
+			}else{
+				$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
+			}
+		} else {
+			if (false == strpos($text, '[break_dsc]')){
+				$content['text'] = '';
+			}else{
+				$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
+			}
+		}		
         $content['count'] = $count;
         if ($count_row == $count) {
             $content['row'] = true;
