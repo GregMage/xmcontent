@@ -73,7 +73,7 @@ class xmcontent_content extends XoopsObject
         }
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 		include_once 'list.php';
-        global $xoopsModuleConfig;
+		$helper = \Xmf\Module\Helper::getHelper('xmcontent');
 
         //form title
         $title = $this->isNew() ? sprintf(_AM_XMCONTENT_ADD) : sprintf(_AM_XMCONTENT_EDIT);
@@ -101,7 +101,7 @@ class xmcontent_content extends XoopsObject
         $editor_configs['cols']   = 160;
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
-        $editor_configs['editor'] = $xoopsModuleConfig['admin_editor'];
+        $editor_configs['editor'] = $helper->getConfig('admin_editor', 'Plain Text');
         $form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
 
         // weight
@@ -145,7 +145,7 @@ class xmcontent_content extends XoopsObject
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));
 		
 		// css
-		if (true === $xoopsModuleConfig['options_css']){
+		if (true == $helper->getConfig('options_css', 0)){
 			$uploadirectory = '/uploads/xmcontent/css';
 			$value_css      = $this->getVar('content_css') ? $this->getVar('content_css') : '';
 			$content_css    = new XoopsFormElementTray(_AM_XMCONTENT_CONTENT_CSS  . '<br /><br />' . sprintf(_AM_XMCONTENT_CONTENT_UPLOADSIZE, $upload_size/1000), '<br />');
@@ -167,7 +167,7 @@ class xmcontent_content extends XoopsObject
 		}
 		
 		// template
-		if (true === $xoopsModuleConfig['options_template']){
+		if (true == $helper->getConfig('options_template', 0)){
 			$uploadirectory = '/uploads/xmcontent/templates';
 			$value_template      = $this->getVar('content_template') ? $this->getVar('content_template') : '';
 			$content_template    = new XoopsFormElementTray(_AM_XMCONTENT_CONTENT_TEMPLATE  . '<br /><br />' . sprintf(_AM_XMCONTENT_CONTENT_UPLOADSIZE, $upload_size/1000), '<br />');

@@ -21,6 +21,7 @@ include dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once dirname(__DIR__) . '/system/include/functions.php';
 XoopsLoad::load('XoopsRequest');
 include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+$helper = \Xmf\Module\Helper::getHelper('xmcontent');
 
 // Config
 $nb_limit = $xoopsModuleConfig['index_perpage'];

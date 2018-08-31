@@ -21,6 +21,7 @@ require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
 include_once $GLOBALS['xoops']->path('Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
 require_once dirname(dirname(__DIR__)) . '/system/include/functions.php';
 include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+$helper = \Xmf\Module\Helper::getHelper('xmcontent');
 
 global $xoopsModule;
 XoopsLoad::load('XoopsRequest');

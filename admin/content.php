@@ -246,7 +246,7 @@ switch ($op) {
         }
 		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
 		//css
-		if (true === $xoopsModuleConfig['options_css']){
+		if (true == $helper->getConfig('options_css', 0)){
 			if (UPLOAD_ERR_NO_FILE != $_FILES['content_css']['error']) {
 				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
 				if ($uploader_css->fetchMedia('content_css')) {
@@ -265,7 +265,7 @@ switch ($op) {
 			$obj->setVar('content_css', '');
 		}
 		//template
-		if (true === $xoopsModuleConfig['options_template']){
+		if (true == $helper->getConfig('options_template', 0)){
 			if (UPLOAD_ERR_NO_FILE != $_FILES['content_template']['error']) {
 				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
 				if ($uploader_template->fetchMedia('content_template')) {
