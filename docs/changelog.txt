@@ -1,4 +1,20 @@
 ﻿-------------------------------------------------
+Version: 0.30 Final
+Date:    09.09.2018
+-------------------------------------------------
+Correction de bogues:
+- Le champ "Titre n'était pas affiché sur la page de visualisation lors de l'utilisation d'un template même si cela était spécifié dans l'option de la page
+- Avec l'utilisation des templates il était obligatoire de renseigner le champ "Texte", ce n'est plus le cas.
+
+Améliorations:
+- Possibilité d'ajouter une image pour un contenu (visible sur la page d'accueil)
+- Le champ "Texte" permet d'ajouter une decription sur la page d'accueil si on utilise un template de texte 
+- Utilisation de Xmf\Module\Helper pour les configurations
+- Aptimistation du code (mamba)
+- Ajout des commentaires
+- Utilisation de Xmf/Metagen pour les données Meta (title, keywords)
+
+-------------------------------------------------
 Version: 0.21 Final
 Date:    18.08.2016
 -------------------------------------------------

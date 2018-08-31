@@ -34,12 +34,12 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '2017/04/02';
+$modversion['release_date']        = '2018/09/09';
 $modversion['module_website_url']  = 'https://xoops.org/';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['module_status']       = 'Beta 1';
-$modversion['min_php']             = '5.3';
-$modversion['min_xoops']           = '2.5.8';
+$modversion['module_status']       = 'Final';
+$modversion['min_php']             = '5.6';
+$modversion['min_xoops']           = '2.5.9';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');
 
 // Search
