@@ -34,7 +34,7 @@ $admin_class->addInfoBoxLine(_AM_XMCONTENT_INDEX_CONTENT, _AM_XMCONTENT_INDEX_CO
 
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',
-               XOOPS_ROOT_PATH . '/uploads/xmcontent/templates');
+               XOOPS_ROOT_PATH . '/uploads/xmcontent/templates', XOOPS_ROOT_PATH . '/uploads/xmcontent/images');
 foreach (array_keys($folder) as $i) {
     $admin_class->addConfigBoxLine($folder[$i], 'folder');
     $admin_class->addConfigBoxLine(array($folder[$i], '777'), 'chmod');

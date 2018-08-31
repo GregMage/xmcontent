@@ -141,6 +141,7 @@ switch ($op) {
         $content_arr = array(
             _AM_XMCONTENT_CONTENT_TITLE       => $content->getVar('content_title'),
             _AM_XMCONTENT_CONTENT_TEXT        => $content->getVar('content_text', 'show'),
+			_AM_XMCONTENT_CONTENT_LOGO        => '<img src="' . $url_logo . $content->getVar('content_logo') . '" alt="' . $content->getVar('content_title') . '">',
             _AM_XMCONTENT_CONTENT_WEIGHT      => $content->getVar('content_weight'),
             _AM_XMCONTENT_CONTENT_STATUS      => $status,
             _AM_XMCONTENT_CONTENT_KEYWORD     => $content->getVar('content_mkeyword'),
@@ -283,7 +284,24 @@ switch ($op) {
 		}else{
 			$obj->setVar('content_template', '');
 		}
-		
+		//logo
+        $uploadirectory = '/xmcontent/images';
+        if ($_FILES['content_logo']['error'] != UPLOAD_ERR_NO_FILE) {
+            include_once XOOPS_ROOT_PATH . '/class/uploader.php';
+            $uploader_content_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . $uploadirectory, ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'], $upload_size, null, null);
+            if ($uploader_content_img->fetchMedia('content_logo')) {
+                $uploader_content_img->setPrefix('content_');
+                if (!$uploader_content_img->upload()) {
+                    $message_error .= $uploader_content_img->getErrors() . '<br>';
+                } else {
+                    $obj->setVar('content_logo', $uploader_content_img->getSavedFileName());
+                }
+            } else {
+                $message_error .= $uploader_content_img->getErrors();
+            }
+        } else {
+            $obj->setVar('content_logo', Xmf\Request::getString('content_logo', ''));
+        }
 		
         $obj->setVar('content_title', $content['title']);
         $obj->setVar('content_text', $content['text']);
@@ -340,6 +358,7 @@ switch ($op) {
             $newobj = $contentHandler->create();
             $newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
             $newobj->setVar('content_text', $content->getVar('content_text'));
+			$newobj->setVar('content_logo', $content->getVar('content_logo'));
             $newobj->setVar('content_weight', 0);
             $newobj->setVar('content_status', $content->getVar('content_status'));
             $newobj->setVar('content_mkeyword', $content->getVar('content_mkeyword'));

@@ -25,6 +25,7 @@ $helper = \Xmf\Module\Helper::getHelper('xmcontent');
 
 // Config
 $nb_limit = $xoopsModuleConfig['index_perpage'];
+$url_logo   = XOOPS_UPLOAD_URL . '/xmcontent/images/';
 
 // Get handler
 $contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');

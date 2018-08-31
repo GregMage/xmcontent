@@ -47,6 +47,7 @@ define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this con
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
 define('_AM_XMCONTENT_CONTENT_LIST', 'List of content');
+define('_AM_XMCONTENT_CONTENT_LOGO', 'Logo file');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');
 define('_AM_XMCONTENT_CONTENT_PATH', 'Files are in: %s');
 define('_AM_XMCONTENT_CONTENT_STATUS', 'Status');

@@ -10,13 +10,18 @@
         <{if $index_columncontent == 1}>
             <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
                 <div class="col-sm-12">
-                    <h4><{$content.title}></h4>
-                    <p style="padding-top: 5px;">
-						<{$content.text}>
-                        <a href="viewcontent.php?content_id=<{$content.id}>">
-                            <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
-                        </a>
-                    </p>
+				    <div class="media">
+						<div class="media-left">
+							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"><{$content.title}></h4>
+							<{$content.text}>
+							<a href="viewcontent.php?content_id=<{$content.id}>">
+								<button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
+							</a>
+						</div>
+					</div>
                 </div>
             </div>
         <{/if}>
@@ -25,13 +30,18 @@
                 <div class="row" style="margin-top: 5px;">
             <{/if}>
             <div class="col-sm-6">
-                <h4><{$content.title}></h4>
-                <p style="padding-top: 5px;">
-					<{$content.text}>
-                    <a href="viewcontent.php?content_id=<{$content.id}>">
-                        <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
-                    </a>
-                </p>
+				<div class="media">
+					<div class="media-left">
+						<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"><{$content.title}></h4>
+						<{$content.text}>
+						<a href="viewcontent.php?content_id=<{$content.id}>">
+							<button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
+						</a>
+					</div>
+				</div>
             </div>
             <{if $content.count is div by $index_columncontent || $content.end == true}>
                 </div>
@@ -42,13 +52,18 @@
                 <div class="row" style="margin-top: 5px;">
             <{/if}>
             <div class="col-sm-4">
-                <h4><{$content.title}></h4>
-                <p style="padding-top: 5px;">
-					<{$content.text}>
-                    <a href="viewcontent.php?content_id=<{$content.id}>">
-                        <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
-                    </a>
-                </p>
+				<div class="media">
+					<div class="media-left">
+						<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"><{$content.title}></h4>
+						<{$content.text}>
+						<a href="viewcontent.php?content_id=<{$content.id}>">
+							<button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
+						</a>
+					</div>
+				</div>
             </div>
             <{if $content.count is div by $index_columncontent || $content.end == true}>
                 </div>
@@ -59,13 +74,18 @@
                 <div class="row" style="margin-top: 5px;">
             <{/if}>
             <div class="col-sm-3">
-                <h4><{$content.title}></h4>
-                <p style="padding-top: 5px;">
-					<{$content.text}>
-                    <a href="viewcontent.php?content_id=<{$content.id}>">
-                        <button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
-                    </a>
-                </p>
+				<div class="media">
+					<div class="media-left">
+						<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"><{$content.title}></h4>
+						<{$content.text}>
+						<a href="viewcontent.php?content_id=<{$content.id}>">
+							<button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
+						</a>
+					</div>
+				</div>
             </div>
             <{if $content.count is div by $index_columncontent || $content.end == true}>
                 </div>

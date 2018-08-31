@@ -39,6 +39,7 @@ class xmcontent_content extends XoopsObject
         $this->initVar('content_mkeyword', XOBJ_DTYPE_TXTAREA, '', false);
         $this->initVar('content_mdescription', XOBJ_DTYPE_TXTAREA, '', false);
         $this->initVar('content_maindisplay', XOBJ_DTYPE_INT, 1, false, 1);
+		$this->initVar('content_logo', XOBJ_DTYPE_TXTBOX, null, false);
         $this->initVar('content_weight', XOBJ_DTYPE_INT, 0, false, 5);
 		$this->initVar('content_css', XOBJ_DTYPE_TXTAREA, null, false);
 		$this->initVar('content_template', XOBJ_DTYPE_TXTAREA, null, false);
@@ -151,6 +152,26 @@ class xmcontent_content extends XoopsObject
 		} else {
 			$form->addElement(new XoopsFormHidden('content_css', ''));
 		}
+		
+		// logo
+        $blank_img       = $this->getVar('content_logo') ?: 'blank.gif';
+        $uploadirectory  = '/uploads/xmcontent/images';
+        $imgtray_img     = new XoopsFormElementTray(_AM_XMCONTENT_CONTENT_LOGO . '<br><br>' . sprintf(_AM_XMCONTENT_CONTENT_UPLOADSIZE, $upload_size / 1000), '<br>');
+        $imgpath_img     = sprintf(_AM_XMCONTENT_CONTENT_PATH, $uploadirectory);
+        $imageselect_img = new XoopsFormSelect($imgpath_img, 'content_logo', $blank_img);
+        $image_array_img = XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadirectory);
+        $imageselect_img->addOption("$blank_img", $blank_img);
+        foreach ($image_array_img as $image_img) {
+            $imageselect_img->addOption("$image_img", $image_img);
+        }
+        $imageselect_img->setExtra("onchange='showImgSelected(\"image_img2\", \"content_logo\", \"" . $uploadirectory . "\", \"\", \"" . XOOPS_URL . "\")'");
+        $imgtray_img->addElement($imageselect_img, false);
+        $imgtray_img->addElement(new XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadirectory . '/' . $blank_img . "' name='image_img2' id='image_img2' alt=''>"));
+        $fileseltray_img = new XoopsFormElementTray('<br>', '<br><br>');
+        $fileseltray_img->addElement(new XoopsFormFile(_AM_XMCONTENT_CONTENT_UPLOAD, 'content_logo', $upload_size), false);
+        $fileseltray_img->addElement(new XoopsFormLabel(''), false);
+        $imgtray_img->addElement($fileseltray_img);
+        $form->addElement($imgtray_img);
 
         // weight
         $form->addElement(new XoopsFormText(_AM_XMCONTENT_CONTENT_WEIGHT, 'content_weight', 5, 5, $weight), true);

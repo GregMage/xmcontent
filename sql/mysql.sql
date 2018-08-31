@@ -6,6 +6,7 @@ CREATE TABLE `xmcontent_content` (
   `content_mkeyword` text NOT NULL,
   `content_mdescription` text NOT NULL,
   `content_maindisplay` tinyint(1) NOT NULL DEFAULT '0',
+  `content_logo` varchar(50) NOT NULL DEFAULT '',
   `content_weight` int(5) NOT NULL DEFAULT '0',
   `content_css` varchar(255) NOT NULL DEFAULT '',
   `content_template` varchar(255) NOT NULL DEFAULT '',

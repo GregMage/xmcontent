@@ -21,7 +21,7 @@ function xoops_module_install_xmcontent()
 {
     $namemodule = 'xmcontent';
 	$indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.html';
-    
+    $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/blank.gif';
     //Creation ".$namemodule."/
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '';
     if (!is_dir($dir)) {
@@ -45,5 +45,16 @@ function xoops_module_install_xmcontent()
 		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/templates/index.html');
     }
     chmod($dir, 0777);
+	
+	//Creation ".$namemodule."/images
+    $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0777);
+		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.html');
+    }
+    chmod($dir, 0777);
+	
+	//Copy blank.gif		
+	copy($blankFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/blank.gif');
     return true;
 }

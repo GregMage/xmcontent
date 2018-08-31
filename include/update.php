@@ -18,7 +18,9 @@
  */
 
 function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = null) {
-    echo 'Version ' . $previousVersion;
+	$namemodule = 'xmcontent';
+	$indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.html';
+	$blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/blank.gif';
     // Passage de la version 0.1 à 0.2
     if ($previousVersion <= 20) {
         //Ajout des champs content_css et content_template (Passage de la version 0.1 à 0.2)
@@ -29,8 +31,7 @@ function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = n
         $db->query($sql);
         
         //Ajout de plusieurs dossiers dans uploads (Passage de la version 0.1 à 0.2)
-        $namemodule = 'xmcontent';
-        $indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.html';
+
         
         //Creation ".$namemodule."/
         $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '';
@@ -61,6 +62,17 @@ function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = n
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_docomment` TINYINT( 1 ) NOT NULL DEFAULT '0';";
         $db->query($sql);
+		
+		//Creation ".$namemodule."/images
+		$dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images';
+		if (!is_dir($dir)) {
+			mkdir($dir, 0777);
+			copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.html');
+		}
+		chmod($dir, 0777);
+		
+		//Copy blank.gif		
+		copy($blankFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/blank.gif');
     }
     return true;
 }

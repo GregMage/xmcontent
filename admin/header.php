@@ -30,6 +30,7 @@ XoopsLoad::load('XoopsRequest');
 $nb_limit   = $xoopsModuleConfig['admin_perpage'];
 $pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
 $pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
+$url_logo   = XOOPS_UPLOAD_URL . '/xmcontent/images/';
 $upload_size = 500000;
 // Include language file
 xoops_loadLanguage('admin', 'system');
