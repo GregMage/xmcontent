@@ -36,7 +36,7 @@ define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active contents'
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
 define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
-define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Description');
+define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Meta description');
 define('_AM_XMCONTENT_CONTENT_DOCOMMENT', 'View comments');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
@@ -45,7 +45,7 @@ define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'View social icons');
 define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
-define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Keywords');
+define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
 define('_AM_XMCONTENT_CONTENT_LIST', 'List of content');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');
 define('_AM_XMCONTENT_CONTENT_PATH', 'Files are in: %s');
