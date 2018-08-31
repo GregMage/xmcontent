@@ -102,7 +102,11 @@ class xmcontent_content extends XoopsObject
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('admin_editor', 'Plain Text');
-        $form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
+		if (true == $helper->getConfig('options_template', 0)){
+			$form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), false);
+		} else {
+			$form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
+		}
 		
 		// template
 		if (true == $helper->getConfig('options_template', 0)){
