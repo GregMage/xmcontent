@@ -1,4 +1,7 @@
 ﻿<{if $content_template}>
+	<{if $content_dotitle == 1}>
+	<h2><{$content_title}></h2>
+	<{/if}>
 	<{includeq file="$content_template"}>
 <{else}>
 	<div class="row">
