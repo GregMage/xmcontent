@@ -68,6 +68,13 @@ $xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
 $xoopsTpl->assign('content_domail', $content->getVar('content_domail'));
 $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
 
+//xmdoc
+if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
+    xoops_load('utility', 'xmdoc');
+    XmdocUtility::renderDocuments($xoopsTpl, $xoTheme, 'xmcontent', $content_id);
+} else {
+    $xoopsTpl->assign('xmdoc_viewdocs', false);
+}
 //SEO
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));

@@ -16,6 +16,16 @@
 		</div>
 	</div>
 <{/if}>
+<{if $xmdoc_viewdocs == true}>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><{$smarty.const._AM_XMCONTENT_VIEWCONTENT_XMDOC}></h3>
+        </div>
+        <div class="panel-body">
+            <{include file="db:xmdoc_viewdoc.tpl"}>
+        </div>
+    </div>
+<{/if}>
 <{if $content_docomment == 1}>
     <div style="text-align: center; padding: 3px; margin:3px;">
         <{$commentsnav}>

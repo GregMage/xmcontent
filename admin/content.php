@@ -330,6 +330,11 @@ switch ($op) {
                         $gpermHandler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
                     }
                 }
+				//xmdoc
+                if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
+                    xoops_load('utility', 'xmdoc');
+                    $error_message .= XmdocUtility::saveDocuments('xmcontent', $perm_id);
+                }
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
             } else {
                 $xoopsTpl->assign('message_error', $obj->getHtmlErrors());

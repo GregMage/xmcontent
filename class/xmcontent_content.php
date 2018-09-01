@@ -108,6 +108,11 @@ class xmcontent_content extends XoopsObject
 		} else {
 			$form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
 		}
+		//xmdoc
+        if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
+            xoops_load('utility', 'xmdoc');
+            XmdocUtility::renderDocForm($form, 'xmcontent', $this->getVar('content_id'));
+        }
 		
 		// template
 		if (true == $helper->getConfig('options_template', 0)){

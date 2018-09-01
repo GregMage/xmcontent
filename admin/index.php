@@ -24,6 +24,14 @@ $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('index.php');
 $moduleAdmin->addConfigModuleVersion('system', 212);
 
+// xmdoc
+if (is_dir(XOOPS_ROOT_PATH . '/modules/xmdoc')) {
+    $moduleAdmin->addConfigModuleVersion('xmdoc', 10);
+} elseif ($helper->getConfig('general_xmdoc', 0) == 0) {
+    $moduleAdmin->addConfigWarning(_MA_XMARTICLE_INDEXCONFIG_XMDOC_WARNING);
+} else {
+    $moduleAdmin->addConfigError(_MA_XMARTICLE_INDEXCONFIG_XMDOC_ERROR);
+}
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',
                XOOPS_ROOT_PATH . '/uploads/xmcontent/templates', XOOPS_ROOT_PATH . '/uploads/xmcontent/images');

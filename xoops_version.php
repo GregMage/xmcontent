@@ -154,6 +154,14 @@ $modversion['config'][] = array(
     'valuetype'   => 'int',
     'default'     => 0
 );
+$modversion['config'][] = [
+    'name'        => 'options_xmdoc',
+    'title'       => '_MI_XMCONTENT_PREF_XMDOC',
+    'description' => '',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
 $modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTENT_PREF_HEAD_ADMIN',

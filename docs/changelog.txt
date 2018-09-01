@@ -7,12 +7,14 @@ Correction de bogues:
 - Avec l'utilisation des templates il était obligatoire de renseigner le champ "Texte", ce n'est plus le cas.
 
 Améliorations:
+- Possibilité d'ajouter des document au contenu avec le module xmdoc
 - Possibilité d'ajouter une image pour un contenu (visible sur la page d'accueil)
 - Le champ "Texte" permet d'ajouter une decription sur la page d'accueil si on utilise un template de texte 
 - Utilisation de Xmf\Module\Helper pour les configurations
 - Aptimistation du code (mamba)
 - Ajout des commentaires
 - Utilisation de Xmf/Metagen pour les données Meta (title, keywords)
+- Utilisation de Xmf pour le menu admin
 
 -------------------------------------------------
 Version: 0.21 Final
