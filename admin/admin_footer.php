@@ -17,13 +17,4 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
-use Xmf\Module\Admin;
-
-require __DIR__ . '/admin_header.php';
-
-$moduleAdmin = Admin::getInstance();
-$moduleAdmin->displayNavigation('about.php');
-Admin::setPaypal('9MYQB7GUK5MCS');
-$moduleAdmin->displayAbout(false);
-
-require __DIR__ . '/admin_footer.php';
+xoops_cp_footer();

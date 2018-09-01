@@ -10,33 +10,33 @@
 */
 
 /**
- * xmcontent module
+ * xmarticle module
  *
  * @copyright       XOOPS Project (https://xoops.org)
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-
-require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
-include_once $GLOBALS['xoops']->path('Frameworks/moduleclasses/moduleadmin/moduleadmin.php');
-require_once dirname(dirname(__DIR__)) . '/system/include/functions.php';
+$path = dirname(dirname(dirname(__DIR__)));
+require_once $path . '/mainfile.php';
+require_once $path . '/include/cp_functions.php';
+require_once $path . '/include/cp_header.php';
 include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-$helper = \Xmf\Module\Helper::getHelper('xmcontent');
 
-global $xoopsModule;
-XoopsLoad::load('XoopsRequest');
+
+class_exists('\Xmf\Module\Admin') or die('XMF is required.');
+
+use Xmf\Module\Helper;
+
+$helper = Helper::getHelper(basename(dirname(__DIR__)));
+
+// Load language files
+$helper->loadLanguage('main');
 
 // Config
 $nb_limit   = $xoopsModuleConfig['admin_perpage'];
-$pathIcon16 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons16');
-$pathIcon32 = XOOPS_URL . '/' . $xoopsModule->getInfo('icons32');
 $url_logo   = XOOPS_UPLOAD_URL . '/xmcontent/images/';
 $upload_size = 500000;
-// Include language file
-xoops_loadLanguage('admin', 'system');
-xoops_loadLanguage('admin', $xoopsModule->getVar('dirname', 'e'));
-xoops_loadLanguage('modinfo', $xoopsModule->getVar('dirname', 'e'));
-$admin_class = new ModuleAdmin();
 
 // Get handler
 $contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
+xoops_cp_header();

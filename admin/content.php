@@ -16,13 +16,15 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
-require __DIR__ . '/header.php';
+use Xmf\Module\Admin;
+use Xmf\Request;
 
-// Header
-xoops_cp_header();
+require __DIR__ . '/admin_header.php';
+$moduleAdmin = Admin::getInstance();
+$moduleAdmin->displayNavigation('content.php');
 
 // Get Action type
-$op = XoopsRequest::getCmd('op', 'list');
+$op = Request::getCmd('op', 'list');
 
 switch ($op) {
     // list of content
@@ -33,14 +35,11 @@ switch ($op) {
         $xoTheme->addScript('browse.php?Frameworks/jquery/jquery.js');
         $xoTheme->addScript('browse.php?Frameworks/jquery/plugins/jquery.tablesorter.js');
         $xoTheme->addScript('modules/system/js/admin.js');
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Get start pager
-        $start = XoopsRequest::getInt('start', 0);
+        $start = Request::getInt('start', 0);
         // Criteria
         $criteria = new CriteriaCompo();
         $criteria->setSort('content_weight ASC, content_title');
@@ -83,18 +82,15 @@ switch ($op) {
 
     // view content
     case 'view':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Define Stylesheet
         $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 
         $xoopsTpl->assign('view', 'view');
 
-        $content_id = XoopsRequest::getInt('content_id', 0);
+        $content_id = Request::getInt('content_id', 0);
         $content    = $contentHandler->get($content_id);
 
         if (0 == $content->getVar('content_status')) {
@@ -160,12 +156,9 @@ switch ($op) {
 
     // add content
     case 'add':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+        $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
 
         // Create form
         $obj  = $contentHandler->create();
@@ -176,16 +169,13 @@ switch ($op) {
 
     // edit content
     case 'edit':
-        //navigation
-        $xoopsTpl->assign('navigation', $admin_class->addNavigation('content.php'));
-        $xoopsTpl->assign('renderindex', $admin_class->renderIndex());
-        // Define button addItemButton
-        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
-        $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
-        $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
+		// Module admin
+		$moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
+        $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
+        $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
 
         // Create form
-        $obj  = $contentHandler->get(XoopsRequest::getInt('content_id', 0));
+        $obj  = $contentHandler->get(Request::getInt('content_id', 0));
         $form = $obj->getForm();
         // Assign form
         $xoopsTpl->assign('form', $form->render());
@@ -194,7 +184,7 @@ switch ($op) {
     // del content
     case 'del':
         // Create form
-        $content_id = XoopsRequest::getInt('content_id', 0);
+        $content_id = Request::getInt('content_id', 0);
         $obj        = $contentHandler->get($content_id);
 
         if (isset($_POST['ok']) && 1 == $_POST['ok']) {
@@ -220,26 +210,26 @@ switch ($op) {
             redirect_header('content.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         if (isset($_POST['content_id'])) {
-            $obj = $contentHandler->get(XoopsRequest::getInt('content_id', 0));
+            $obj = $contentHandler->get(Request::getInt('content_id', 0));
         } else {
             $obj = $contentHandler->create();
         }
 
         $message_error           = '';
-        $content_id              = XoopsRequest::getInt('content_id', 0, 'POST');
-        $content['title']        = XoopsRequest::getString('content_title', '', 'POST');
-        $content['text']         = XoopsRequest::getText('content_text', '', 'POST');
+        $content_id              = Request::getInt('content_id', 0, 'POST');
+        $content['title']        = Request::getString('content_title', '', 'POST');
+        $content['text']         = Request::getText('content_text', '', 'POST');
         $content['weight']       = $_POST['content_weight'];
-        $content['status']       = XoopsRequest::getInt('content_status', 0, 'POST');
-        $content['mkeyword']     = XoopsRequest::getString('content_mkeyword', '', 'POST');
-        $content['mdescription'] = XoopsRequest::getString('content_mdescription', '', 'POST');
-        $content['maindisplay']  = XoopsRequest::getInt('content_maindisplay', 0, 'POST');
-        $content['docomment']    = XoopsRequest::getInt('content_docomment', 0, 'POST');
-        $content['dopdf']        = XoopsRequest::getInt('content_dopdf', 0, 'POST');
-        $content['doprint']      = XoopsRequest::getInt('content_doprint', 0, 'POST');
-        $content['dosocial']     = XoopsRequest::getInt('content_dosocial', 0, 'POST');
-        $content['domail']       = XoopsRequest::getInt('content_domail', 0, 'POST');
-        $content['dotitle']      = XoopsRequest::getInt('content_dotitle', 0, 'POST');
+        $content['status']       = Request::getInt('content_status', 0, 'POST');
+        $content['mkeyword']     = Request::getString('content_mkeyword', '', 'POST');
+        $content['mdescription'] = Request::getString('content_mdescription', '', 'POST');
+        $content['maindisplay']  = Request::getInt('content_maindisplay', 0, 'POST');
+        $content['docomment']    = Request::getInt('content_docomment', 0, 'POST');
+        $content['dopdf']        = Request::getInt('content_dopdf', 0, 'POST');
+        $content['doprint']      = Request::getInt('content_doprint', 0, 'POST');
+        $content['dosocial']     = Request::getInt('content_dosocial', 0, 'POST');
+        $content['domail']       = Request::getInt('content_domail', 0, 'POST');
+        $content['dotitle']      = Request::getInt('content_dotitle', 0, 'POST');
         // error
         if (0 == (int)$content['weight'] && '0' != $content['weight']) {
             $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
@@ -349,7 +339,7 @@ switch ($op) {
 
     // clone
     case 'clone':
-        $content_id = XoopsRequest::getInt('content_id', 0);
+        $content_id = Request::getInt('content_id', 0);
         $content    = $contentHandler->get($content_id);
         if (isset($_POST['ok']) && 1 == $_POST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
@@ -396,7 +386,7 @@ switch ($op) {
 
     // update status
     case 'content_update_status':
-        $content_id = XoopsRequest::getInt('content_id', 0);
+        $content_id = Request::getInt('content_id', 0);
         if ($content_id > 0) {
             $obj = $contentHandler->get($content_id);
             $old = $obj->getVar('content_status');
@@ -408,7 +398,6 @@ switch ($op) {
         }
         break;
 }
-
 // Call template file
 $xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontent/templates/admin/xmcontent_content.tpl');
-xoops_cp_footer();
+require __DIR__ . '/admin_footer.php';

@@ -28,11 +28,6 @@ define('_AM_XMCONTENT_REDIRECT_SAVE', 'Successfully saved');
 define('_AM_XMCONTENT_YES', 'Yes');
 define('_AM_XMCONTENT_VIEW', 'View Details');
 
-// index
-define('_AM_XMCONTENT_INDEX_CONTENT', 'Contents');
-define('_AM_XMCONTENT_INDEX_CONTENT_ACTIVE', 'There are %s active contents');
-define('_AM_XMCONTENT_INDEX_CONTENT_NACTIVE', 'There are %s non active contents');
-
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
 define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
