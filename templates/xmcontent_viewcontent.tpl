@@ -12,7 +12,6 @@
 			<p>
 				<{$content_text}>
 			</p>
-			<{$index_header}>
 		</div>
 	</div>
 <{/if}>
