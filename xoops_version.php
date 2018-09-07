@@ -75,6 +75,19 @@ $modversion['templates'][$i]['description'] = '';
 $i++;
 $modversion['templates'][$i]['file']        = 'xmcontent_viewcontent.tpl';
 $modversion['templates'][$i]['description'] = '';
+
+// Blocks
+$modversion['blocks'][] = array(
+    'file'        => 'xmcontent_blocks.php',
+    'name'        => _MI_XMCONTENT_BLOCK_DEFAULT,
+    'description' => _MI_XMCONTENT_BLOCK_DEFAULT_DESC,
+    'show_func'   => 'block_xmcontent_show',
+    'edit_func'   => 'block_xmcontent_edit',
+	'options'     => '0',
+    'template'    => 'xmcontent_block.tpl'
+);
+
+
 // Menu
 $modversion['hasMain'] = 1;
 

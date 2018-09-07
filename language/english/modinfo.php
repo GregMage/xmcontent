@@ -29,6 +29,11 @@ define('_MI_XMCONTENT_MENU_ABOUT', 'About');
 define('_MI_XMCONTENT_MENU_ABOUT_DESC', 'About this module');
 define('_MI_XMCONTENT_MENU_HELP', 'Help');
 define('_MI_XMCONTENT_MENU_HELP_DESC', 'Module help');
+
+// Block
+define('_MI_XMCONTENT_BLOCK_DEFAULT', 'Content');
+define('_MI_XMCONTENT_BLOCK_DEFAULT_DESC', 'Display a content');
+
 // Pref.
 define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Number of column for content View');
