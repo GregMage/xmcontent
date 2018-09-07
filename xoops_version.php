@@ -118,6 +118,29 @@ $modversion['config'][] = array(
     'options'     => array(1 => 1, 2 => 2, 3 => 3, 4 => 4)
 );
 
+use Xmf\Module\Helper;
+$helper = Helper::getHelper('xmcontent');
+$contentHandler  = $helper->getHandler('xmcontent_content');
+// Criteria
+$criteria = new CriteriaCompo();
+$criteria->setSort('content_weight ASC, content_title');
+$criteria->setOrder('ASC');
+$criteria->add(new Criteria('content_status', 1));
+$content_arr = $contentHandler->getall($criteria);
+$content[0] = _MI_XMCONTENT_PREF_CONTENTINDEX_ALL;
+foreach (array_keys($content_arr) as $i) {
+	$content[$content_arr[$i]->getVar('content_id')] = $content_arr[$i]->getVar('content_title');
+}
+$modversion['config'][] = array(
+    'name'        => 'index_content',
+    'title'       => '_MI_XMCONTENT_PREF_CONTENTINDEX',
+    'description' => '_MI_XMCONTENT_PREF_CONTENTINDEX_DESC',
+    'formtype'    => 'select',
+    'valuetype'   => 'int',
+    'default'     => 0,
+    'options'     => array_flip($content)
+);
+
 $modversion['config'][] = array(
     'name'        => 'index_header',
     'title'       => '_MI_XMCONTENT_PREF_HEADER',

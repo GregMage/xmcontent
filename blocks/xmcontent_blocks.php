@@ -39,7 +39,6 @@ function block_xmcontent_show($options) {
 		// template
 		if (true == $helper->getConfig('options_template', 0) && '' != $content->getVar('content_template')){
 			$block['template'] = XOOPS_ROOT_PATH . '/uploads/xmcontent/templates/' . $content->getVar('content_template');
-			//XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . 
 		}
 		$block['title'] = $content->getVar('content_title');
 		$block['text' ] = str_replace('[break_dsc]', '', $content->getVar('content_text', 'show'));
