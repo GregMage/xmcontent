@@ -1,6 +1,6 @@
 ﻿-------------------------------------------------
 Version: 0.30 Final
-Date:    09.09.2018
+Date:    08.09.2018
 -------------------------------------------------
 Correction de bogues:
 - Le champ "Titre n'était pas affiché sur la page de visualisation lors de l'utilisation d'un template même si cela était spécifié dans l'option de la page
@@ -9,11 +9,11 @@ Correction de bogues:
 Améliorations:
 - Possibilité de mettre un contenu sur la page d'accueil
 - Ajout d'un bloc de contenu
-- Possibilité d'ajouter des document au contenu avec le module xmdoc
+- Possibilité d'ajouter des documents au contenu avec le module xmdoc
 - Possibilité d'ajouter une image pour un contenu (visible sur la page d'accueil)
-- Le champ "Texte" permet d'ajouter une decription sur la page d'accueil si on utilise un template de texte 
+- Le champ "Texte" permet d'ajouter une description sur la page d'accueil si on utilise un template de texte 
 - Utilisation de Xmf\Module\Helper pour les configurations
-- Aptimistation du code (mamba)
+- Optimistation du code (mamba)
 - Ajout des commentaires
 - Utilisation de Xmf/Metagen pour les données Meta (title, keywords)
 - Utilisation de Xmf pour le menu admin
