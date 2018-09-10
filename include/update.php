@@ -62,6 +62,8 @@ function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = n
         $db = XoopsDatabaseFactory::getDatabaseConnection();
         $sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_docomment` TINYINT( 1 ) NOT NULL DEFAULT '0';";
         $db->query($sql);
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_logo` varchar(50) NOT NULL DEFAULT '';";
+        $db->query($sql);
 		
 		//Creation ".$namemodule."/images
 		$dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images';
