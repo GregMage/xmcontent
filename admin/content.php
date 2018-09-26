@@ -192,6 +192,24 @@ switch ($op) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($contentHandler->delete($obj)) {
+				//Del logo
+				if ($obj->getVar('content_logo') != 'blank.gif') {
+					// Test if the image is used
+					$criteria = new CriteriaCompo();
+					$criteria->add(new Criteria('content_logo', $obj->getVar('content_logo')));
+					$content_count = $contentHandler->getCount($criteria);
+					if ($content_count == 0){
+						$uploadirectory = '/xmcontent/images/';
+						$urlfile = XOOPS_UPLOAD_PATH . $uploadirectory . $obj->getVar('content_logo');
+						if (is_file($urlfile)) {
+							chmod($urlfile, 0777);
+							unlink($urlfile);
+						}
+					}
+				}
+				// Del permissions
+				$permHelper = new \Xmf\Module\Helper\Permission();
+				$permHelper->deletePermissionForItem('xmcontent_contentview', $content_id);
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
             } else {
                 xoops_error($obj->getHtmlErrors());
