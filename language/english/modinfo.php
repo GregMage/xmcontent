@@ -40,7 +40,7 @@ define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Number of column for content View');
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Number of content that can be viewed in index: 1, 2, 3 or 4 columns');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX', 'Content to display on index page');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX_ALL', 'All contents');
-define('_MI_XMCONTENT_PREF_CONTENTINDEX_DESC', 'Choose the content to display');
+define('_MI_XMCONTENT_PREF_CONTENTINDEX_DESC', 'Choose the content to display. To display all contents, you have to update the module!');
 define('_MI_XMCONTENT_PREF_HEADER', 'Header index page');
 define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');

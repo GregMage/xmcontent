@@ -1,4 +1,11 @@
 ﻿-------------------------------------------------
+Version: 0.32 Final
+Date:    03.10.2018
+-------------------------------------------------
+Correction de bogues:
+- Erreur dans xoops_version.php, la page d'installation des modules affiche une erreur.
+
+-------------------------------------------------
 Version: 0.31 Final
 Date:    10.09.2018
 -------------------------------------------------

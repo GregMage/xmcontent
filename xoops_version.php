@@ -18,7 +18,7 @@
  */
 
 $modversion['name']           = _MI_XMCONTENT_NAME;
-$modversion['version']        = '0.4';
+$modversion['version']        = '0.32';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
 $modversion['author']         = 'G. Mage';
@@ -34,10 +34,10 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '2018/30/09';
+$modversion['release_date']        = '2018/03/10';
 $modversion['module_website_url']  = 'https://xoops.org/';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['module_status']       = 'Alpha';
+$modversion['module_status']       = 'Final';
 $modversion['min_php']             = '5.6';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');
@@ -118,9 +118,7 @@ $modversion['config'][] = array(
     'options'     => array(1 => 1, 2 => 2, 3 => 3, 4 => 4)
 );
 
-use Xmf\Module\Helper;
-$helper = Helper::getHelper('xmcontent');
-$contentHandler  = $helper->getHandler('xmcontent_content');
+$contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
 // Criteria
 $criteria = new CriteriaCompo();
 $criteria->setSort('content_weight ASC, content_title');
