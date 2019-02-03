@@ -28,7 +28,7 @@ if (0 == $content_id) {
 }
 $content = $contentHandler->get($content_id);
 
-if (0 == count($content)) {
+if (empty($content)) {
     redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
     exit();
 }
