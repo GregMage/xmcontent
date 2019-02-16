@@ -91,7 +91,7 @@ class xmcontent_content extends XoopsObject
         }
 
         // title
-        $form->addElement(new XoopsFormText(_AM_XMCONTENT_CONTENT_TITLE, 'content_title', 50, 255, $this->getVar('content_title')), true);
+        $form->addElement(new XoopsFormText(_AM_XMCONTENT_CONTENT_TITLE, 'content_title', 50, 100, $this->getVar('content_title')), true);
 		$form->setExtra('enctype="multipart/form-data"');
 
         // text
