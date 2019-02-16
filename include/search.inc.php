@@ -20,6 +20,11 @@
 function xmcontent_search($queryarray, $andor, $limit, $offset, $userid)
 {
     global $xoopsDB;
+	$ret = array();
+	
+	if ($userid != 0){
+		return $ret;
+	}
 
     $sql = "SELECT content_id, content_title, content_text FROM ".$xoopsDB->prefix("xmcontent_content")." WHERE content_status != 0";
 
@@ -36,8 +41,7 @@ function xmcontent_search($queryarray, $andor, $limit, $offset, $userid)
     }
 
     $sql .= " ORDER BY content_weight DESC";
-    $result = $xoopsDB->query($sql,$limit,$offset);
-    $ret = array();
+    $result = $xoopsDB->query($sql,$limit,$offset);    
     $i = 0;
     while($myrow = $xoopsDB->fetchArray($result))
     {
