@@ -28,6 +28,10 @@ define('_AM_XMCONTENT_REDIRECT_SAVE', 'Successfully saved');
 define('_AM_XMCONTENT_YES', 'Yes');
 define('_AM_XMCONTENT_VIEW', 'View Details');
 
+// index
+define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'You have not installed the xmdoc module, this module is required if you want to add documents to your content');
+define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xmcontent preferences the use of xmdoc (if you want to add documents)');
+
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
 define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
