@@ -1,14 +1,29 @@
 ﻿-------------------------------------------------
+Version: 0.5
+Date:    ????
+-------------------------------------------------
+
+
+
+-------------------------------------------------
 Version: 0.32 Final
 Date:    03.10.2018
 -------------------------------------------------
+
+Bug fixes:
+-Error in xoops_version.php, module installation page shows an error.
+
 Correction de bogues:
-- Erreur dans xoops_version.php, la page d'installation des modules affiche une erreur.
+-Erreur dans xoops_version.php, la page d'installation des modules affiche une erreur.
+
 
 -------------------------------------------------
 Version: 0.31 Final
 Date:    10.09.2018
 -------------------------------------------------
+Bug fixes:
+- The field 'content_logo' was not inserted in the bbd during the update
+
 Correction de bogues:
 - Le champ 'content_logo' n'était pas inséré dans la bbd lors de l'update
 
@@ -16,21 +31,45 @@ Correction de bogues:
 Version: 0.30 Final
 Date:    08.09.2018
 -------------------------------------------------
+
+
+Bug fixes:
+
+    Title field was not displayed on the view page when using a template even if specified in the page option
+    With the use of templates it was mandatory to fill the field "Text", this is no longer the case.
+
+Improvements:
+
+    Ability to put content on the home page
+    Add a block of content
+    Ability to add documents to the content with the xmdoc module
+    Ability to add an image for a content (visible on the homepage)
+    The "Text" field allows you to add a description on the home page if you use a text template
+    Using Xmf\Module\Helper for configurations
+    Optimization of the code (mamba)
+    Adding comments
+    Using Xmf / Metagen for Meta data (title, keywords)
+    Using Xmf for the admin menu
+
 Correction de bogues:
-- Le champ "Titre n'était pas affiché sur la page de visualisation lors de l'utilisation d'un template même si cela était spécifié dans l'option de la page
-- Avec l'utilisation des templates il était obligatoire de renseigner le champ "Texte", ce n'est plus le cas.
+
+    Le champ "Titre n'était pas affiché sur la page de visualisation lors de l'utilisation d'un template même si cela était spécifié dans l'option de la page
+    Avec l'utilisation des templates il était obligatoire de renseigner le champ "Texte", ce n'est plus le cas.
 
 Améliorations:
-- Possibilité de mettre un contenu sur la page d'accueil
-- Ajout d'un bloc de contenu
-- Possibilité d'ajouter des documents au contenu avec le module xmdoc
-- Possibilité d'ajouter une image pour un contenu (visible sur la page d'accueil)
-- Le champ "Texte" permet d'ajouter une description sur la page d'accueil si on utilise un template de texte 
-- Utilisation de Xmf\Module\Helper pour les configurations
-- Optimistation du code (mamba)
-- Ajout des commentaires
-- Utilisation de Xmf/Metagen pour les données Meta (title, keywords)
-- Utilisation de Xmf pour le menu admin
+
+    Possibilité de mettre un contenu sur la page d'accueil
+    Ajout d'un bloc de contenu
+    Possibilité d'ajouter des documents au contenu avec le module xmdoc
+    Possibilité d'ajouter une image pour un contenu (visible sur la page d'accueil)
+    Le champ "Texte" permet d'ajouter une description sur la page d'accueil si on utilise un template de texte
+    Utilisation de Xmf\Module\Helper pour les configurations
+    Optimistation du code (mamba)
+    Ajout des commentaires
+    Utilisation de Xmf/Metagen pour les données Meta (title, keywords)
+    Utilisation de Xmf pour le menu admin
+
+
 
 -------------------------------------------------
 Version: 0.21 Final
