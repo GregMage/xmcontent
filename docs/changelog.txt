@@ -1,8 +1,28 @@
 ﻿-------------------------------------------------
-Version: 0.5
-Date:    ????
+Version: 0.5 RC 1
+Date:    19.02.2019
 -------------------------------------------------
 
+Bug fixes:	
+	- Fix: Warning count() with php 7.2.
+	- The contents appear in the history of each member.
+	- The information on xmdoc did not work (index admin).
+	- Translation error (_AM_XMCONTENT_CONTENT_TEMPLATE) language/english/admin.php
+
+Improvements:
+	- Table optimization (perf.) Warning, only for a new installation.
+	- Addition of the French translation
+	
+Correction de bogues:	
+	- Correction: Warning count() avect php 7.2.
+	- Les contenus apparaissent dans l'historique de chaque membre.	
+	- Les informations sur xmdoc ne fonctionnait pas (index admin).
+	- Erreur de traduction (_AM_XMCONTENT_CONTENT_TEMPLATE)language/english/admin.php
+
+
+Améliorations:
+	- Optimisation des tables (perf.) Attention, uniquement pour une nouvelle installation.
+	- Ajout de la traduction Française
 
 
 -------------------------------------------------
