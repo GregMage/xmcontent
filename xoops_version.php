@@ -17,7 +17,8 @@
  * @author          Mage Gregory (AKA Mage)
  */
 
-$modversion['name']           = _MI_XMCONTENT_NAME;
+$modversion['dirname']        = basename(__DIR__);
+$modversion['name']           = ucfirst(basename(__DIR__));
 $modversion['version']        = '0.5';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
@@ -27,7 +28,6 @@ $modversion['license']        = 'GNU GPL';
 $modversion['license_url']    = 'www.gnu.org/licenses/gpl-2.0.html/';
 $modversion['official']       = 1;
 $modversion['image']          = 'assets/images/xmcontent_logo.png';
-$modversion['dirname']        = 'xmcontent';
 $modversion['dirmoduleadmin'] = 'Frameworks/moduleclasses';
 $modversion['icons16']        = 'Frameworks/moduleclasses/icons/16';
 $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
