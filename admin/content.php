@@ -370,7 +370,7 @@ switch ($op) {
             }
             $newobj = $contentHandler->create();
             $newobj->setVar('content_title', _AM_XMCONTENT_CONTENT_COPY . $content->getVar('content_title'));
-            $newobj->setVar('content_text', $content->getVar('content_text'));
+            $newobj->setVar('content_text', $content->getVar('content_text','n'));
 			$newobj->setVar('content_logo', $content->getVar('content_logo'));
             $newobj->setVar('content_weight', 0);
             $newobj->setVar('content_status', $content->getVar('content_status'));
