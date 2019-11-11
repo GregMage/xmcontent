@@ -67,7 +67,7 @@ $xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));
 $xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
 $xoopsTpl->assign('content_domail', $content->getVar('content_domail'));
 $xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
-
+$xoopsTpl->assign('xmcontent_page', XOOPS_URL . 'modules/xmcontent/viewcontent.php?content_id=' . $content_id);
 //xmdoc
 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
     xoops_load('utility', 'xmdoc');
