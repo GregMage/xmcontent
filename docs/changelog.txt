@@ -16,8 +16,6 @@ Correction de bogues:
 
 Améliorations:
 	- Changement du nom du module (Xmcontent).
-	- Ajout de la traduction Française
-
 
 -------------------------------------------------
 Version: 0.5 RC 1
