@@ -34,10 +34,10 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '2019/02/19';
+$modversion['release_date']        = '2019/11/22';
 $modversion['module_website_url']  = 'https://xoops.org/';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['module_status']       = 'RC 1';
+$modversion['module_status']       = 'Final';
 $modversion['min_php']             = '5.6';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');

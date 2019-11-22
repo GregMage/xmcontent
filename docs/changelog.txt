@@ -1,4 +1,25 @@
 ﻿-------------------------------------------------
+Version: 0.5 final
+Date:    22.11.2019
+-------------------------------------------------
+
+Bug fixes:	
+	- Display problem after the action logos in the admin.
+	- Trolley return problem after cloning content.
+
+Improvements:
+	- Change the name of the module (Xmcontent).
+	
+Correction de bogues:	
+	- Problème d'affichage après les logos d'action dans l'admin.
+	- Problème de retour de chariot après avoir cloné un contenu.	
+
+Améliorations:
+	- Changement du nom du module (Xmcontent).
+	- Ajout de la traduction Française
+
+
+-------------------------------------------------
 Version: 0.5 RC 1
 Date:    19.02.2019
 -------------------------------------------------
