@@ -137,7 +137,7 @@ switch ($op) {
         $content_arr = array(
             _AM_XMCONTENT_CONTENT_TITLE       => $content->getVar('content_title'),
             _AM_XMCONTENT_CONTENT_TEXT        => $content->getVar('content_text', 'show'),
-			_AM_XMCONTENT_CONTENT_LOGO        => '<img src="' . $url_logo . $content->getVar('content_logo') . '" alt="' . $content->getVar('content_title') . '">',
+			_AM_XMCONTENT_CONTENT_LOGO        => '<img src="' . $url_logo . $content->getVar('content_logo') . '" alt="' . $content->getVar('content_title') . '" style="max-width:150px">',
             _AM_XMCONTENT_CONTENT_WEIGHT      => $content->getVar('content_weight'),
             _AM_XMCONTENT_CONTENT_STATUS      => $status,
             _AM_XMCONTENT_CONTENT_KEYWORD     => $content->getVar('content_mkeyword'),

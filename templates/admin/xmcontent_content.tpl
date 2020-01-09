@@ -31,7 +31,7 @@
         <tbody>
         <{foreach item=content from=$content}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtleft"><{$content.title}></td>
+                <td class="txtleft"><a href="../viewcontent.php?content_id=<{$content.id}>" title="<{$content.title}>"><{$content.title}></a></td>
                 <td class="txtcenter"><{$content.weight}></td>
                 <td class="xo-actions txtcenter">
                     <img id="loading_sml<{$content.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
