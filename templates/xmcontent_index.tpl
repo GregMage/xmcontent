@@ -15,7 +15,7 @@
 					<div class="col-sm-12">
 						<div class="media">
 							<div class="media-left">
-								<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+								<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>" style="max-width:180px; min-width:180px">
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading"><{$content.title}></h4>
@@ -35,7 +35,7 @@
 				<div class="col-sm-6">
 					<div class="media">
 						<div class="media-left">
-							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>" style="max-width:160px; min-width:160px">
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"><{$content.title}></h4>
@@ -57,7 +57,7 @@
 				<div class="col-sm-4">
 					<div class="media">
 						<div class="media-left">
-							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>" style="max-width:120px; min-width:120px">
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"><{$content.title}></h4>
@@ -79,7 +79,7 @@
 				<div class="col-sm-3">
 					<div class="media">
 						<div class="media-left">
-							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>">
+							<img class="media-object" src="<{$content.logo}>" alt="<{$content.title}>" style="max-width:80px; min-width:80px">
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading"><{$content.title}></h4>
