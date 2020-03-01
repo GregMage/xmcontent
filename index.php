@@ -102,7 +102,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 		exit();
 	}
 	$content = $contentHandler->get($content_id);
-	if (0 == count($content)) {
+	if (!is_object($content)) {
 		redirect_header(XOOPS_URL, 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
 		exit();
 	}
