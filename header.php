@@ -16,12 +16,16 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+ use Xmf\Module\Helper;
 
 include dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once dirname(__DIR__) . '/system/include/functions.php';
 XoopsLoad::load('XoopsRequest');
 include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-$helper = \Xmf\Module\Helper::getHelper('xmcontent');
+$helper = Helper::getHelper('xmcontent');
+
+// Load language files
+$helper->loadLanguage('admin');
 
 // Config
 $nb_limit = $xoopsModuleConfig['index_perpage'];

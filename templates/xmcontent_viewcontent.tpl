@@ -15,6 +15,13 @@
 		</div>
 	</div>
 <{/if}>
+<{if $perm_edit == true}>
+<div align="center">
+	<a href="admin/content.php?op=edit&content_id=<{$content_id}>">
+		<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><{$smarty.const._AM_XMCONTENT_EDIT}></button>
+	</a>
+</div>
+<{/if}>	
 <{if $xmdoc_viewdocs == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -22,7 +29,7 @@
         </div>
         <div class="panel-body">
             <{include file="db:xmdoc_viewdoc.tpl"}>
-        </div>
+        </div>	
     </div>
 <{/if}>
 <{if $content_docomment == 1}>

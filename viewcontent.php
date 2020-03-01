@@ -50,6 +50,12 @@ if (!$perm_view) {
     redirect_header('index.php', 2, _NOPERM);
     exit();
 }
+
+if ($helper->isUserAdmin() == true){
+	$xoopsTpl->assign('perm_edit', true);
+	$xoopsTpl->assign('content_id', $content_id);
+}
+
 // css
 if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
 	$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
