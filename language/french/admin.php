@@ -47,8 +47,8 @@ define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
 define('_AM_XMCONTENT_CONTENT_LIST', 'Liste des contenus');
 define('_AM_XMCONTENT_CONTENT_LOGO', 'Fichier logo');
-define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Affiché sur la page principale');
-define('_AM_XMCONTENT_CONTENT_PATH', 'Les fichiers sont dans: %s');
+define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Afficher sur la page principale');
+define('_AM_XMCONTENT_CONTENT_PATH', 'Les fichiers sont dans : %s');
 define('_AM_XMCONTENT_CONTENT_STATUS', 'Statut');
 define('_AM_XMCONTENT_CONTENT_STATUS_A', 'Activé');
 define('_AM_XMCONTENT_CONTENT_STATUS_NA', 'Désactivé');
@@ -58,7 +58,7 @@ define('_AM_XMCONTENT_CONTENT_TEMPLATE', 'Fichier modèle');
 define('_AM_XMCONTENT_CONTENT_TEXT', "Texte<br /><br />Utilisez le délimiteur <span style='color:blue'>[break_dsc]</span> pour définir la taille de la description courte. <br> La description courte est utilisée sur la page d'accueil du module");
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Titre');
 define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Télécharger');
-define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Taille maximum: %s Ko');
+define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Taille maximum : %s Ko');
 define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Poids');
 
 // error

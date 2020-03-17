@@ -36,16 +36,16 @@ define('_MI_XMCONTENT_BLOCK_DEFAULT_DESC', 'Afficher un contenu');
 
 // Pref.
 define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
-define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Nombre de colonne pour afficher le contenu');
-define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Nombre de contenu pouvant être visualisé dans l\'index: 1, 2, 3 ou 4 colonnes');
+define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Nombre de colonne(s) pour afficher le contenu');
+define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Choisissez le nombre de colonne(s) pouvant être visualisée(s) dans l\'index: 1, 2, 3 ou 4 colonnes');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX', 'Contenu à afficher sur la page d\'index');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX_ALL', 'Tous les contenus');
-define('_MI_XMCONTENT_PREF_CONTENTINDEX_DESC', 'Choisissez le contenu à afficher. Pour afficher tout le contenu, vous devez mettre à jour le module!');
+define('_MI_XMCONTENT_PREF_CONTENTINDEX_DESC', 'Choisissez le contenu à afficher. Pour afficher tout le contenu, vous devez mettre à jour le module !');
 define('_MI_XMCONTENT_PREF_HEADER', 'En-tête de la page d\'index');
 define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Utilisez du code HTML à afficher dans la page d\'index');
 define('_MI_XMCONTENT_PREF_FOOTER', 'Pied de la page d\'index');
 define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Utilisez du code HTML à afficher dans la page d\'index');
-define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Nombre d\'éléments à afficher sur la page d\index');
+define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Nombre d\'éléments à afficher sur la page d\'index');
 define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-weight: bold;'>Options</span>");
 define('_MI_XMCONTENT_PREF_CSS', 'Utiliser un fichier css personnalisé pour les pages de contenu');
 define('_MI_XMCONTENT_PREF_CSS_DESC', 'Si cette option est activée, vous pouvez ajouter un fichier CSS personnalisé à un contenu.');
