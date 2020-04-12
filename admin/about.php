@@ -23,7 +23,7 @@ require __DIR__ . '/admin_header.php';
 
 $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('about.php');
-Admin::setPaypal('9MYQB7GUK5MCS');
+Admin::setPaypal('U7RJ5VQGYAWDJ');
 $moduleAdmin->displayAbout(false);
 
 require __DIR__ . '/admin_footer.php';
