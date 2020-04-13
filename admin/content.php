@@ -40,8 +40,27 @@ switch ($op) {
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
         // Get start pager
         $start = Request::getInt('start', 0);
+		$xoopsTpl->assign('filter', true);
+		//title
+		$title = Request::getString('title', '');
+		$xoopsTpl->assign('title', $title);		
+		// Status		
+        $content_status = Request::getInt('content_status', 10);
+        $xoopsTpl->assign('content_status', $content_status);
+        $status_options         = [1 => _AM_XMCONTENT_CONTENT_STATUS_A, 0 => _AM_XMCONTENT_CONTENT_STATUS_NA];
+		$content_status_options = '<option value="10"' . ($content_status == 0 ? ' selected="selected"' : '') . '>' . _ALL .'</option>';
+        foreach (array_keys($status_options) as $i) {
+            $content_status_options .= '<option value="' . $i . '"' . ($content_status == $i ? ' selected="selected"' : '') . '>' . $status_options[$i] . '</option>';
+        }
+        $xoopsTpl->assign('content_status_options', $content_status_options);
         // Criteria
         $criteria = new CriteriaCompo();
+		if ($title != ''){
+			$criteria->add(new Criteria('content_title', '%' . $title . '%', 'LIKE'));
+		}
+		if ($content_status != 10){
+			$criteria->add(new Criteria('content_status', $content_status));
+		} 
         $criteria->setSort('content_weight ASC, content_title');
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
@@ -72,7 +91,7 @@ switch ($op) {
             }
             // Display Page Navigation
             if ($content_count > $nb_limit) {
-                $nav = new XoopsPageNav($content_count, $nb_limit, $start, 'start');
+                $nav = new XoopsPageNav($content_count, $nb_limit, $start, 'start', 'content_status=' . $content_status .'&title=' . $title);
                 $xoopsTpl->assign('nav_menu', $nav->renderNav(4));
             }
         } else {

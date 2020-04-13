@@ -16,6 +16,20 @@
 <div class="xmcontent">
     <{$form}>
 </div>
+<{if $filter}>
+	<div align="right">
+		<form id="form_content_tri" name="form_content_tri" method="post" action="content.php">
+			<{$smarty.const._AM_XMCONTENT_CONTENT_TITLE}>
+			<input type="text" id="title" name="title" value="<{$title}>" />
+			<input type="submit" value="<{$smarty.const._GO}>" />
+			<input type='button' name='reset'  id='reset' value='<{$smarty.const._RESET}>' onclick="location='content.php'" />
+			<{$smarty.const._AM_XMCONTENT_CONTENT_STATUS}>
+			<select name="content_filter" id="content_filter" onchange="location='content.php?content_status='+this.options[this.selectedIndex].value">
+				<{$content_status_options}>
+			<select>
+		</form>
+	</div>
+<{/if}>
 <{if $content_count != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
