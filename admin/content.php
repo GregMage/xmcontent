@@ -211,6 +211,11 @@ switch ($op) {
                 redirect_header('content.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($contentHandler->delete($obj)) {
+				//xmdoc
+				if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
+					xoops_load('utility', 'xmdoc');
+					XmdocUtility::delDocdata('xmcontent', $content_id);
+				}				
 				//Del logo
 				if ($obj->getVar('content_logo') != 'blank.gif') {
 					// Test if the image is used
