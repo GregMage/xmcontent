@@ -188,10 +188,14 @@ class xmcontent_content extends XoopsObject
         $form->addElement($form_status);
 
         // keyword
-        $form->addElement(new XoopsFormTextArea(_AM_XMCONTENT_CONTENT_KEYWORD, 'content_mkeyword', $this->getVar('content_mkeyword', 'e'), 2, 60), false);
+		$keyword = new XoopsFormTextArea(_AM_XMCONTENT_CONTENT_KEYWORD, 'content_mkeyword', $this->getVar('content_mkeyword', 'e'), 2, 60);
+		$keyword->setDescription(_AM_XMCONTENT_CONTENT_KEYWORD_DSC);
+		$form->addElement($keyword, false);
 
         // description
-        $form->addElement(new XoopsFormTextArea(_AM_XMCONTENT_CONTENT_DESCRIPTION, 'content_mdescription', $this->getVar('content_mdescription', 'e'), 2, 60), false);
+		$description = new XoopsFormTextArea(_AM_XMCONTENT_CONTENT_DESCRIPTION, 'content_mdescription', $this->getVar('content_mdescription', 'e'), 2, 60);
+		$description->setDescription(_AM_XMCONTENT_CONTENT_DESCRIPTION_DSC);
+		$form->addElement($description, false);
 
         // maindisplay
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_MAINDISPLAY, 'content_maindisplay', $this->getVar('content_maindisplay')));

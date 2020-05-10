@@ -36,6 +36,7 @@ define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');
 define('_AM_XMCONTENT_CONTENT_CSS', 'CSS file');
 define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Meta description');
+define('_AM_XMCONTENT_CONTENT_DESCRIPTION_DSC', 'The meta description tag provides a description to search engines for displaying results.');
 define('_AM_XMCONTENT_CONTENT_DOCOMMENT', 'View comments');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
@@ -45,6 +46,7 @@ define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
+define('_AM_XMCONTENT_CONTENT_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma in between. (Ex. XOOPS, PHP, mySQL, portal system).');
 define('_AM_XMCONTENT_CONTENT_LIST', 'List of content');
 define('_AM_XMCONTENT_CONTENT_LOGO', 'Logo file');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Displayed on the main page');

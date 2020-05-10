@@ -36,6 +36,7 @@ define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'Vous devez activer
 define('_AM_XMCONTENT_CONTENT_ADD', 'Ajouter un contenu');
 define('_AM_XMCONTENT_CONTENT_CSS', 'Fichier CSS');
 define('_AM_XMCONTENT_CONTENT_DESCRIPTION', 'Meta description');
+define('_AM_XMCONTENT_CONTENT_DESCRIPTION_DSC', 'La balise méta description permet de fournir une description aux moteurs de recherches pour l\'affichage des résultats.');
 define('_AM_XMCONTENT_CONTENT_DOCOMMENT', 'Voir les commentaires');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'Voir l\'icône email');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'Voir l\'icône pdf');
@@ -45,6 +46,7 @@ define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Montrer le titre');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Sélectionner les groupes pouvant voir ce contenu');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
+define('_AM_XMCONTENT_CONTENT_KEYWORD_DSC', 'La balise méta keywords est une série de mots clés qui représentent le contenu de vos actualités. Tapez des mots-clés séparés par une virgule. (Ex. XOOPS, PHP, MySQL, système de portail).');
 define('_AM_XMCONTENT_CONTENT_LIST', 'Liste des contenus');
 define('_AM_XMCONTENT_CONTENT_LOGO', 'Fichier logo');
 define('_AM_XMCONTENT_CONTENT_MAINDISPLAY', 'Afficher sur la page principale');
