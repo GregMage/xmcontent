@@ -70,14 +70,11 @@ $modversion['adminmenu']  = 'admin/menu.php';
 
 // Admin Templates
 $modversion['templates'][] = ['file' => 'xmcontent_admin_content.tpl', 'description' => '', 'type' => 'admin'];
+$modversion['templates'][] = ['file' => 'xmcontent_admin_permission.tpl', 'description' => '', 'type' => 'admin'];
 
 // Templates
-$i                                          = 1;
-$modversion['templates'][$i]['file']        = 'xmcontent_index.tpl';
-$modversion['templates'][$i]['description'] = '';
-$i++;
-$modversion['templates'][$i]['file']        = 'xmcontent_viewcontent.tpl';
-$modversion['templates'][$i]['description'] = '';
+$modversion['templates'][] = ['file' => 'xmcontent_index.tpl', 'description' => ''];
+$modversion['templates'][] = ['file' => 'xmcontent_viewcontent.tpl', 'description' => ''];
 
 // Blocks
 $modversion['blocks'][] = array(

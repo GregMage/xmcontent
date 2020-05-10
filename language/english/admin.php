@@ -61,6 +61,10 @@ define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Upload');
 define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Maximum size: %s kB');
 define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Weight');
 
+// permission
+define('_AM_XMCONTENT_PERMISSION_VIEW', 'View permissions');
+define('_AM_XMCONTENT_PERMISSION_VIEW_DSC', 'Select groups that can view this content');
+
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'There are no contents in the database');
 define('_AM_XMCONTENT_ERROR_WEIGHT', 'Weight must be a number');

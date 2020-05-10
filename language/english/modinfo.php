@@ -25,6 +25,7 @@ define('_MI_XMCONTENT_MENU_HOME', 'Home');
 define('_MI_XMCONTENT_MENU_HOME_DESC', 'Go back to homepage');
 define('_MI_XMCONTENT_MENU_CONTENT', 'Contents');
 define('_MI_XMCONTENT_MENU_CONTENT_DESC', 'List of contents');
+define('_MI_XMCONTENT_MENU_PERMISSION', 'Permissions');
 define('_MI_XMCONTENT_MENU_ABOUT', 'About');
 define('_MI_XMCONTENT_MENU_ABOUT_DESC', 'About this module');
 define('_MI_XMCONTENT_MENU_HELP', 'Help');

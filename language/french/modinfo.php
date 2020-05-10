@@ -25,6 +25,7 @@ define('_MI_XMCONTENT_MENU_HOME', 'Accueil');
 define('_MI_XMCONTENT_MENU_HOME_DESC', 'Retournez à la page d\'accueil');
 define('_MI_XMCONTENT_MENU_CONTENT', 'Contenu');
 define('_MI_XMCONTENT_MENU_CONTENT_DESC', 'Liste des contenu');
+define('_MI_XMCONTENT_MENU_PERMISSION', 'Autorisations');
 define('_MI_XMCONTENT_MENU_ABOUT', 'A propos');
 define('_MI_XMCONTENT_MENU_ABOUT_DESC', 'A propos de ce module');
 define('_MI_XMCONTENT_MENU_HELP', 'Aide');

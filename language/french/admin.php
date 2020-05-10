@@ -61,6 +61,10 @@ define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Télécharger');
 define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Taille maximum : %s Ko');
 define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Poids');
 
+// permission
+define('_AM_XMCONTENT_PERMISSION_VIEW', 'Autorisation de voir un contenu');
+define('_AM_XMCONTENT_PERMISSION_VIEW_DSC', 'Choisissez les groupes qui peuvent voir le contenu suivant');
+
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'Il n\'y a pas de contenu dans la base de données');
 define('_AM_XMCONTENT_ERROR_WEIGHT', 'Le poids doit être un nombre');
