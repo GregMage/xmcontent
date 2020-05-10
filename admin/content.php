@@ -446,5 +446,5 @@ switch ($op) {
         break;
 }
 // Call template file
-$xoopsTpl->display(XOOPS_ROOT_PATH . '/modules/xmcontent/templates/admin/xmcontent_content.tpl');
+$xoopsTpl->display("db:xmcontent_admin_content.tpl");
 require __DIR__ . '/admin_footer.php';

@@ -68,6 +68,9 @@ $modversion['hasAdmin']   = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu']  = 'admin/menu.php';
 
+// Admin Templates
+$modversion['templates'][] = ['file' => 'xmcontent_admin_content.tpl', 'description' => '', 'type' => 'admin'];
+
 // Templates
 $i                                          = 1;
 $modversion['templates'][$i]['file']        = 'xmcontent_index.tpl';
