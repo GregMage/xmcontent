@@ -42,7 +42,7 @@ $adminmenu[] = [
 $adminmenu[] = [
     'title' => _MI_XMCONTENT_MENU_PERMISSION,
     'link'  => 'admin/permission.php',
-    'icon'  => $pathIcon32 . 'permissions.png'
+    'icon'  => $pathIcon32 . '/permissions.png'
 ];
 
 $adminmenu[] = [
