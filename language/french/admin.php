@@ -65,7 +65,7 @@ define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Poids');
 
 // permission
 define('_AM_XMCONTENT_PERMISSION_VIEW', 'Autorisation de voir un contenu');
-define('_AM_XMCONTENT_PERMISSION_VIEW_DSC', 'Choisissez les groupes qui peuvent voir le contenu suivant');
+define('_AM_XMCONTENT_PERMISSION_VIEW_DSC', 'Choisissez les groupes qui peuvent voir les contenus suivant');
 
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'Il n\'y a pas de contenu dans la base de données');
