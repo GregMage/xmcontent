@@ -34,10 +34,10 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '';
+$modversion['release_date']        = '2020/05/10';
 $modversion['module_website_url']  = 'www.monxoops.fr/';
 $modversion['module_website_name'] = 'MonXoops';
-$modversion['module_status']       = 'Beta 1';
+$modversion['module_status']       = 'Final';
 $modversion['min_php']             = '5.6';
 $modversion['min_xoops']           = '2.5.10';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');

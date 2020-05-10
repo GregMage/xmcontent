@@ -1,4 +1,39 @@
 ﻿-------------------------------------------------
+Version: 1.0 Final
+Date:    10.05.2020
+-------------------------------------------------
+Bug fixes:	
+	- Paypal did not work for donations (about.php).
+
+Improvements:
+	- Addition of bootstrap 4 templates (Alain and Mage).
+	- Optimization of the tempaltes.
+	- Addition of a "modify" button on the content (if admin).
+	- FR language correction (Alain).
+	- Addition of a filter in the admin section to find content more quickly.
+	- Better integration of xmdoc.
+	- Addition of a page in the administration for the permissions.
+
+Security:
+	/
+	
+Correction de bogues:	
+	- Paypal ne fonctionnait pas pour les donations (about.php).
+
+Améliorations:
+	- Ajout des templates bootstrap 4 (Alain et Mage).
+	- Optimisation des tempaltes.
+	- Ajout d'un bouton "modifier" sur le contenu (si admin).
+	- Correction langue FR (Alain).
+	- Ajout d'un filtre dans la partie admin pour retrouver plus rappidement un contenu.
+	- Meilleure intégration de xmdoc.
+	- Ajout d'une page dans l'administration pour les permissions.
+
+Sécurités:
+	/
+
+
+-------------------------------------------------
 Version: 0.5 final
 Date:    22.11.2019
 -------------------------------------------------
