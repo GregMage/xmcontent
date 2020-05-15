@@ -21,6 +21,7 @@ $xoopsOption['template_main'] = 'xmcontent_viewcontent.tpl';
 include_once XOOPS_ROOT_PATH . '/header.php';
 
 $content_id = XoopsRequest::getInt('content_id', 0);
+$xoopsTpl->assign('content_id', $content_id);
 
 if (0 == $content_id) {
     redirect_header('index.php', 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
@@ -53,7 +54,6 @@ if (!$perm_view) {
 
 if ($helper->isUserAdmin() == true){
 	$xoopsTpl->assign('perm_edit', true);
-	$xoopsTpl->assign('content_id', $content_id);
 }
 
 // css
