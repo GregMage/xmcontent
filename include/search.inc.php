@@ -16,17 +16,31 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+use Xmf\Module\Helper;
 
 function xmcontent_search($queryarray, $andor, $limit, $offset, $userid)
 {
     global $xoopsDB;
 	$ret = array();
 	
+    $sql = "SELECT content_id, content_title, content_text FROM ".$xoopsDB->prefix("xmcontent_content")." WHERE content_status != 0";
+	
 	if ($userid != 0){
 		return $ret;
 	}
-
-    $sql = "SELECT content_id, content_title, content_text FROM ".$xoopsDB->prefix("xmcontent_content")." WHERE content_status != 0";
+	
+	global $xoopsUser;
+	$contentview = array();
+	$helper = Helper::getHelper('xmcontent');
+	$moduleHandler = $helper->getModule();
+	$groups = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
+	$gpermHandler = xoops_getHandler('groupperm');
+	$contentviewPermission = $gpermHandler->getItemIds('xmcontent_contentview', $groups, $moduleHandler->getVar('mid'));
+	if(!empty($contentviewPermission)) {
+        $sql .= ' AND content_id IN ('.implode(',', $contentviewPermission).') ';
+    } else {
+        return null;
+    }
 
     if ( is_array($queryarray) && $count = count($queryarray) )
     {
