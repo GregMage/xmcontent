@@ -223,20 +223,8 @@ class xmcontent_content extends XoopsObject
         $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOTITLE, 'content_dotitle', $this->getVar('content_dotitle')));
 
         // permission
-        $memberHandler = xoops_getHandler('member');
-        $group_list     = $memberHandler->getGroupList();
-        $gpermHandler  = xoops_getHandler('groupperm');
-        $full_list      = array_keys($group_list);
-        global $xoopsModule;
-        if (!$this->isNew()) {
-            $groups_ids_view               = $gpermHandler->getGroupIds('xmcontent_contentview', $this->getVar('content_id'), $xoopsModule->getVar('mid'));
-            $groups_ids_view               = array_values($groups_ids_view);
-            $groups_news_can_view_checkbox = new XoopsFormCheckBox(_AM_XMCONTENT_CONTENT_GROUPSVIEW, 'groups_view[]', $groups_ids_view);
-        } else {
-            $groups_news_can_view_checkbox = new XoopsFormCheckBox(_AM_XMCONTENT_CONTENT_GROUPSVIEW, 'groups_view[]', $full_list);
-        }
-        $groups_news_can_view_checkbox->addOptionArray($group_list);
-        $form->addElement($groups_news_can_view_checkbox);
+        $permHelper = new Helper\Permission();
+        $form->addElement($permHelper->getGroupSelectFormForItem('xmcontent_contentview', $this->getVar('content_id'), _AM_XMCONTENT_CONTENT_GROUPSVIEW, 'xmcontent_contentview_perms', true));
 
         $form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt
@@ -332,26 +320,17 @@ class xmcontent_content extends XoopsObject
         $this->setVar('content_dotitle', Request::getInt('content_dotitle', 1));
         if ($error_message == '') {
             if ($contentHandler->insert($this)) {
+				// permissions
 				if ($this->get_new_enreg() == 0){
 					$content_id = $this->getVar('content_id');
 				} else {
 					$content_id = $this->get_new_enreg();
 				}
-				// update permissions
-				global $xoopsModule;
-                $newcontent_id =  $this->get_new_enreg();
-                $perm_id       = $content_id > 0 ? $content_id : $newcontent_id;
-                $gpermHandler = xoops_getHandler('groupperm');
-                $criteria      = new CriteriaCompo();
-                $criteria->add(new Criteria('gperm_itemid', $perm_id, '='));
-                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'), '='));
-                $criteria->add(new Criteria('gperm_name', 'xmcontent_contentview', '='));
-                $gpermHandler->deleteAll($criteria);
-                if (isset($_POST['groups_view'])) {
-                    foreach ($_POST['groups_view'] as $onegroup_id) {
-                        $gpermHandler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
-                    }
-                }
+                $permHelper = new Helper\Permission();
+                // permission xmcontent_contentview
+                $groups_view = Request::getArray('xmcontent_contentview_perms', [], 'POST');
+                $permHelper->savePermissionForItem('xmcontent_contentview', $content_id, $groups_view);
+
 				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
                     xoops_load('utility', 'xmdoc');
