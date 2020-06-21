@@ -44,6 +44,7 @@ define('_AM_XMCONTENT_CONTENT_DOPRINT', 'View the print icon');
 define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'View social icons');
 define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
+define('_AM_XMCONTENT_CONTENT_GROUPSEDIT', 'Select groups that can edit this content');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
 define('_AM_XMCONTENT_CONTENT_KEYWORD_DSC', 'The keywords meta tag is a series of keywords that represents the content of your news. Type in keywords with each separated by a comma in between. (Ex. XOOPS, PHP, mySQL, portal system).');

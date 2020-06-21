@@ -44,6 +44,7 @@ define('_AM_XMCONTENT_CONTENT_DOPRINT', 'Voir l\'icône d\'impression');
 define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'Voir les icônes sociales');
 define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Montrer le titre');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Sélectionner les groupes pouvant voir ce contenu');
+define('_AM_XMCONTENT_CONTENT_GROUPSEDIT', 'Sélectionner les groupes pouvant modifier ce contenu');
 define('_AM_XMCONTENT_CONTENT_INFORMATION', 'Informations');
 define('_AM_XMCONTENT_CONTENT_KEYWORD', 'Meta keywords');
 define('_AM_XMCONTENT_CONTENT_KEYWORD_DSC', 'La balise méta keywords est une série de mots clés qui représentent le contenu de vos actualités. Tapez des mots-clés séparés par une virgule. (Ex. XOOPS, PHP, MySQL, système de portail).');
