@@ -75,6 +75,7 @@ $modversion['templates'][] = ['file' => 'xmcontent_admin_permission.tpl', 'descr
 // Templates
 $modversion['templates'][] = ['file' => 'xmcontent_index.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'xmcontent_viewcontent.tpl', 'description' => ''];
+$modversion['templates'][] = ['file' => 'xmcontent_action.tpl', 'description' => ''];
 
 // Blocks
 $modversion['blocks'][] = array(
