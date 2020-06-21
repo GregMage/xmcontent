@@ -40,7 +40,7 @@ if (0 == $content->getVar('content_status')) {
 }
 
 // permission to view
-if ($permHelper->checkPermission('xmcontent_contentview', $category_id) === false){
+if ($permHelper->checkPermission('xmcontent_contentview', $content_id) === false){
 	redirect_header('index.php',2, _NOPERM);
 }
 
