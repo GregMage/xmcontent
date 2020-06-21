@@ -248,140 +248,21 @@ switch ($op) {
         break;
     // save content
     case 'save':
-        if (!$GLOBALS['xoopsSecurity']->check()) {
+		if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('content.php', 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        if (isset($_POST['content_id'])) {
-            $obj = $contentHandler->get(Request::getInt('content_id', 0));
-        } else {
+        $content_id = Request::getInt('content_id', 0);
+        if ($content_id == 0) {
             $obj = $contentHandler->create();
-        }
-
-        $message_error           = '';
-        $content_id              = Request::getInt('content_id', 0, 'POST');
-        $content['title']        = Request::getString('content_title', '', 'POST');
-        $content['text']         = Request::getText('content_text', '', 'POST');
-        $content['weight']       = $_POST['content_weight'];
-        $content['status']       = Request::getInt('content_status', 0, 'POST');
-        $content['mkeyword']     = Request::getString('content_mkeyword', '', 'POST');
-        $content['mdescription'] = Request::getString('content_mdescription', '', 'POST');
-        $content['maindisplay']  = Request::getInt('content_maindisplay', 0, 'POST');
-        $content['docomment']    = Request::getInt('content_docomment', 0, 'POST');
-        $content['dopdf']        = Request::getInt('content_dopdf', 0, 'POST');
-        $content['doprint']      = Request::getInt('content_doprint', 0, 'POST');
-        $content['dosocial']     = Request::getInt('content_dosocial', 0, 'POST');
-        $content['domail']       = Request::getInt('content_domail', 0, 'POST');
-        $content['dotitle']      = Request::getInt('content_dotitle', 0, 'POST');
-        // error
-        if (0 == (int)$content['weight'] && '0' != $content['weight']) {
-            $message_error .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
-            $content['weight'] = 0;
-        }
-		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
-		//css
-		if (true == $helper->getConfig('options_css', 0)){
-			if (UPLOAD_ERR_NO_FILE != $_FILES['content_css']['error']) {
-				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
-				if ($uploader_css->fetchMedia('content_css')) {
-					if (!$uploader_css->upload()) {
-						$message_error .= 'Css -' .$uploader_css->getErrors() . '<br />';
-					} else {
-						$obj->setVar('content_css', $uploader_css->getSavedFileName());
-					}
-				} else {
-					$message_error .= 'Css -' . $uploader_css->getErrors();
-				}
-			} else {
-				$obj->setVar('content_css', $_POST['content_css']);
-			}
-		}else{
-			$obj->setVar('content_css', '');
-		}
-		//template
-		if (true == $helper->getConfig('options_template', 0)){
-			if (UPLOAD_ERR_NO_FILE != $_FILES['content_template']['error']) {
-				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
-				if ($uploader_template->fetchMedia('content_template')) {
-					if (!$uploader_template->upload()) {
-						$message_error .= 'Template -' . $uploader_template->getErrors() . '<br />';
-					} else {
-						$obj->setVar('content_template', $uploader_template->getSavedFileName());
-					}
-				} else {
-					$message_error .= 'Template -' . $uploader_template->getErrors();
-				}
-			} else {
-				$obj->setVar('content_template', $_POST['content_template']);
-			}
-		}else{
-			$obj->setVar('content_template', '');
-		}
-		//logo
-        $uploadirectory = '/xmcontent/images';
-        if ($_FILES['content_logo']['error'] != UPLOAD_ERR_NO_FILE) {
-            include_once XOOPS_ROOT_PATH . '/class/uploader.php';
-            $uploader_content_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . $uploadirectory, ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'], $upload_size, null, null);
-            if ($uploader_content_img->fetchMedia('content_logo')) {
-                $uploader_content_img->setPrefix('content_');
-                if (!$uploader_content_img->upload()) {
-                    $message_error .= $uploader_content_img->getErrors() . '<br>';
-                } else {
-                    $obj->setVar('content_logo', $uploader_content_img->getSavedFileName());
-                }
-            } else {
-                $message_error .= $uploader_content_img->getErrors();
-            }
         } else {
-            $obj->setVar('content_logo', Xmf\Request::getString('content_logo', ''));
+            $obj = $contentHandler->get($content_id);
         }
-		
-        $obj->setVar('content_title', $content['title']);
-        $obj->setVar('content_text', $content['text']);
-        $obj->setVar('content_weight', $content['weight']);
-        $obj->setVar('content_status', $content['status']);
-        $obj->setVar('content_mkeyword', $content['mkeyword']);
-        $obj->setVar('content_mdescription', $content['mdescription']);
-        $obj->setVar('content_maindisplay', $content['maindisplay']);
-        $obj->setVar('content_docomment', $content['docomment']);
-        $obj->setVar('content_dopdf', $content['dopdf']);
-        $obj->setVar('content_doprint', $content['doprint']);
-        $obj->setVar('content_dosocial', $content['dosocial']);
-        $obj->setVar('content_domail', $content['domail']);
-        $obj->setVar('content_dotitle', $content['dotitle']);
-
-        if ('' != $message_error) {
-            // Define button addItemButton
-            $admin_class->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
-            $xoopsTpl->assign('renderbutton', $admin_class->renderButton());
-            $xoopsTpl->assign('message_error', $message_error);
-            $form = $obj->getForm();
+        $error_message = $obj->saveContent($contentHandler, 'content.php');
+        if ($error_message != ''){
+            $xoopsTpl->assign('message_error', $error_message);
+			$form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
-        } else {
-            if ($contentHandler->insert($obj)) {
-                // update permissions
-                $newcontent_id = $obj->get_new_enreg();
-                $perm_id       = $content_id > 0 ? $content_id : $newcontent_id;
-                $gpermHandler = xoops_getHandler('groupperm');
-                $criteria      = new CriteriaCompo();
-                $criteria->add(new Criteria('gperm_itemid', $perm_id, '='));
-                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'), '='));
-                $criteria->add(new Criteria('gperm_name', 'xmcontent_contentview', '='));
-                $gpermHandler->deleteAll($criteria);
-                if (isset($_POST['groups_view'])) {
-                    foreach ($_POST['groups_view'] as $onegroup_id) {
-                        $gpermHandler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
-                    }
-                }
-				//xmdoc
-                if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
-                    xoops_load('utility', 'xmdoc');
-                    $error_message .= XmdocUtility::saveDocuments('xmcontent', $perm_id);
-                }
-                redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
-            } else {
-                $xoopsTpl->assign('message_error', $obj->getHtmlErrors());
-            }
-        }
+        }        
         break;
 
     // clone

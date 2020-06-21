@@ -16,10 +16,10 @@
  * @license         GNU GPL 2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
  * @author          Mage Gregory (AKA Mage)
  */
+use Xmf\Request;
+use Xmf\Module\Helper;
 
-if (!defined('XOOPS_ROOT_PATH')) {
-    die('XOOPS root path not defined');
-}
+defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
 /**
  * Class xmcontent_content
@@ -243,6 +243,130 @@ class xmcontent_content extends XoopsObject
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
 
         return $form;
+    }
+	
+	public function saveContent($contentHandler, $action = false)
+    {
+        global $xoopsUser;
+        if ($action === false) {
+            $action = $_SERVER['REQUEST_URI'];
+        }
+        include __DIR__ . '/../include/common.php';
+        $helper = Helper::getHelper('xmcontent');
+        $error_message = '';
+		
+		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
+		// test error
+        if ((int)$_REQUEST['content_weight'] == 0 && $_REQUEST['content_weight'] != '0') {
+            $error_message .= _AM_XMCONTENT_ERROR_WEIGHT . '<br>';
+            $this->setVar('content_weight', 0);
+        }		
+		//css
+		if (true == $helper->getConfig('options_css', 0)){
+			if (UPLOAD_ERR_NO_FILE != $_FILES['content_css']['error']) {
+				$uploader_css = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/css/', array('text/css'), $upload_size, null, null);
+				if ($uploader_css->fetchMedia('content_css')) {
+					if (!$uploader_css->upload()) {
+						$message_error .= 'Css -' .$uploader_css->getErrors() . '<br />';
+					} else {
+						$this->setVar('content_css', $uploader_css->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Css -' . $uploader_css->getErrors();
+				}
+			} else {
+				$this->setVar('content_css', $_POST['content_css']);
+			}
+		}else{
+			$this->setVar('content_css', '');
+		}
+		//template
+		if (true == $helper->getConfig('options_template', 0)){
+			if (UPLOAD_ERR_NO_FILE != $_FILES['content_template']['error']) {
+				$uploader_template = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . '/xmcontent/templates/', array('text/html','tpl/html'), $upload_size, null, null);
+				if ($uploader_template->fetchMedia('content_template')) {
+					if (!$uploader_template->upload()) {
+						$message_error .= 'Template -' . $uploader_template->getErrors() . '<br />';
+					} else {
+						$this->setVar('content_template', $uploader_template->getSavedFileName());
+					}
+				} else {
+					$message_error .= 'Template -' . $uploader_template->getErrors();
+				}
+			} else {
+				$this->setVar('content_template', $_POST['content_template']);
+			}
+		}else{
+			$this->setVar('content_template', '');
+		}
+		//logo
+        $uploadirectory = '/xmcontent/images';
+        if ($_FILES['content_logo']['error'] != UPLOAD_ERR_NO_FILE) {
+            include_once XOOPS_ROOT_PATH . '/class/uploader.php';
+            $uploader_content_img = new XoopsMediaUploader(XOOPS_UPLOAD_PATH . $uploadirectory, ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'], $upload_size, null, null);
+            if ($uploader_content_img->fetchMedia('content_logo')) {
+                $uploader_content_img->setPrefix('content_');
+                if (!$uploader_content_img->upload()) {
+                    $message_error .= $uploader_content_img->getErrors() . '<br>';
+                } else {
+                    $this->setVar('content_logo', $uploader_content_img->getSavedFileName());
+                }
+            } else {
+                $message_error .= $uploader_content_img->getErrors();
+            }
+        } else {
+            $this->setVar('content_logo', Xmf\Request::getString('content_logo', ''));
+        }
+		
+        $this->setVar('content_title', Request::getString('content_title', ''));
+        $this->setVar('content_text', Request::getText('content_text', ''));
+        $this->setVar('content_status', Request::getInt('content_status', 0));
+		$this->setVar('content_mkeyword', Request::getString('content_mkeyword', ''));
+		$this->setVar('content_mdescription', Request::getString('content_mdescription', ''));
+        $this->setVar('content_maindisplay', Request::getInt('content_maindisplay', 1));
+        $this->setVar('content_docomment', Request::getInt('content_docomment', 1));
+        $this->setVar('content_dopdf', Request::getInt('content_dopdf', 1));
+        $this->setVar('content_doprint', Request::getInt('content_doprint', 1));
+        $this->setVar('content_dosocial', Request::getInt('content_dosocial', 1));
+        $this->setVar('content_domail', Request::getInt('content_domail', 1));
+        $this->setVar('content_dotitle', Request::getInt('content_dotitle', 1));
+        if ($error_message == '') {
+            if ($contentHandler->insert($this)) {
+				if ($this->get_new_enreg() == 0){
+					$content_id = $this->getVar('content_id');
+				} else {
+					$content_id = $this->get_new_enreg();
+				}
+				// update permissions
+				global $xoopsModule;
+                $newcontent_id =  $this->get_new_enreg();
+                $perm_id       = $content_id > 0 ? $content_id : $newcontent_id;
+                $gpermHandler = xoops_getHandler('groupperm');
+                $criteria      = new CriteriaCompo();
+                $criteria->add(new Criteria('gperm_itemid', $perm_id, '='));
+                $criteria->add(new Criteria('gperm_modid', $xoopsModule->getVar('mid'), '='));
+                $criteria->add(new Criteria('gperm_name', 'xmcontent_contentview', '='));
+                $gpermHandler->deleteAll($criteria);
+                if (isset($_POST['groups_view'])) {
+                    foreach ($_POST['groups_view'] as $onegroup_id) {
+                        $gpermHandler->addRight('xmcontent_contentview', $perm_id, $onegroup_id, $xoopsModule->getVar('mid'));
+                    }
+                }
+				//xmdoc
+                if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
+                    xoops_load('utility', 'xmdoc');
+                    $error_message .= XmdocUtility::saveDocuments('xmcontent', $perm_id);
+                }
+				if ($action == 'viewcontent.php'){
+					redirect_header('viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
+				} else {
+					redirect_header($action, 2, _AM_XMCONTENT_REDIRECT_SAVE);
+				}
+            } else {
+                $error_message =  $this->getHtmlErrors();
+            }
+        }
+        return $error_message;
     }
 }
 
