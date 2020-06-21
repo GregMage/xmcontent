@@ -225,6 +225,7 @@ class xmcontent_content extends XoopsObject
         // permission
         $permHelper = new Helper\Permission();
         $form->addElement($permHelper->getGroupSelectFormForItem('xmcontent_contentview', $this->getVar('content_id'), _AM_XMCONTENT_CONTENT_GROUPSVIEW, 'xmcontent_contentview_perms', true));
+        $form->addElement($permHelper->getGroupSelectFormForItem('xmcontent_contentedit', $this->getVar('content_id'), _AM_XMCONTENT_CONTENT_GROUPSVIEW, 'xmcontent_contentedit_perms', true));
 
         $form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt
@@ -330,6 +331,9 @@ class xmcontent_content extends XoopsObject
                 // permission xmcontent_contentview
                 $groups_view = Request::getArray('xmcontent_contentview_perms', [], 'POST');
                 $permHelper->savePermissionForItem('xmcontent_contentview', $content_id, $groups_view);
+				// permission xmcontent_contentedit
+                $groups_edit = Request::getArray('xmcontent_contentedit_perms', [], 'POST');
+                $permHelper->savePermissionForItem('xmcontent_contentedit', $content_id, $groups_edit);
 
 				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {

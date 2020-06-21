@@ -66,6 +66,8 @@ define('_AM_XMCONTENT_CONTENT_WEIGHT', 'Weight');
 // permission
 define('_AM_XMCONTENT_PERMISSION_VIEW', 'View permissions');
 define('_AM_XMCONTENT_PERMISSION_VIEW_DSC', 'Choose the groups that can see the following content');
+define('_AM_XMCONTENT_PERMISSION_EDIT', 'Modify permissions');
+define('_AM_XMCONTENT_PERMISSION_EDIT_DSC', 'Choose the groups that can modify the following content');
 
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'There are no contents in the database');

@@ -34,11 +34,27 @@ $criteria->setSort('content_weight ASC, content_title');
 $criteria->setOrder('ASC');
 $content_arr = $contentHandler->getall($criteria);
 if (count($content_arr) > 0) {
+	$tab_perm = [1 => _AM_XMCONTENT_PERMISSION_VIEW, 2 => _AM_XMCONTENT_PERMISSION_EDIT];
+	$permission_options = '';
+	foreach (array_keys($tab_perm) as $i) {
+		$permission_options .= '<option value="' . $i . '"' . ($permission == $i ? ' selected="selected"' : '') . '>' . $tab_perm[$i] . '</option>';
+	}
+	$xoopsTpl->assign('permission_options', $permission_options);
+	
 	switch ($permission) {
 		case 1:    // View permission abstract
 			$formTitle = _AM_XMCONTENT_PERMISSION_VIEW;
 			$permissionName = 'xmcontent_contentview';
 			$permissionDescription = _AM_XMCONTENT_PERMISSION_VIEW_DSC;
+			foreach (array_keys($content_arr) as $i) {
+				$global_perms_array[$i] = $content_arr[$i]->getVar('content_title');
+			}
+			break;
+
+		case 2:    // Edit/appove permission
+			$formTitle = _AM_XMCONTENT_PERMISSION_EDIT;
+			$permissionName = 'xmcontent_contentedit';
+			$permissionDescription = _AM_XMCONTENT_PERMISSION_EDIT_DSC;
 			foreach (array_keys($content_arr) as $i) {
 				$global_perms_array[$i] = $content_arr[$i]->getVar('content_title');
 			}

@@ -40,21 +40,12 @@ if (0 == $content->getVar('content_status')) {
 }
 
 // permission to view
-$gpermHandler = xoops_getHandler('groupperm');
-if (is_object($xoopsUser)) {
-    $groups = $xoopsUser->getGroups();
-} else {
-    $groups = XOOPS_GROUP_ANONYMOUS;
-}
-$perm_view = $gpermHandler->checkRight('xmcontent_contentview', $content_id, $groups, $xoopsModule->getVar('mid'), false);
-if (!$perm_view) {
-    redirect_header('index.php', 2, _NOPERM);
-    exit();
+if ($permHelper->checkPermission('xmcontent_contentview', $category_id) === false){
+	redirect_header('index.php',2, _NOPERM);
 }
 
-if ($helper->isUserAdmin() == true){
-	$xoopsTpl->assign('perm_edit', true);
-}
+// permission to edit
+$xoopsTpl->assign('perm_edit', $permHelper->checkPermission('xmcontent_contentedit', $content_id));
 
 // css
 if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
