@@ -40,10 +40,13 @@ if ($op == 'edit' || $op == 'save') {
                 $xoopsTpl->assign('error_message', _AM_XMCONTENT_ERROR_CONTENT);
             } else {
 				$obj  = $contentHandler->get($content_id);
-				// Get Permission to edit in category
-				$permHelper->checkPermissionRedirect('xmcontent_contentedit', $obj->getVar('content_id'), 'index.php', 2, _NOPERM);
-                $form = $obj->getForm();
-                $xoopsTpl->assign('form', $form->render());
+				if (empty($obj)){
+					$xoopsTpl->assign('error_message', _AM_XMCONTENT_ERROR_CONTENT);
+				} else {
+					$permHelper->checkPermissionRedirect('xmcontent_contentedit', $obj->getVar('content_id'), 'index.php', 2, _NOPERM);
+					$form = $obj->getForm();
+					$xoopsTpl->assign('form', $form->render());
+				}
             }
             break;
 
