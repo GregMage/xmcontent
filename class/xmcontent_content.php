@@ -319,6 +319,7 @@ class xmcontent_content extends XoopsObject
         $this->setVar('content_dosocial', Request::getInt('content_dosocial', 1));
         $this->setVar('content_domail', Request::getInt('content_domail', 1));
         $this->setVar('content_dotitle', Request::getInt('content_dotitle', 1));
+		$this->setVar('content_weight', Request::getInt('content_weight', 0));
         if ($error_message == '') {
             if ($contentHandler->insert($this)) {
 				// permissions

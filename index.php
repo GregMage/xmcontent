@@ -64,7 +64,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 				}else{
 					$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
 				}
-			}		
+			}	
 			$content['count'] = $count;
 			if ($count_row == $count) {
 				$content['row'] = true;
