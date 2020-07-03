@@ -292,11 +292,17 @@ switch ($op) {
                 // clone permissions
                 $perm_id       = $newobj->get_new_enreg();
                 $module_mid    = $xoopsModule->getVar('mid');
-                $gpermHandler = xoops_getHandler('groupperm');
+                $gpermHandler  = xoops_getHandler('groupperm');
                 $groups        = array_values($gpermHandler->getGroupIds('xmcontent_contentview', $content_id, $module_mid));
                 if (0 != count($groups)) {
                     foreach ($groups as $group_id) {
                         $gpermHandler->addRight('xmcontent_contentview', $perm_id, $group_id, $module_mid);
+                    }
+                }
+				$groups = array_values($gpermHandler->getGroupIds('xmcontent_contentedit', $content_id, $module_mid));
+                if (0 != count($groups)) {
+                    foreach ($groups as $group_id) {
+                        $gpermHandler->addRight('xmcontent_contentedit', $perm_id, $group_id, $module_mid);
                     }
                 }
                 redirect_header('content.php', 2, _AM_XMCONTENT_REDIRECT_SAVE);
