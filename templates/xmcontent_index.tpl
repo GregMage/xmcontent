@@ -1,4 +1,4 @@
-﻿<{if $index_header}>
+<{if $index_header}>
     <div class="row">
         <div class="col-sm-12" style="padding-bottom: 10px; padding-top: 5px;">
             <{$index_header}>

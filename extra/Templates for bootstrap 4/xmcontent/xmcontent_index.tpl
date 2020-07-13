@@ -1,4 +1,4 @@
-﻿<div class="container">
+<div class="container">
 	<{if $index_header}>
 		<div class="row">
 			<div class="col" style="padding-bottom: 10px; padding-top: 5px;">
