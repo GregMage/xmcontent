@@ -3,20 +3,17 @@
     IMG_OFF = '<{xoAdminIcons cancel.png}>';
 </script>
 <div class="xmcontent">
-    <{$navigation}>
-</div>
-<div class="xmcontent">
     <{$renderbutton}>
 </div>
-<{if $message_error != ''}>
+<{if $message_error|default:'' != ''}>
     <div class="errorMsg" style="text-align: left;">
         <{$message_error}>
     </div>
 <{/if}>
 <div class="xmcontent">
-    <{$form}>
+    <{$form|default:''}>
 </div>
-<{if $filter}>
+<{if $filter|default:false}>
 	<div align="right">
 		<form id="form_content_tri" name="form_content_tri" method="post" action="content.php">
 			<{$smarty.const._AM_XMCONTENT_CONTENT_TITLE}>
@@ -30,7 +27,7 @@
 		</form>
 	</div>
 <{/if}>
-<{if $content_count != 0}>
+<{if $content_count|default:0 != 0}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>
@@ -72,12 +69,12 @@
         </tbody>
     </table>
     <div class="clear spacer"></div>
-    <{if $nav_menu}>
+    <{if $nav_menu|default:false}>
         <div class="xo-avatar-pagenav floatright"><{$nav_menu}></div>
         <div class="clear spacer"></div>
     <{/if}>
 <{/if}>
-<{if $view}>
+<{if $view|default:false}>
     <table id="xo-xmcontact-sorter" cellspacing="1" class="outer tablesorter">
         <thead>
         <tr>

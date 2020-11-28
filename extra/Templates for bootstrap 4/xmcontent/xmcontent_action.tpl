@@ -1,8 +1,8 @@
 <div class="xmcontent">
-    <{if $error_message}>
+    <{if $error_message|default:false}>
         <div class="alert alert-danger" role="alert"><{$error_message}></div>
     <{/if}>
-    <{if $form}>
+    <{if $form|default:false}>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="index.php"><{$index_module}></a></li>

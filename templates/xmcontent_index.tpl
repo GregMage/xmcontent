@@ -1,4 +1,4 @@
-<{if $index_header}>
+<{if $index_header|default:'' != ''}>
     <div class="row">
         <div class="col-sm-12" style="padding-bottom: 10px; padding-top: 5px;">
             <{$index_header}>
@@ -40,7 +40,7 @@
 					</div>					
 				<{/foreach}>
 			</div>
-			<{if $nav_menu}>
+			<{if $nav_menu|default:false}>
 				<div class="row">
 					<div class="col-sm-12" style="padding-bottom: 10px; padding-top: 5px; padding-right: 60px; text-align: right;">
 						<{$nav_menu}>
@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<{if $index_footer}>
+<{if $index_footer|default:'' != ''}>
     <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
         <div class="col-sm-12">
             <{$index_footer}>

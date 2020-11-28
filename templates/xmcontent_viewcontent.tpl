@@ -1,4 +1,4 @@
-<{if $content_template}>
+<{if $content_template|default:false}>
 	<{if $content_dotitle == 1}>
 	<h2><{$content_title}></h2>
 	<{/if}>
