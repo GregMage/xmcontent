@@ -340,7 +340,7 @@ class xmcontent_content extends XoopsObject
 				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
                     xoops_load('utility', 'xmdoc');
-                    $error_message .= XmdocUtility::saveDocuments('xmcontent', $perm_id);
+                    $error_message .= XmdocUtility::saveDocuments('xmcontent', $content_id);
                 }
 				if ($action == 'viewcontent.php'){
 					redirect_header('viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
