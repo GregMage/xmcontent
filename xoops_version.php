@@ -197,6 +197,14 @@ $modversion['config'][] = [
     'valuetype'   => 'int',
     'default'     => 0
 ];
+$modversion['config'][] = [
+    'name'        => 'options_xmsocial',
+    'title'       => '_MI_XMCONTENT_PREF_XMSOCIAL',
+    'description' => '',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
 $modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTENT_PREF_HEAD_ADMIN',

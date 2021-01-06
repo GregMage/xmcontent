@@ -53,6 +53,8 @@ define('_MI_XMCONTENT_PREF_CSS_DESC', 'Si cette option est activée, vous pouvez
 define('_MI_XMCONTENT_PREF_TEMPLATE', 'Utiliser un fichier modèle personnalisé par contenu');
 define('_MI_XMCONTENT_PREF_TEMPLATE_DESC', 'Si cette option est activée, vous pouvez ajouter un modèle personnalisé à un contenu.');
 define('_MI_XMCONTENT_PREF_XMDOC', 'Utiliser le module xmdoc pour ajouter un document');
+define('_MI_XMCONTENT_PREF_XMSOCIAL', 'Utiliser le module xmsocial pour noter un contenu');
+define('_MI_XMCONTENT_PREF_XMSOCIALSOCIAL', 'Utiliser le module xmsocial pour afficher des liens de partage pour les réseaux sociaux');
 define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Nombre d\'éléments par page dans la vue Admin');

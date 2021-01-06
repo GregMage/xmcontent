@@ -31,6 +31,8 @@ define('_AM_XMCONTENT_VIEW', 'View Details');
 // index
 define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'You have not installed the xmdoc module, this module is required if you want to add documents to your content');
 define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'You must enable in xmcontent preferences the use of xmdoc (if you want to add documents)');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'You have not installed the xmsocial module, this module is required if you want to rate content');
+define('_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'You must enable in preferences the use of xmsocial (if you want to rate content)');
 
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Add a content');

@@ -27,12 +27,22 @@ $moduleAdmin->addConfigModuleVersion('system', 212);
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
 	if ($helper->getConfig('options_xmdoc', 0) == 1) {
-		$moduleAdmin->addConfigModuleVersion('xmdoc', 50);
+		$moduleAdmin->addConfigModuleVersion('xmdoc', 100);
 	} else {
 		$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE);
 	}
 } else {
 	$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED);
+}
+// xmsocial
+if (xoops_isActiveModule('xmsocial')){
+	if ($helper->getConfig('options_xmsocial', 0) == 1) {
+		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
+	} else {
+		$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+	}
+} else {
+	$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
 }
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',

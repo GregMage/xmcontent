@@ -82,5 +82,15 @@ function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = n
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_logo` varchar(50) NOT NULL DEFAULT '';";
         $db->query($sql);
     }
+	// Passage de la version 1.0 à 1.1
+    if ($previousVersion <= 100) {
+        $db = XoopsDatabaseFactory::getDatabaseConnection();
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_rating` double(6,4) NOT NULL DEFAULT '0.0000' AFTER `content_template`;";
+        $db->query($sql);
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_votes` smallint(5) NOT NULL DEFAULT '0' AFTER `content_rating`;";
+        $db->query($sql);
+		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_dorating` tinyint(1) unsigned NOT NULL DEFAULT '0' AFTER `content_dosocial`;";
+        $db->query($sql);
+    }
     return true;
 }

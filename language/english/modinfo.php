@@ -53,6 +53,8 @@ define('_MI_XMCONTENT_PREF_CSS_DESC', 'If this option is enabled, you can add a 
 define('_MI_XMCONTENT_PREF_TEMPLATE', 'Use a template file personalized by content');
 define('_MI_XMCONTENT_PREF_TEMPLATE_DESC', 'If this option is enabled, you can add a custom template to a content');
 define('_MI_XMCONTENT_PREF_XMDOC', 'Use xmdoc module to add document');
+define('_MI_XMCONTENT_PREF_XMSOCIAL', 'Use xmsocial module to rate content');
+define('_MI_XMCONTENT_PREF_XMSOCIALSOCIAL', 'Use the xmsocial module to display sharing links for social networks');
 define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Text Editor');
 define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Number of items per page in the Admin view');

@@ -3,6 +3,13 @@
 	<h2><{$content_title}></h2>
 	<{/if}>
 	<{includeq file="$content_template"}>
+	<{if $dorating == 1}>
+	<div class="row">
+		<div class="col-12">
+			<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
+		</div>
+	</div>
+	<{/if}>
 <{else}>
 	<div class="row">
 		<div class="col-sm-12">
@@ -12,6 +19,13 @@
 			<p>
 				<{$content_text}>
 			</p>
+		</div>
+	</div>
+<{/if}>
+<{if $dorating == 1}>
+	<div class="row">
+		<div class="col-12">
+			<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
 		</div>
 	</div>
 <{/if}>

@@ -43,10 +43,13 @@ class xmcontent_content extends XoopsObject
         $this->initVar('content_weight', XOBJ_DTYPE_INT, 0, false, 5);
 		$this->initVar('content_css', XOBJ_DTYPE_TXTAREA, null, false);
 		$this->initVar('content_template', XOBJ_DTYPE_TXTAREA, null, false);
+		$this->initVar('content_rating', XOBJ_DTYPE_OTHER, null, false, 10);
+        $this->initVar('content_votes', XOBJ_DTYPE_INT, null, false, 11);
         $this->initVar('content_docomment', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_dopdf', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_doprint', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_dosocial', XOBJ_DTYPE_INT, 1, false, 1);
+        $this->initVar('content_dorating', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_domail', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('content_dotitle', XOBJ_DTYPE_INT, 1, false, 1);
         $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
@@ -214,6 +217,9 @@ class xmcontent_content extends XoopsObject
         // dosocial for next version (Xoops 2.6)
         //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOSOCIAL, 'content_dosocial', $this->getVar('content_dosocial')));
         $form->addElement(new XoopsFormHidden('content_dosocial', 0));
+		
+		// dorating
+        $form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DORATING, 'content_dorating', $this->getVar('content_dorating')));
 
         // domail for next version (Xoops 2.6)
         //$form->addElement(new XoopsFormRadioYN(_AM_XMCONTENT_CONTENT_DOMAIL, 'content_domail', $this->getVar('content_domail')));
@@ -318,6 +324,7 @@ class xmcontent_content extends XoopsObject
         $this->setVar('content_dopdf', Request::getInt('content_dopdf', 1));
         $this->setVar('content_doprint', Request::getInt('content_doprint', 1));
         $this->setVar('content_dosocial', Request::getInt('content_dosocial', 1));
+        $this->setVar('content_dorating', Request::getInt('content_dorating', 1));
         $this->setVar('content_domail', Request::getInt('content_domail', 1));
         $this->setVar('content_dotitle', Request::getInt('content_dotitle', 1));
 		$this->setVar('content_weight', Request::getInt('content_weight', 0));
