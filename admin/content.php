@@ -137,8 +137,13 @@ switch ($op) {
             $doprint = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $doprint = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
+        }*/
+		if ($content->getVar('content_dorating') == 0){
+            $dorating = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
+        } else {
+            $dorating = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
         }
-        if ($content->getVar('content_dosocial') == 0){
+        /*if ($content->getVar('content_dosocial') == 0){
             $dosocial = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
         } else {
             $dosocial = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
@@ -164,8 +169,9 @@ switch ($op) {
             _AM_XMCONTENT_CONTENT_MAINDISPLAY => $maindisplay,
             _AM_XMCONTENT_CONTENT_DOCOMMENT => $docomment,
             /*_AM_XMCONTENT_CONTENT_DOPDF => $dopdf,
-            _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,
-            _AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
+            _AM_XMCONTENT_CONTENT_DOPRINT => $doprint,*/
+            _AM_XMCONTENT_CONTENT_DORATING => $dorating,
+            /*_AM_XMCONTENT_CONTENT_DOSOCIAL => $dosocial,
             _AM_XMCONTENT_CONTENT_DOMAIL => $domail,*/
             _AM_XMCONTENT_CONTENT_DOTITLE     => $dotitle
         );

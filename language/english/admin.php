@@ -43,6 +43,7 @@ define('_AM_XMCONTENT_CONTENT_DOCOMMENT', 'View comments');
 define('_AM_XMCONTENT_CONTENT_DOMAIL', 'View the mail icon');
 define('_AM_XMCONTENT_CONTENT_DOPDF', 'View the pdf icon');
 define('_AM_XMCONTENT_CONTENT_DOPRINT', 'View the print icon');
+define('_AM_XMCONTENT_CONTENT_DORATING', 'View rating');
 define('_AM_XMCONTENT_CONTENT_DOSOCIAL', 'View social icons');
 define('_AM_XMCONTENT_CONTENT_DOTITLE', 'Show Title');
 define('_AM_XMCONTENT_CONTENT_GROUPSVIEW', 'Select groups that can view this content');
