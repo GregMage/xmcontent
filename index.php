@@ -49,8 +49,17 @@ if (0 == $helper->getConfig('index_content', 0)) {
 			$content_id       = $content_arr[$i]->getVar('content_id');
 			$content['id']    = $content_id;
 			$content['title'] = $content_arr[$i]->getVar('content_title');
-			$content['logo'] = $url_logo . $content_arr[$i]->getVar('content_logo');
-			$text             = $content_arr[$i]->getVar('content_text');		
+			$content['logo']  = $url_logo . $content_arr[$i]->getVar('content_logo');
+			$text             = $content_arr[$i]->getVar('content_text');
+			$nb_pageid        = mb_substr_count($text, '[pageid=');
+			if ($nb_pageid > 0){
+				for ($j = 1; $j <= $nb_pageid; $j++) {
+					$pos_d = strpos($text,'[pageid=') + 8;
+					$pos_f = strpos($text,']', $pos_d) - $pos_d;
+					$id = substr($text, $pos_d, $pos_f);
+					$text = str_replace('[pageid=' . $id . ']', '', $text);
+				}
+			}
 			//short description
 			if (true == $helper->getConfig('options_template', 0) && '' != $content_arr[$i]->getVar('content_template')){
 				if (false == strpos($text, '[break_dsc]')){
@@ -131,7 +140,8 @@ if (0 == $helper->getConfig('index_content', 0)) {
 		$xoopsTpl->assign('content_template', XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . $content->getVar('content_template'));
 	}
 	$xoopsTpl->assign('content_title', $content->getVar('content_title'));
-	$xoopsTpl->assign('content_text' , str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+	$text = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+	$xoopsTpl->assign('content_text' , $text);
 	$xoopsTpl->assign('content_docomment', $content->getVar('content_docomment'));
 	$xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 	$xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));

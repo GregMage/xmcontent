@@ -106,10 +106,12 @@ class xmcontent_content extends XoopsObject
         $editor_configs['width']  = '100%';
         $editor_configs['height'] = '400px';
         $editor_configs['editor'] = $helper->getConfig('admin_editor', 'Plain Text');
+		$text = new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs);
+		$text->setDescription(_AM_XMCONTENT_CONTENT_TEXT_DESC);
 		if (true == $helper->getConfig('options_template', 0)){
-			$form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), false);
+			$form->addElement($text, false);
 		} else {
-			$form->addElement(new XoopsFormEditor(_AM_XMCONTENT_CONTENT_TEXT, 'content_text', $editor_configs), true);
+			$form->addElement($text, true);
 		}
 		//xmdoc
         if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {

@@ -22,6 +22,7 @@ function block_xmcontent_show($options) {
 	$helper = Helper::getHelper('xmcontent');
 	$contentHandler  = $helper->getHandler('xmcontent_content');
 	$helper->loadLanguage('main');
+	include_once __DIR__ . '/../class/utility.php';
 	
 	$content = $contentHandler->get($options[0]);	
 	// permission to view
@@ -41,7 +42,7 @@ function block_xmcontent_show($options) {
 			$block['template'] = XOOPS_ROOT_PATH . '/uploads/xmcontent/templates/' . $content->getVar('content_template');
 		}
 		$block['title'] = $content->getVar('content_title');
-		$block['text' ] = str_replace('[break_dsc]', '', $content->getVar('content_text', 'show'));
+		$block['text' ] = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
 		$block['dotitle'] = $content->getVar('content_dotitle');
 	}	
 	return $block;
