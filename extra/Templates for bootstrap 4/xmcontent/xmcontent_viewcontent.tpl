@@ -41,7 +41,7 @@
 		<a class="btn btn-secondary" href="action.php?op=edit&content_id=<{$content_id}>"><i class="fa fa-edit" aria-hidden="true"></i> <{$smarty.const._AM_XMCONTENT_EDIT}></a>
 	</div>
 <{/if}>
-<{if $xmdoc_viewdocs == true}>
+<{if $xmdoc_viewdocs|default:false == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><{$smarty.const._AM_XMCONTENT_VIEWCONTENT_XMDOC}></h3>

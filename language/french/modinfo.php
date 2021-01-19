@@ -59,7 +59,7 @@ define('_MI_XMCONTENT_PREF_WARNING', 'Message d\'avertissement si l\'utilisateur
 define('_MI_XMCONTENT_PREF_WARNING_DESC', 'Le message sert à informer l\'utilisateur qu\'il n\'a pas accès à certaines pages inclulses dans la page principale(inclusion avec le délimiteur <span style="color:orange">[pageid=X]</span>. Si vous ne voulez pas de message, laissez ce champ vide.');
 define('_MI_XMCONTENT_PREF_WARNING_DEFAULT', 'Vous n\'avez pas accès à l\'ensemble de la page!');
 define('_MI_XMCONTENT_PREF_INCLUDE', 'Afficher un message d\'erreur si une page ne peut pas être incluse');
-define('_MI_XMCONTENT_PREF_INCLUDE_DESC', 'Si une page ne peut pas être incluse avec le délimiteur <span style="color:orange">[pageid=X]</span> (page inexistante, erreur d\'id, ...), un message d\'erreur apparait en bas de la page pricipale.');
+define('_MI_XMCONTENT_PREF_INCLUDE_DESC', 'Si une page ne peut pas être incluse avec le délimiteur <span style="color:orange">[pageid=X]</span> (page inexistante, erreur d\'id, ...), un message d\'erreur apparait en bas de la page pricipale (uniquement pour les administrateurs).');
 define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-size: large; font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Nombre d\'éléments par page dans la vue Admin');
