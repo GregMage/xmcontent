@@ -36,7 +36,7 @@ define('_MI_XMCONTENT_BLOCK_DEFAULT', 'Contenu');
 define('_MI_XMCONTENT_BLOCK_DEFAULT_DESC', 'Afficher un contenu');
 
 // Pref.
-define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
+define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-size: large; font-weight: bold;'>Index</span>");
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Nombre de colonne(s) pour afficher le contenu');
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Choisissez le nombre de colonne(s) pouvant être visualisée(s) dans l\'index: 1, 2, 3 ou 4 colonnes');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX', 'Contenu à afficher sur la page d\'index');
@@ -47,7 +47,7 @@ define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Utilisez du code HTML à afficher dans
 define('_MI_XMCONTENT_PREF_FOOTER', 'Pied de la page d\'index');
 define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Utilisez du code HTML à afficher dans la page d\'index');
 define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Nombre d\'éléments à afficher sur la page d\'index');
-define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-weight: bold;'>Options</span>");
+define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-size: large; font-weight: bold;'>Options</span>");
 define('_MI_XMCONTENT_PREF_CSS', 'Utiliser un fichier css personnalisé pour les pages de contenu');
 define('_MI_XMCONTENT_PREF_CSS_DESC', 'Si cette option est activée, vous pouvez ajouter un fichier CSS personnalisé à un contenu.');
 define('_MI_XMCONTENT_PREF_TEMPLATE', 'Utiliser un fichier modèle personnalisé par contenu');
@@ -55,6 +55,11 @@ define('_MI_XMCONTENT_PREF_TEMPLATE_DESC', 'Si cette option est activée, vous p
 define('_MI_XMCONTENT_PREF_XMDOC', 'Utiliser le module xmdoc pour ajouter un document');
 define('_MI_XMCONTENT_PREF_XMSOCIAL', 'Utiliser le module xmsocial pour noter un contenu');
 define('_MI_XMCONTENT_PREF_XMSOCIALSOCIAL', 'Utiliser le module xmsocial pour afficher des liens de partage pour les réseaux sociaux');
-define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
+define('_MI_XMCONTENT_PREF_WARNING', 'Message d\'avertissement si l\'utilisateur n\'a pas accès au contenu qui est inclu');
+define('_MI_XMCONTENT_PREF_WARNING_DESC', 'Le message sert à informer l\'utilisateur qu\'il n\'a pas accès à certaines pages inclulses dans la page principale(inclusion avec le délimiteur <span style="color:orange">[pageid=X]</span>. Si vous ne voulez pas de message, laissez ce champ vide.');
+define('_MI_XMCONTENT_PREF_WARNING_DEFAULT', 'Vous n\'avez pas accès à l\'ensemble de la page!');
+define('_MI_XMCONTENT_PREF_INCLUDE', 'Afficher un message d\'erreur si une page ne peut pas être incluse');
+define('_MI_XMCONTENT_PREF_INCLUDE_DESC', 'Si une page ne peut pas être incluse avec le délimiteur <span style="color:orange">[pageid=X]</span> (page inexistante, erreur d\'id, ...), un message d\'erreur apparait en bas de la page pricipale.');
+define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-size: large; font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Éditeur de texte');
 define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Nombre d\'éléments par page dans la vue Admin');

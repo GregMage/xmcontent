@@ -20,8 +20,10 @@ use Xmf\Module\Helper;
 function block_xmcontent_show($options) {	
 	global $xoopsUser;
 	$helper = Helper::getHelper('xmcontent');
+	$permHelper = new Helper\Permission('xmcontent');
 	$contentHandler  = $helper->getHandler('xmcontent_content');
 	$helper->loadLanguage('main');
+	$helper->loadLanguage('admin');
 	include_once __DIR__ . '/../class/utility.php';
 	
 	$content = $contentHandler->get($options[0]);	
@@ -33,6 +35,8 @@ function block_xmcontent_show($options) {
 	if (!$perm_view || 0 == $content->getVar('content_status')) {
 		$block = array();
 	} else{
+		// permission to edit
+		$block['perm_edit'] = $permHelper->checkPermission('xmcontent_contentedit', $options[0]);
 		// css
 		if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
 			$GLOBALS['xoTheme']->addStylesheet(XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'));
@@ -42,7 +46,11 @@ function block_xmcontent_show($options) {
 			$block['template'] = XOOPS_ROOT_PATH . '/uploads/xmcontent/templates/' . $content->getVar('content_template');
 		}
 		$block['title'] = $content->getVar('content_title');
-		$block['text' ] = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+		$new_content = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+		$block['text'] = $new_content['text'];
+		$block['error'] = $new_content['error'];
+		$block['warning'] = $new_content['warning'];
+		$block['id'] = $options[0];
 		$block['dotitle'] = $content->getVar('content_dotitle');
 	}	
 	return $block;

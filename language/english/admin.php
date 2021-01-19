@@ -79,3 +79,4 @@ define('_AM_XMCONTENT_PERMISSION_EDIT_DSC', 'Choose the groups that can modify t
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'There are no contents in the database');
 define('_AM_XMCONTENT_ERROR_WEIGHT', 'Weight must be a number');
+define('_AM_XMCONTENT_ERROR_INCLUDE', 'The page with id %s could not be included!');

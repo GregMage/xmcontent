@@ -57,8 +57,10 @@ if (true == $helper->getConfig('options_template', 0) && '' != $content->getVar(
 }
 
 $xoopsTpl->assign('content_title', $content->getVar('content_title'));
-$text = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
-$xoopsTpl->assign('content_text' , $text);
+$new_content = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+$xoopsTpl->assign('content_text' , $new_content['text']);
+$xoopsTpl->assign('content_error' , $new_content['error']);
+$xoopsTpl->assign('content_warning' , $new_content['warning']);
 $xoopsTpl->assign('content_docomment', $content->getVar('content_docomment'));
 $xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 $xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));

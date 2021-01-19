@@ -79,3 +79,4 @@ define('_AM_XMCONTENT_PERMISSION_EDIT_DSC', 'Choisissez les groupes qui peuvent 
 // error
 define('_AM_XMCONTENT_ERROR_CONTENT', 'Il n\'y a pas de contenu dans la base de données');
 define('_AM_XMCONTENT_ERROR_WEIGHT', 'Le poids doit être un nombre');
+define('_AM_XMCONTENT_ERROR_INCLUDE', 'La page avec l\'id %s n\'a pas pu être incluse!');

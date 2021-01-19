@@ -106,6 +106,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 } else {
 	
 	$content_id = $helper->getConfig('index_content', 0);
+	$xoopsTpl->assign('content_id', $content_id);
 	if (0 == $content_id) {
 		redirect_header(XOOPS_URL, 2, _AM_XMCONTENT_VIEWCONTENT_NOCONTENT);
 		exit();
@@ -131,6 +132,9 @@ if (0 == $helper->getConfig('index_content', 0)) {
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 		exit();
 	}
+	// permission to edit
+	$xoopsTpl->assign('perm_edit', $permHelper->checkPermission('xmcontent_contentedit', $content_id));
+
 	// css
 	if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
 		$xoTheme->addStylesheet( XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'), null );
@@ -140,14 +144,26 @@ if (0 == $helper->getConfig('index_content', 0)) {
 		$xoopsTpl->assign('content_template', XOOPS_ROOT_PATH . "/uploads/xmcontent/templates/" . $content->getVar('content_template'));
 	}
 	$xoopsTpl->assign('content_title', $content->getVar('content_title'));
-	$text = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
-	$xoopsTpl->assign('content_text' , $text);
-	$xoopsTpl->assign('content_docomment', $content->getVar('content_docomment'));
+	$new_content = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+	$xoopsTpl->assign('content_text' , $new_content['text']);
+	$xoopsTpl->assign('content_error' , $new_content['error']);
+	$xoopsTpl->assign('content_warning' , $new_content['warning']);
+	$xoopsTpl->assign('content_docomment', 0);
 	$xoopsTpl->assign('content_dopdf', $content->getVar('content_dopdf'));
 	$xoopsTpl->assign('content_doprint', $content->getVar('content_doprint'));
 	$xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
 	$xoopsTpl->assign('content_domail', $content->getVar('content_domail'));
 	$xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
+	
+	//xmsocial
+	if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
+		xoops_load('utility', 'xmsocial');
+		$xmsocial_arr = XmsocialUtility::renderRating($xoTheme, 'xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+		$xoopsTpl->assign('xmsocial_arr', $xmsocial_arr);
+		$xoopsTpl->assign('dorating', $content->getVar('content_dorating'));
+	} else {
+		$xoopsTpl->assign('dorating', false);
+	}
 
 	//xmdoc
 	if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {

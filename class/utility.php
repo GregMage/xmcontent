@@ -26,8 +26,11 @@ class XmcontentUtility
 	public static function includeContent($text)
     {
 		include __DIR__ . '/../include/common.php';
+		$helper = Helper::getHelper('xmcontent');
 		$permHelper = new Helper\Permission('xmcontent');
 		$nb_pageid = mb_substr_count($text, '[pageid=');
+		$error_include = '';
+		$warning_include = '';
 		if ($nb_pageid > 0){
 			for ($i = 1; $i <= $nb_pageid; $i++) {
 				$pos_d = strpos($text,'[pageid=') + 8;
@@ -38,10 +41,16 @@ class XmcontentUtility
 				}
 				if ($permHelper->checkPermission('xmcontent_contentview', $id) === false){
 					$text = str_replace('[pageid=' . $id . ']', '', $text);
+					if($helper->getConfig('options_warning', '') != ''){
+						$warning_include = $helper->getConfig('options_warning', '');
+					}
 				} else {
 					$includecontent = $contentHandler->get($id);
 					if (empty($includecontent)) {
 						$newtext = '';
+						if($helper->getConfig('options_include', 0) == 1){
+							$error_include .= sprintf(_AM_XMCONTENT_ERROR_INCLUDE, $id) . '<br>'; 
+						}
 					} else {
 						$newtext = str_replace('[break_dsc]', '', $includecontent->getVar('content_text', 'show'));
 					}	
@@ -59,6 +68,9 @@ class XmcontentUtility
 				}
 			}
 		}
-        return $text;
+		$content['text'] = $text;
+		$content['error'] = $error_include;
+		$content['warning'] = $warning_include;
+        return $content;
     }
 }

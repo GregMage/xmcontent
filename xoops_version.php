@@ -206,6 +206,22 @@ $modversion['config'][] = [
     'default'     => 0
 ];
 $modversion['config'][] = array(
+    'name'        => 'options_warning',
+    'title'       => '_MI_XMCONTENT_PREF_WARNING',
+    'description' => '_MI_XMCONTENT_PREF_WARNING_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => _MI_XMCONTENT_PREF_WARNING_DEFAULT
+);
+$modversion['config'][] = [
+    'name'        => 'options_include',
+    'title'       => '_MI_XMCONTENT_PREF_INCLUDE',
+    'description' => '_MI_XMCONTENT_PREF_INCLUDE_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
+$modversion['config'][] = array(
     'name'        => 'break',
     'title'       => '_MI_XMCONTENT_PREF_HEAD_ADMIN',
     'description' => '',

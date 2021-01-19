@@ -3,14 +3,14 @@
 	<h2><{$content_title}></h2>
 	<{/if}>
 	<{includeq file="$content_template"}>
-	<{if $dorating == 1}>
-	<div class="row">
-		<div class="col-xs-12">
-			<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
-		</div>
-	</div>
-	<{/if}>
 <{else}>
+	<{if $content_warning != ''}>
+		<div class="row">
+			<div class="col-xs-12 alert alert-warning">
+				<{$content_warning}>
+			</div>
+		</div>
+	<{/if}>
 	<div class="row">
 		<div class="col-sm-12">
 			<{if $content_dotitle == 1}>
@@ -21,22 +21,30 @@
 			</p>
 		</div>
 	</div>
-<{/if}>
-<{if $dorating == 1}>
-	<div class="row">
-		<div class="col-xs-12">
-			<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
+
+	<{if $content_error != ''}>
+		<div class="row">
+			<div class="col-xs-12 alert alert-danger">
+				<{$content_error}>
+			</div>
 		</div>
-	</div>
+	<{/if}>
 <{/if}>
-<{if $perm_edit == true}>
-<div align="center">
-	<a href="action.php?op=edit&content_id=<{$content_id}>">
-		<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><{$smarty.const._AM_XMCONTENT_EDIT}></button>
-	</a>
-</div>
-<{/if}>	
-<{if $xmdoc_viewdocs == true}>
+	<{if $dorating == 1}>
+		<div class="row">
+			<div class="col-xs-12">
+				<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
+			</div>
+		</div>
+	<{/if}>
+	<{if $perm_edit == true}>
+	<div align="center">
+		<a href="action.php?op=edit&content_id=<{$content_id}>">
+			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><{$smarty.const._AM_XMCONTENT_EDIT}></button>
+		</a>
+	</div>
+	<{/if}>	
+<{if $xmdoc_viewdocs|default:false == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title"><{$smarty.const._AM_XMCONTENT_VIEWCONTENT_XMDOC}></h3>

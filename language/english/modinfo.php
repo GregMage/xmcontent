@@ -36,7 +36,7 @@ define('_MI_XMCONTENT_BLOCK_DEFAULT', 'Content');
 define('_MI_XMCONTENT_BLOCK_DEFAULT_DESC', 'Display a content');
 
 // Pref.
-define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-weight: bold;'>Index</span>");
+define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-size: large; font-weight: bold;'>Index</span>");
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Number of column for content View');
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Number of content that can be viewed in index: 1, 2, 3 or 4 columns');
 define('_MI_XMCONTENT_PREF_CONTENTINDEX', 'Content to display on index page');
@@ -47,7 +47,7 @@ define('_MI_XMCONTENT_PREF_HEADER_DESC', 'Set HTML codes to show in index page')
 define('_MI_XMCONTENT_PREF_FOOTER', 'Footer index page');
 define('_MI_XMCONTENT_PREF_FOOTER_DESC', 'Set HTML codes to show in index page');
 define('_MI_XMCONTENT_PREF_INDEXPERPAGE', 'Number of items per page in the Index view');
-define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-weight: bold;'>Options</span>");
+define('_MI_XMCONTENT_PREF_HEAD_OPTIONS', "<span style='font-size: large; font-weight: bold;'>Options</span>");
 define('_MI_XMCONTENT_PREF_CSS', 'Use a css file personalized by content');
 define('_MI_XMCONTENT_PREF_CSS_DESC', 'If this option is enabled, you can add a custom css to a content');
 define('_MI_XMCONTENT_PREF_TEMPLATE', 'Use a template file personalized by content');
@@ -55,6 +55,11 @@ define('_MI_XMCONTENT_PREF_TEMPLATE_DESC', 'If this option is enabled, you can a
 define('_MI_XMCONTENT_PREF_XMDOC', 'Use xmdoc module to add document');
 define('_MI_XMCONTENT_PREF_XMSOCIAL', 'Use xmsocial module to rate content');
 define('_MI_XMCONTENT_PREF_XMSOCIALSOCIAL', 'Use the xmsocial module to display sharing links for social networks');
-define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-weight: bold;'>Administration</span>");
+define('_MI_XMCONTENT_PREF_WARNING', 'Warning message if the user does not have access to the content that is included');
+define('_MI_XMCONTENT_PREF_WARNING_DESC', 'The message is used to inform the user that he does not have access to certain pages included in the main page (inclusion with the delimiter <span style="color:orange">[pageid=X]</span>. If you don\'t want a message, leave this field blank.');
+define('_MI_XMCONTENT_PREF_WARNING_DEFAULT', 'You don\'t have access to the whole page!');
+define('_MI_XMCONTENT_PREF_INCLUDE', 'Display an error message if a page cannot be included');
+define('_MI_XMCONTENT_PREF_INCLUDE_DESC', 'If a page cannot be included with the delimiter <span style="color:orange">[pageid=X]</span> (non-existent page, id error, ...), an error message appears at the bottom of the main page.');
+define('_MI_XMCONTENT_PREF_HEAD_ADMIN', "<span style='font-size: large; font-weight: bold;'>Administration</span>");
 define('_MI_XMCONTENT_PREF_EDITOR', 'Text Editor');
 define('_MI_XMCONTENT_PREF_ADMINPERPAGE', 'Number of items per page in the Admin view');
