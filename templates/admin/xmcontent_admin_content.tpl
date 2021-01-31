@@ -21,7 +21,7 @@
 			<input type="submit" value="<{$smarty.const._GO}>" />
 			<input type='button' name='reset'  id='reset' value='<{$smarty.const._RESET}>' onclick="location='content.php'" />
 			<{$smarty.const._AM_XMCONTENT_CONTENT_STATUS}>
-			<select name="content_filter" id="content_filter" onchange="location='content.php?content_status='+this.options[this.selectedIndex].value">
+			<select name="content_filter" id="content_filter" onchange="location='content.php?title=<{$title}>&content_status='+this.options[this.selectedIndex].value">
 				<{$content_status_options}>
 			<select>
 		</form>
@@ -57,7 +57,7 @@
                 <td class="xo-actions txtcenter">
                     <a class="tooltip" href="content.php?op=view&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
-					<a href="content.php?op=clone&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_CLONE}>">
+					<a class="tooltip" href="content.php?op=clone&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_CLONE}>">
 						<img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._AM_XMCONTENT_CLONE}>"></a>
                     <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
                         <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
