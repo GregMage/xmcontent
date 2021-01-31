@@ -37,6 +37,10 @@
 			</div>
 		</div>
 	<{/if}>
+	<{if $social == true}>
+		<{include file="db:xmsocial_social.tpl"}>
+		<br>
+	<{/if}>
 	<{if $perm_edit == true}>
 	<div align="center">
 		<a href="action.php?op=edit&content_id=<{$content_id}>">

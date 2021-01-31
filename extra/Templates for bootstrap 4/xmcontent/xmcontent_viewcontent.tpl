@@ -36,6 +36,10 @@
 		</div>
 	</div>
 <{/if}>
+<{if $social == true}>
+	<{include file="db:xmsocial_social.tpl"}>
+	<br>
+<{/if}>
 <{if $perm_edit == true}>
 	<div align="center">
 		<a class="btn btn-secondary" href="action.php?op=edit&content_id=<{$content_id}>"><i class="fa fa-edit" aria-hidden="true"></i> <{$smarty.const._AM_XMCONTENT_EDIT}></a>

@@ -31,8 +31,9 @@ define('_AM_XMCONTENT_VIEW', 'Voir les détails');
 // index
 define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmdoc, ce module est requis si vous souhaitez ajouter des documents à votre contenu');
 define('_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences xmcontent l\'utilisation de xmdoc (si vous souhaitez ajouter des documents)');
-define('_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmsocial, ce module est requis si vous souhaitez évaluer les contenus');
+define('_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED', 'Vous n\'avez pas installé le module xmsocial, ce module est requis si vous souhaitez évaluer les contenus ou ajouter des médias sociaux');
 define('_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE', 'Vous devez activer dans les préférences du module l\'utilisation de xmsocial (si vous souhaitez évaluer les contenus)');
+define('_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATESOCIAL', 'Vous devez activer dans les préférences du module l\'utilisation de xmsocial (si vous souhaitez ajouter des médias sociaux)');
 
 // content
 define('_AM_XMCONTENT_CONTENT_ADD', 'Ajouter un contenu');

@@ -205,6 +205,14 @@ $modversion['config'][] = [
     'valuetype'   => 'int',
     'default'     => 0
 ];
+$modversion['config'][] = [
+    'name'        => 'options_xmsocial_social',
+    'title'       => '_MI_XMCONTENT_PREF_XMSOCIALSOCIAL',
+    'description' => '',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0
+];
 $modversion['config'][] = array(
     'name'        => 'options_warning',
     'title'       => '_MI_XMCONTENT_PREF_WARNING',

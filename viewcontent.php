@@ -75,7 +75,28 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1
     $xoopsTpl->assign('xmdoc_viewdocs', false);
 }
 //xmsocial
-if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
+if (xoops_isActiveModule('xmsocial')){
+	xoops_load('utility', 'xmsocial');
+	if ($helper->getConfig('options_xmsocial', 0) == 1){
+		$xmsocial_arr = XmsocialUtility::renderRating($xoTheme, 'xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+		$xoopsTpl->assign('xmsocial_arr', $xmsocial_arr);
+		$xoopsTpl->assign('dorating', $content->getVar('content_dorating'));
+	} else {
+		 $xoopsTpl->assign('dorating', 0);
+	}
+	if ($helper->getConfig('options_xmsocial_social', 0) == 1) {
+		XmsocialUtility::renderSocial($xoopsTpl,'xmcontent', $content_id, XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $content_id);
+		$xoopsTpl->assign('social', true);
+	} else {
+		$xoopsTpl->assign('social', false);
+	}
+}
+
+
+
+
+//xmsocial
+/*if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
     xoops_load('utility', 'xmsocial');
 	$xmsocial_arr = XmsocialUtility::renderRating($xoTheme, 'xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
 	$xoopsTpl->assign('xmsocial_arr', $xmsocial_arr);
@@ -83,6 +104,12 @@ if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0
 } else {
     $xoopsTpl->assign('dorating', false);
 }
+if (xoops_isActiveModule('xmsocial') && $helper->getConfig('general_xmsocial_social', 0) == 1) {
+    XmsocialUtility::renderSocial($xoopsTpl,'xmnews', $news_id, XOOPS_URL . '/modules/xmnews/article.php?news_id=' . $news_id);
+    $xoopsTpl->assign('social', true);
+} else {
+    $xoopsTpl->assign('social', false);
+}*/
 //SEO
 // pagetitle
 $xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));

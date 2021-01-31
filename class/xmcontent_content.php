@@ -119,6 +119,12 @@ class xmcontent_content extends XoopsObject
             XmdocUtility::renderDocForm($form, 'xmcontent', $this->getVar('content_id'));
         }
 		
+		// xmsocial
+		if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial_social', 0) == 1) {
+			xoops_load('utility', 'xmsocial');
+			XmsocialUtility::renderSocialForm($form, 'xmcontent', $this->getVar('content_id'));
+		}
+		
 		// template
 		if (true == $helper->getConfig('options_template', 0)){
 			$uploadirectory = '/uploads/xmcontent/templates';
@@ -351,6 +357,11 @@ class xmcontent_content extends XoopsObject
                     xoops_load('utility', 'xmdoc');
                     $error_message .= XmdocUtility::saveDocuments('xmcontent', $content_id);
                 }
+				// xmsocial
+				if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial_social', 0) == 1) {
+					xoops_load('utility', 'xmsocial');
+					$error_message .= XmsocialUtility::saveSocial('xmcontent', $content_id);
+				}
 				if ($action == 'viewcontent.php'){
 					redirect_header('viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
 				} else {

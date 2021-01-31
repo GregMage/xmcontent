@@ -221,7 +221,15 @@ switch ($op) {
 				if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
 					xoops_load('utility', 'xmdoc');
 					XmdocUtility::delDocdata('xmcontent', $content_id);
-				}				
+				}
+				//xmsocial
+				if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
+					xoops_load('utility', 'xmsocial');
+					$error_message .= XmsocialUtility::delRatingdata('xmcontent', $content_id);
+					if ($helper->getConfig('options_xmsocial_social', 0) == 1) {
+						$error_message .= XmsocialUtility::delSocialdata('xmcontent', $content_id);
+					}
+				}
 				//Del logo
 				if ($obj->getVar('content_logo') != 'blank.gif') {
 					// Test if the image is used

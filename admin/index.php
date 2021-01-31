@@ -36,13 +36,18 @@ if (xoops_isActiveModule('xmdoc')){
 }
 // xmsocial
 if (xoops_isActiveModule('xmsocial')){
-	if ($helper->getConfig('options_xmsocial', 0) == 1) {
+	if ($helper->getConfig('options_xmsocial', 0) == 1 && $helper->getConfig('options_xmsocial_social', 0) == 1){
 		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
 	} else {
-		$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+		if ($helper->getConfig('options_xmsocial', 0) != 1) {
+			$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
+		}
+		if ($helper->getConfig('options_xmsocial_social', 0) != 1) {
+			$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATESOCIAL);
+		}
 	}
 } else {
-	$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
+	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
 }
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',
