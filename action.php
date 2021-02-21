@@ -18,7 +18,6 @@
  */
 
 use \Xmf\Request;
-
 include_once __DIR__ . '/header.php';
 $GLOBALS['xoopsOption']['template_main'] = 'xmcontent_action.tpl';
 include_once XOOPS_ROOT_PATH . '/header.php';
