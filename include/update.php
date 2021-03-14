@@ -82,8 +82,8 @@ function xoops_module_update_xmcontent(XoopsModule $module, $previousVersion = n
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_logo` varchar(50) NOT NULL DEFAULT '';";
         $db->query($sql);
     }
-	// Passage de la version 1.0 à 1.1
-    if ($previousVersion <= 100) {
+	// Passage de la version 1.0 à 1.5
+    if ($previousVersion <= 110) {
         $db = XoopsDatabaseFactory::getDatabaseConnection();
 		$sql = "ALTER TABLE `" . $db->prefix('xmcontent_content') . "` ADD `content_rating` double(6,4) NOT NULL DEFAULT '0.0000' AFTER `content_template`;";
         $db->query($sql);

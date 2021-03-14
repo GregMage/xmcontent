@@ -1,4 +1,46 @@
 ﻿-------------------------------------------------
+Version: 1.5 Final
+Date:    14.03.2021
+-------------------------------------------------
+Bug fixes:	
+	- The search ignored permissions.
+	- Tempaltes encoding problem.
+	- Fixed an error with xmdoc.
+	- Fixed an error with the content filter (admin). 
+
+Improvements:
+	- Code optimization.
+	- Better integration of XMF.
+	- Added modification permission.
+	- The content is now editable from the user part.
+	- PHP8 compatibility.
+	- Integration of xmsocial to rate content and add social media.
+	- We can now include a page in another page. 
+
+Security:
+	- Users who had the rights to edit content could change the permissions.
+	  Now only those who have the right to administer the module can do it. 
+	
+Correction de bogues:	
+	- La recherche ne tenait pas compte des permissions.
+	- Problème d'encodage des tempaltes.
+	- Correction d'une eerreur avec xmdoc.
+	- Correction d'une erreur avec le filtre de contenu (admin).
+
+Améliorations:
+	- Optimisation du code.
+	- Meilleure intégration de XMF.
+	- Ajout d'une permission de modifiaction.
+	- Le contenu est maintenant modifiable depuis la partie user.
+	- Compatibilité PHP8.
+	- Intégration de xmsocial pour noter les contenus et ajouter des médias sociaux.
+	- On peut maintenant inclure une page dans une autre page.
+
+Sécurités:
+	- Les utilisateurs qui avaient les droits pour éditer un contenu pouvaient changer les permissions.
+	  Maintenant seul ceux qui ont le droit d'administration du module peuvent le faire.
+
+-------------------------------------------------
 Version: 1.0 Final
 Date:    10.05.2020
 -------------------------------------------------
