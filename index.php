@@ -174,7 +174,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	}
 	//SEO
 	// pagetitle
-	$xoopsTpl->assign('xoops_pagetitle', \Xmf\Metagen::generateSeoTitle($content->getVar('content_title') . '-' . $xoopsModule->name()));
+	$xoopsTpl->assign('xoops_pagetitle', $content->getVar('content_title') . '-' . $xoopsModule->name());
 	//description
 	if ('' == $content->getVar('content_mdescription')) {
 		$xoTheme->addMeta('meta', 'description', \Xmf\Metagen::generateDescription($content->getVar('content_text'), 30));
