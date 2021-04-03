@@ -20,13 +20,13 @@
 function xoops_module_install_xmcontent()
 {
     $namemodule = 'xmcontent';
-	$indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.html';
+	$indexFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/include/index.php';
     $blankFile = XOOPS_ROOT_PATH . '/modules/' . $namemodule . '/assets/images/blank.gif';
     //Creation ".$namemodule."/
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '';
     if (!is_dir($dir)) {
         mkdir($dir, 0777);
-		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/index.html');
+		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/index.php');
     }
     chmod($dir, 0777);
 
@@ -34,7 +34,7 @@ function xoops_module_install_xmcontent()
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/css';
     if (!is_dir($dir)) {
         mkdir($dir, 0777);
-		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/css/index.html');
+		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/css/index.php');
     }
     chmod($dir, 0777);
     
@@ -42,7 +42,7 @@ function xoops_module_install_xmcontent()
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/templates';
     if (!is_dir($dir)) {
         mkdir($dir, 0777);
-		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/templates/index.html');
+		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/templates/index.php');
     }
     chmod($dir, 0777);
 	
@@ -50,7 +50,7 @@ function xoops_module_install_xmcontent()
     $dir = XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images';
     if (!is_dir($dir)) {
         mkdir($dir, 0777);
-		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.html');
+		copy($indexFile, XOOPS_ROOT_PATH . '/uploads/' . $namemodule . '/images/index.php');
     }
     chmod($dir, 0777);
 	
