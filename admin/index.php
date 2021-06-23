@@ -47,7 +47,7 @@ if (xoops_isActiveModule('xmsocial')){
 		}
 	}
 } else {
-	$moduleAdmin->addConfigWarning(_MA_XMNEWS_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
+	$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTINSTALLED);
 }
 // folder
 $folder = array(XOOPS_ROOT_PATH . '/uploads/xmcontent/', XOOPS_ROOT_PATH . '/uploads/xmcontent/css',
