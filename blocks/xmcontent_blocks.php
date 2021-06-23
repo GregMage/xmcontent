@@ -26,43 +26,47 @@ function block_xmcontent_show($options) {
 	$helper->loadLanguage('admin');
 	include_once __DIR__ . '/../class/utility.php';
 	
-	$content = $contentHandler->get($options[0]);	
-	// permission to view
-	$gpermHandler = xoops_getHandler('groupperm');
-	$groups        = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
-	$moduleHandler = $helper->getModule();
-	$perm_view = $gpermHandler->checkRight('xmcontent_contentview', $options[0], $groups, $moduleHandler->getVar('mid'), false);
-	if (!$perm_view || 0 == $content->getVar('content_status')) {
-		$block = array();
-	} else{
-		// permission to edit
-		$block['perm_edit'] = $permHelper->checkPermission('xmcontent_contentedit', $options[0]);
-		// css
-		if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
-			$GLOBALS['xoTheme']->addStylesheet(XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'));
+	if ($options[0] != 0){	
+		$content = $contentHandler->get($options[0]);
+		// permission to view
+		$gpermHandler = xoops_getHandler('groupperm');
+		$groups        = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;
+		$moduleHandler = $helper->getModule();
+		$perm_view = $gpermHandler->checkRight('xmcontent_contentview', $options[0], $groups, $moduleHandler->getVar('mid'), false);
+		if (!$perm_view || 0 == $content->getVar('content_status')) {
+			$block = array();
+		} else{
+			// permission to edit
+			$block['perm_edit'] = $permHelper->checkPermission('xmcontent_contentedit', $options[0]);
+			// css
+			if (true == $helper->getConfig('options_css', 0) && '' != $content->getVar('content_css')){
+				$GLOBALS['xoTheme']->addStylesheet(XOOPS_URL . '/uploads/xmcontent/css/' . $content->getVar('content_css'));
+			}
+			// template
+			if (true == $helper->getConfig('options_template', 0) && '' != $content->getVar('content_template')){
+				$block['template'] = XOOPS_ROOT_PATH . '/uploads/xmcontent/templates/' . $content->getVar('content_template');
+			}
+			$block['title'] = $content->getVar('content_title');
+			$new_content = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
+			$block['text'] = $new_content['text'];
+			$block['error'] = $new_content['error'];
+			$block['warning'] = $new_content['warning'];
+			$block['id'] = $options[0];
+			$block['dotitle'] = $content->getVar('content_dotitle');
+			//xmsocial
+			if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
+				xoops_load('utility', 'xmsocial');
+				$xmsocial_arr = XmsocialUtility::renderRating($GLOBALS['xoTheme'], 'xmcontent', $options[0], 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+				$block['xmsocial_arr'] = $xmsocial_arr;
+				$block['dorating'] = $content->getVar('content_dorating');
+			} else {
+				$block['dorating'] = $content->getVar('content_dorating');
+			}
 		}
-		// template
-		if (true == $helper->getConfig('options_template', 0) && '' != $content->getVar('content_template')){
-			$block['template'] = XOOPS_ROOT_PATH . '/uploads/xmcontent/templates/' . $content->getVar('content_template');
-		}
-		$block['title'] = $content->getVar('content_title');
-		$new_content = XmcontentUtility::includeContent(str_replace('[break_dsc]', '', $content->getVar('content_text', 'show')));
-		$block['text'] = $new_content['text'];
-		$block['error'] = $new_content['error'];
-		$block['warning'] = $new_content['warning'];
-		$block['id'] = $options[0];
-		$block['dotitle'] = $content->getVar('content_dotitle');
-		//xmsocial
-		if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
-			xoops_load('utility', 'xmsocial');
-			$xmsocial_arr = XmsocialUtility::renderRating($GLOBALS['xoTheme'], 'xmcontent', $options[0], 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
-			$block['xmsocial_arr'] = $xmsocial_arr;
-			$block['dorating'] = $content->getVar('content_dorating');
-		} else {
-			$block['dorating'] = $content->getVar('content_dorating');
-		}
-	}	
-	return $block;
+		return $block;
+	} else {
+		return array();
+	}
 }
 
 function block_xmcontent_edit($options) {
