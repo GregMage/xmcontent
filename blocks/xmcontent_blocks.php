@@ -60,7 +60,7 @@ function block_xmcontent_show($options) {
 				$block['xmsocial_arr'] = $xmsocial_arr;
 				$block['dorating'] = $content->getVar('content_dorating');
 			} else {
-				$block['dorating'] = $content->getVar('content_dorating');
+				$block['dorating'] = 0;
 			}
 		}
 		return $block;
