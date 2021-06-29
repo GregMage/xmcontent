@@ -18,6 +18,7 @@
  */
 use Xmf\Request;
 use Xmf\Module\Helper;
+use XoopsModules\Xmcontent;
 
 defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
@@ -247,6 +248,25 @@ class xmcontent_content extends XoopsObject
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
 
         return $form;
+    }
+
+    /**
+     * Returns the url to use to access the category taking into account the preferences of the module
+     *
+     * @return string The url to use
+     */
+    public function getLink()
+    {
+        include_once __DIR__ . '/../class/xoopsrewrite.php';
+        $helper = \Xmf\Module\Helper::getHelper('xmcontent');
+        $rewrite = $helper->getConfig('urlrewriting', 0);
+        $url = '';
+        if($rewrite == 1) {
+            $url = XOOPS_URL . '/' . $helper->getConfig('rewritename', 'content') . '-' . $this->getVar('content_id') . XoopsRewrite::makeSeoUrl($this->getVar('content_title', 'n')) . '.html';
+        } else {
+            $url = XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $this->getVar('content_id');
+        }
+        return $url;
     }
 	
 	public function saveContent($contentHandler, $action = false)

@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule	^content-([0-9]+)(-).*(\.html)$	modules/xmcontent/viewcontent.php?content_id=$1
+RewriteRule	^content modules/xmcontent/index.html

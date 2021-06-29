@@ -99,6 +99,31 @@ $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 $modversion['tables'][1] = 'xmcontent_content';
 
 // Pref.
+$modversion['config'][] = array(
+    'name'        => 'break',
+    'title'       => '_MI_XMCONTENT_PREF_HEAD_REWRITE',
+    'description' => '',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'head'
+);
+
+$modversion['config'][] = [
+    'name'        => 'urlrewriting',
+    'title'       => '_MI_XMCONTENT_PREF_REWRITE',
+    'description' => '_MI_XMCONTENT_PREF_REWRITE_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0,
+];
+$modversion['config'][] = [
+    'name'        => 'rewritename',
+    'title'       => '_MI_XMCONTENT_PREF_REWRITE_NAME',
+    'description' => '_MI_XMCONTENT_PREF_REWRITE_NAME_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'text',
+    'default'     => 'content',
+];
 
 $modversion['config'][] = array(
     'name'        => 'break',

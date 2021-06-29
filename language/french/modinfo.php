@@ -36,6 +36,11 @@ define('_MI_XMCONTENT_BLOCK_DEFAULT', 'Contenu');
 define('_MI_XMCONTENT_BLOCK_DEFAULT_DESC', 'Afficher un contenu');
 
 // Pref.
+define('_MI_XMCONTENT_PREF_HEAD_REWRITE',"<span style='font-size: large; font-weight: bold;'>URL Rewrite</span>");
+define('_MI_XMCONTENT_PREF_REWRITE','Use URL Rewriting ?');
+define('_MI_XMCONTENT_PREF_REWRITE_DESC','Activate the URL Rewriting for all the module');
+define('_MI_XMCONTENT_PREF_REWRITE_NAME','Name display in the URL');
+define('_MI_XMCONTENT_PREF_REWRITE_NAME_DESC','The name must be the same in .htaccess file');
 define('_MI_XMCONTENT_PREF_HEAD_INDEX', "<span style='font-size: large; font-weight: bold;'>Index</span>");
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT', 'Nombre de colonne(s) pour afficher le contenu');
 define('_MI_XMCONTENT_PREF_COLUMNCONTENT_DESC', 'Choisissez le nombre de colonne(s) pouvant être visualisée(s) dans l\'index: 1, 2, 3 ou 4 colonnes');

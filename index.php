@@ -51,6 +51,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 			$content['title'] = $content_arr[$i]->getVar('content_title');
 			$content['logo']  = $url_logo . $content_arr[$i]->getVar('content_logo');
 			$text             = $content_arr[$i]->getVar('content_text');
+			$content['link']   = $content_arr[$i]->getLink();
 			$nb_pageid        = mb_substr_count($text, '[pageid=');
 			if ($nb_pageid > 0){
 				for ($j = 1; $j <= $nb_pageid; $j++) {
