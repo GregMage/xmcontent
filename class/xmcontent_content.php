@@ -257,12 +257,11 @@ class xmcontent_content extends XoopsObject
      */
     public function getLink()
     {
-        include_once __DIR__ . '/../class/xoopsrewrite.php';
-        $helper = \Xmf\Module\Helper::getHelper('xmcontent');
+        $helper = Helper::getHelper('xmcontent');
         $rewrite = $helper->getConfig('urlrewriting', 0);
         $url = '';
         if($rewrite == 1) {
-            $url = XOOPS_URL . '/' . $helper->getConfig('rewritename', 'content') . '-' . $this->getVar('content_id') . XoopsRewrite::makeSeoUrl($this->getVar('content_title', 'n')) . '.html';
+            $url = XOOPS_URL . '/' . \Xmf\Metagen::generateSeoTitle($helper->getConfig('rewritename', 'content') . ' ' . $this->getVar('content_id') . ' ' . $this->getVar('content_title', 'n'), '.html');
         } else {
             $url = XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $this->getVar('content_id');
         }
