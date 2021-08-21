@@ -44,6 +44,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	$xoopsTpl->assign('content_count', $content_count);
 	$count     = 1;
 	$count_row = 1;
+	$description_SEO = '';
 	if ($content_count > 0) {
 		foreach (array_keys($content_arr) as $i) {
 			$content_id       = $content_arr[$i]->getVar('content_id');
@@ -67,12 +68,14 @@ if (0 == $helper->getConfig('index_content', 0)) {
 					$content['text'] = $text;
 				}else{
 					$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
+					$description_SEO .= XmcontentUtility::generateDescriptionTagSafe($content['text'], 20);
 				}
 			} else {
 				if (false == strpos($text, '[break_dsc]')){
 					$content['text'] = '';
 				}else{
 					$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
+					$description_SEO .= XmcontentUtility::generateDescriptionTagSafe($content['text'], 20);
 				}
 			}	
 			$content['count'] = $count;
@@ -100,7 +103,10 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	}
 	//SEO
 	//description
-	$xoTheme->addMeta('meta', 'description', strip_tags($xoopsModule->name()));
+	if ($description_SEO == ''){
+		$description_SEO =strip_tags($xoopsModule->name());
+	}
+	$xoTheme->addMeta('meta', 'description', $description_SEO);
 	//keywords
 	$keywords = substr($keywords, 0, -1);
 	$xoTheme->addMeta('meta', 'keywords', $keywords);
