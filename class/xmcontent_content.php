@@ -79,6 +79,11 @@ class xmcontent_content extends XoopsObject
         include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 		include_once 'list.php';
 		$helper = \Xmf\Module\Helper::getHelper('xmcontent');
+		
+		//ftitle
+		$ftitle = Request::getString('title', '');
+		//fcontent_status
+        $fcontent_status = Request::getInt('content_status', 10);
 
         //form title
         $title = $this->isNew() ? sprintf(_AM_XMCONTENT_ADD) : sprintf(_AM_XMCONTENT_EDIT);
@@ -243,7 +248,10 @@ class xmcontent_content extends XoopsObject
 			$form->addElement($permHelper->getGroupSelectFormForItem('xmcontent_contentview', $this->getVar('content_id'), _AM_XMCONTENT_CONTENT_GROUPSVIEW, 'xmcontent_contentview_perms', true));
 			$form->addElement($permHelper->getGroupSelectFormForItem('xmcontent_contentedit', $this->getVar('content_id'), _AM_XMCONTENT_CONTENT_GROUPSEDIT, 'xmcontent_contentedit_perms', true));
 		}
-        $form->addElement(new XoopsFormHidden('op', 'save'));
+        //filter
+		$form->addElement(new XoopsFormHidden('ftitle', $ftitle));
+		$form->addElement(new XoopsFormHidden('fcontent_status', $fcontent_status));
+		$form->addElement(new XoopsFormHidden('op', 'save'));
         // submitt
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
 
@@ -278,6 +286,11 @@ class xmcontent_content extends XoopsObject
         $helper = Helper::getHelper('xmcontent');
         $error_message = '';
 		
+		//ftitle
+		$ftitle = Request::getString('ftitle', '');
+		//fcontent_status
+        $fcontent_status = Request::getInt('fcontent_status', 10);
+
 		include_once XOOPS_ROOT_PATH . '/class/uploader.php';
 		// test error
         if ((int)$_REQUEST['content_weight'] == 0 && $_REQUEST['content_weight'] != '0') {
@@ -384,7 +397,7 @@ class xmcontent_content extends XoopsObject
 				if ($action == 'viewcontent.php'){
 					redirect_header('viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
 				} else {
-					redirect_header($action, 2, _AM_XMCONTENT_REDIRECT_SAVE);
+					redirect_header($action . '?content_status=' . $fcontent_status .'&title=' . $ftitle, 2, _AM_XMCONTENT_REDIRECT_SAVE);
 				}
             } else {
                 $error_message =  $this->getHtmlErrors();

@@ -59,7 +59,7 @@
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
 					<a class="tooltip" href="content.php?op=clone&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_CLONE}>">
 						<img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._AM_XMCONTENT_CLONE}>"></a>
-                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
+                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content.id}>&amp;content_status=<{$content_status}>&amp;&title=<{$title}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
                         <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
                     <a class="tooltip" href="content.php?op=del&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
                         <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/></a>
