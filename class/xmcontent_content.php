@@ -260,8 +260,12 @@ class xmcontent_content extends XoopsObject
         $helper = Helper::getHelper('xmcontent');
         $rewrite = $helper->getConfig('urlrewriting', 0);
         $url = '';
+		$title = $this->getVar('content_title', 'n');
+		if (xoops_isActiveModule('xlanguage')){
+			$title = XoopsModules\Xlanguage\Utility::cleanMultiLang($title);
+		}
         if($rewrite == 1) {
-            $url = XOOPS_URL . '/' . \Xmf\Metagen::generateSeoTitle($helper->getConfig('rewritename', 'content') . ' ' . $this->getVar('content_id') . ' ' . $this->getVar('content_title', 'n'), '.html');
+            $url = XOOPS_URL . '/' . \Xmf\Metagen::generateSeoTitle($helper->getConfig('rewritename', 'content') . ' ' . $this->getVar('content_id') . ' ' . $title, '.html');
         } else {
             $url = XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $this->getVar('content_id');
         }
