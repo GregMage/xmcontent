@@ -76,6 +76,7 @@ switch ($op) {
                 $content['title']  = $content_arr[$i]->getVar('content_title');
                 $content['weight'] = $content_arr[$i]->getVar('content_weight');
                 $content['status'] = $content_arr[$i]->getVar('content_status');
+				$content['link']   = $content_arr[$i]->getLink();
                 if (0 == $content_arr[$i]->getVar('content_maindisplay')) {
                     $content['maindisplay'] = '<span style="color: red; font-weight:bold;">' . _AM_XMCONTENT_NO . '</span>';
                 } else {
@@ -176,6 +177,7 @@ switch ($op) {
             _AM_XMCONTENT_CONTENT_DOTITLE     => $dotitle
         );
         $xoopsTpl->assign('content_arr', $content_arr);
+        $xoopsTpl->assign('link', $content->getLink());
         $xoopsTpl->assign('content_id', $content_id);
         break;
 

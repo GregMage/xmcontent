@@ -42,7 +42,7 @@
         <tbody>
         <{foreach item=content from=$content}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtleft"><a href="../viewcontent.php?content_id=<{$content.id}>" title="<{$content.title}>"><{$content.title}></a></td>
+                <td class="txtleft"><a href="<{$content.link}>" title="<{$content.title}>"><{$content.title}></a></td>
                 <td class="txtcenter"><{$content.weight}></td>
                 <td class="xo-actions txtcenter">
                     <img id="loading_sml<{$content.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
@@ -92,7 +92,7 @@
             <tr class="<{cycle values='even,odd'}> alignmiddle">
                 <td><{$smarty.const._AM_XMCONTENT_ACTION}></td>
                 <td class="xo-actions txtleft">
-					<a class="tooltip" href="../viewcontent.php?content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
+					<a class="tooltip" href="<{$link}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
                         <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
                     <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
                         <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
