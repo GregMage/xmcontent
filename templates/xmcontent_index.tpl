@@ -32,7 +32,6 @@
 							<div class="col-sm-9">
 								<h4><{$content.title}></h4>
 								<p><{$content.text}></p>
-								<!--<a href="viewcontent.php?content_id=<{$content.id}>">-->
 								<a href="<{$content.link}>">
 									<button type="button" class="btn btn-primary btn-xs"><{$smarty.const._MD_XMCONTENT_INDEX_MORE}></button>
 								</a>
