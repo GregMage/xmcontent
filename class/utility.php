@@ -82,4 +82,12 @@ class XmcontentUtility
 		$text = \Xmf\Metagen::generateDescription($text, $wordCount);
 		return $text;
 	}
+	
+	public static function TagSafe($text)
+    {
+		if (xoops_isActiveModule('xlanguage')){
+			$text = XoopsModules\Xlanguage\Utility::cleanMultiLang($text);
+		}
+		return $text;
+	}
 }

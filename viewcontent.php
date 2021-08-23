@@ -105,10 +105,10 @@ if ('' == $content->getVar('content_mdescription')) {
 
 //keywords
 if ('' == $content->getVar('content_mkeyword')) {
-    $keywords = \Xmf\Metagen::generateKeywords($content->getVar('content_text'), 10);    
+    $keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);    
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
-    $xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
+    $xoTheme->addMeta('meta', 'keywords', XmcontentUtility::TagSafe($content->getVar('content_mkeyword')));
 }
 include XOOPS_ROOT_PATH.'/include/comment_view.php';
 include XOOPS_ROOT_PATH . '/footer.php';

@@ -92,7 +92,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 			}
 			$xoopsTpl->append_by_ref('content', $content);
 			$count++;
-			$keywords .= $content['title'] . ',';
+			$keywords .= XmcontentUtility::TagSafe($content['title']) . ',';
 			unset($content);
 		}
 		// Display Page Navigation
@@ -109,7 +109,8 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	$xoTheme->addMeta('meta', 'description', $description_SEO);
 	//keywords
 	$keywords = substr($keywords, 0, -1);
-	$xoTheme->addMeta('meta', 'keywords', $keywords);
+	$keywords = \Xmf\Metagen::generateKeywords($keywords, 10);
+	$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
 	
 	$content_id = $helper->getConfig('index_content', 0);
@@ -190,10 +191,10 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	}
 	//keywords
 	if ('' == $content->getVar('content_mkeyword')) {
-		$keywords = \Xmf\Metagen::generateKeywords($content->getVar('content_text'), 10);    
+		$keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);    
 		$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 	} else {
-		$xoTheme->addMeta('meta', 'keywords', $content->getVar('content_mkeyword'));
+		$xoTheme->addMeta('meta', 'keywords', XmcontentUtility::TagSafe($content->getVar('content_mkeyword')));
 	}
 }
 
