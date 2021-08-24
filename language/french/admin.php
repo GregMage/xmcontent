@@ -64,8 +64,9 @@ define('_AM_XMCONTENT_CONTENT_SURECLONE', 'Êtes vous sur de vouloir cloner ce c
 define('_AM_XMCONTENT_CONTENT_TEMPLATE', 'Fichier modèle');
 define('_AM_XMCONTENT_CONTENT_TEXT', "Texte<br /><br />Utilisez le délimiteur <span style='color:blue'>[break_dsc]</span> pour définir la taille de la description courte. <br> La description courte est utilisée sur la page d'accueil du module");
 define('_AM_XMCONTENT_CONTENT_TEXT_DESC', "Utilisez le délimiteur <span style='color:orange'>[break_dsc]</span> pour définir la taille de la description courte.<br> La description courte est utilisée sur la page d'accueil du module
-<br><br>Utilisez le délimiteur <span style='color:orange'>[pageid=X]</span> pour inclure une autre page xmcontent dans cette page (several inclusions possible). <span style='color:orange'>X</span><br>est l'id de la page<br>
+<br><br>Utilisez le délimiteur <span style='color:orange'>[pageid=X]</span> pour inclure une autre page xmcontent dans cette page (plusieurs inclusions possible). <span style='color:orange'>X</span><br>est l'id de la page<br>
 <span style='color:red'>Important:</span> Les inclusions en cascade (page 1 qui intégre la page 2 qui intégre la page 3) ne fonctionne pas. Les inclusions dans la description courte de l'index du module ne fonctionnent pas.");
+define('_AM_XMCONTENT_CONTENT_TIPS', 'Vous utilisez le module xlanguage pour votre site internet.<br> Pour que la balise [break_dsc] fonctionne correctement vous devez la placer dans chacune des traductions. Il en va de même pour la balise [pageid=X]');
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Titre');
 define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Télécharger');
 define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Taille maximum : %s Ko');

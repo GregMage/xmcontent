@@ -183,9 +183,15 @@ switch ($op) {
 
     // add content
     case 'add':
+		// Define Stylesheet
+        $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
+		
+		if (xoops_isActiveModule('xlanguage')){
+			$xoopsTpl->assign('message_tips', true);
+		}
 
         // Create form
         $obj  = $contentHandler->create();
@@ -196,10 +202,15 @@ switch ($op) {
 
     // edit content
     case 'edit':
+		// Define Stylesheet
+        $xoTheme->addStylesheet(XOOPS_URL . '/modules/system/css/admin.css');
 		// Module admin
 		$moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_ADD, 'content.php?op=add', 'add');
         $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
+		if (xoops_isActiveModule('xlanguage')){
+			$xoopsTpl->assign('message_tips', true);
+		}
 
         // Create form
         $obj  = $contentHandler->get(Request::getInt('content_id', 0));

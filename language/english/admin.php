@@ -66,6 +66,7 @@ define('_AM_XMCONTENT_CONTENT_TEXT', "Text");
 define('_AM_XMCONTENT_CONTENT_TEXT_DESC', "Use the delimiter <span style='color:orange'>[break_dsc]</span> to define the size of the short description.<br> The short description is used in the homepage of the module
 <br><br>Use the delimiter <span style='color:orange'>[pageid=X]</span> to include another xmcontent page in this page. <span style='color:orange'>X</span><br>is the page id<br>
 <span style='color:red'>Important:</span> Cascading inclusions (page 1 which includes page 2 which includes page 3) does not work. Inclusions in the short description on the module index page do not work.");
+define('_AM_XMCONTENT_CONTENT_TIPS', 'You use the xlanguage module for your website. <br>For the [break_dsc] tag to work correctly you must place it in each of the translations. The same goes for the [pageid = X] tag.');
 define('_AM_XMCONTENT_CONTENT_TITLE', 'Title');
 define('_AM_XMCONTENT_CONTENT_UPLOAD', 'Upload');
 define('_AM_XMCONTENT_CONTENT_UPLOADSIZE', 'Maximum size: %s kB');

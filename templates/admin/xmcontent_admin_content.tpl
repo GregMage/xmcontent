@@ -2,6 +2,14 @@
     IMG_ON = '<{xoAdminIcons success.png}>';
     IMG_OFF = '<{xoAdminIcons cancel.png}>';
 </script>
+<{if $message_tips|default:false == true}>
+	<div class="tips ui-corner-all">
+        <img class="floatleft tooltip" src="<{xoAdminIcons tips.png}>" alt="<{$smarty.const._AM_SYSTEM_TIPS}>" title="<{$smarty.const._AM_SYSTEM_TIPS}>"/>
+
+        <div class="floatleft"><{$smarty.const._AM_XMCONTENT_CONTENT_TIPS}></div>
+        <div class="clear">&nbsp;</div>
+    </div>
+<{/if}>
 <div class="xmcontent">
     <{$renderbutton|default:''}>
 </div>
@@ -10,6 +18,7 @@
         <{$message_error}>
     </div>
 <{/if}>
+
 <div class="xmcontent">
     <{$form|default:''}>
 </div>
