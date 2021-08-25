@@ -43,6 +43,9 @@ if ($op == 'edit' || $op == 'save') {
 					$xoopsTpl->assign('error_message', _AM_XMCONTENT_ERROR_CONTENT);
 				} else {
 					$permHelper->checkPermissionRedirect('xmcontent_contentedit', $obj->getVar('content_id'), 'index.php', 2, _NOPERM);
+					if (xoops_isActiveModule('xlanguage')){
+						$xoopsTpl->assign('message_tips', true);
+					}
 					$form = $obj->getForm();
 					$xoopsTpl->assign('form', $form->render());
 				}
