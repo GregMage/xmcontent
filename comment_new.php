@@ -40,8 +40,9 @@ if ($com_itemid > 0) {
     if (0 == $content->getVar('content_docomment')) {
         redirect_header(XOOPS_URL, 2, _NOPERM);
         exit();
-    }        
-    $com_replytitle = $content->getVar('content_title');
+    }
+	xoops_load('utility', 'xmcontent');
+    $com_replytitle = XmcontentUtility::TagSafe($content->getVar('content_title'));
 
     include_once $GLOBALS['xoops']->path('include/comment_new.php');
 }
