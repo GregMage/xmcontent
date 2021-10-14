@@ -367,13 +367,15 @@ class xmcontent_content extends XoopsObject
 				} else {
 					$content_id = $this->get_new_enreg();
 				}
-                $permHelper = new Helper\Permission();
-                // permission xmcontent_contentview
-                $groups_view = Request::getArray('xmcontent_contentview_perms', [], 'POST');
-                $permHelper->savePermissionForItem('xmcontent_contentview', $content_id, $groups_view);
-				// permission xmcontent_contentedit
-                $groups_edit = Request::getArray('xmcontent_contentedit_perms', [], 'POST');
-                $permHelper->savePermissionForItem('xmcontent_contentedit', $content_id, $groups_edit);
+				if ($helper->isUserAdmin() == true){
+					$permHelper = new Helper\Permission();
+					// permission xmcontent_contentview
+					$groups_view = Request::getArray('xmcontent_contentview_perms', [], 'POST');
+					$permHelper->savePermissionForItem('xmcontent_contentview', $content_id, $groups_view);
+					// permission xmcontent_contentedit
+					$groups_edit = Request::getArray('xmcontent_contentedit_perms', [], 'POST');
+					$permHelper->savePermissionForItem('xmcontent_contentedit', $content_id, $groups_edit);
+				}
 
 				//xmdoc
                 if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1) {
