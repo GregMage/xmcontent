@@ -78,14 +78,14 @@ if (xoops_isActiveModule('xmdoc') && $helper->getConfig('options_xmdoc', 0) == 1
 if (xoops_isActiveModule('xmsocial')){
 	xoops_load('utility', 'xmsocial');
 	if ($helper->getConfig('options_xmsocial', 0) == 1){
-		$xmsocial_arr = XmsocialUtility::renderRating($xoTheme, 'xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+		$xmsocial_arr = XmsocialUtility::renderRating('xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
 		$xoopsTpl->assign('xmsocial_arr', $xmsocial_arr);
 		$xoopsTpl->assign('dorating', $content->getVar('content_dorating'));
 	} else {
 		 $xoopsTpl->assign('dorating', 0);
 	}
 	if ($helper->getConfig('options_xmsocial_social', 0) == 1) {
-		XmsocialUtility::renderSocial($xoopsTpl,'xmcontent', $content_id, XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $content_id);
+		XmsocialUtility::renderSocial('xmcontent', $content_id, XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $content_id);
 		$xoopsTpl->assign('social', true);
 	} else {
 		$xoopsTpl->assign('social', false);

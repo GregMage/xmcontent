@@ -56,7 +56,7 @@ function block_xmcontent_show($options) {
 			//xmsocial
 			if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
 				xoops_load('utility', 'xmsocial');
-				$xmsocial_arr = XmsocialUtility::renderRating($GLOBALS['xoTheme'], 'xmcontent', $options[0], 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+				$xmsocial_arr = XmsocialUtility::renderRating('xmcontent', $options[0], 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
 				$block['xmsocial_arr'] = $xmsocial_arr;
 				$block['dorating'] = $content->getVar('content_dorating');
 			} else {

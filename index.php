@@ -166,7 +166,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	//xmsocial
 	if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
 		xoops_load('utility', 'xmsocial');
-		$xmsocial_arr = XmsocialUtility::renderRating($xoTheme, 'xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
+		$xmsocial_arr = XmsocialUtility::renderRating('xmcontent', $content_id, 5, $content->getVar('content_rating'), $content->getVar('content_votes'));
 		$xoopsTpl->assign('xmsocial_arr', $xmsocial_arr);
 		$xoopsTpl->assign('dorating', $content->getVar('content_dorating'));
 	} else {
