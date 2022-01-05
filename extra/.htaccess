@@ -1,3 +1,9 @@
 RewriteEngine On
-RewriteRule	^content-([0-9]+)(-).*(\.html)$	modules/xmcontent/viewcontent.php?content_id=$1
+RewriteRule	^content-([0-9]+)/.*\.html$	modules/xmcontent/viewcontent.php?content_id=$1
+RewriteRule	^content-.*/viewcontent.php$	modules/xmcontent/viewcontent.php? [QSA]
+RewriteRule	^content-.*/comment_edit.php$	modules/xmcontent/comment_edit.php [QSA]
+RewriteRule	^content-.*/comment_reply.php$	modules/xmcontent/comment_reply.php [QSA]
+RewriteRule	^content-.*/comment_delete.php$	modules/xmcontent/comment_delete.php [QSA]
+RewriteRule	^content-.*/comment_post.php$	modules/xmcontent/comment_post.php [QSA]
+RewriteRule	^content-.*/comment_new.php$	modules/xmcontent/comment_new.php [QSA]
 RewriteRule	^content modules/xmcontent/index.html
