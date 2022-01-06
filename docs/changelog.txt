@@ -1,4 +1,44 @@
 ﻿-------------------------------------------------
+Version: 1.6 RC1
+Date:    06.01.2022
+-------------------------------------------------
+Bug fixes:	
+	- Fixed PHP 8 errors
+	- English language define error
+	- Fixed an error if no content is requested in the options of the block
+	- correction if xmsocial is not activated and a content allows rating, the rating templates were displayed
+	- If a user modified content without being an administrator, the permissions were removed 
+
+Improvements:
+	- Compatibility with xmsocial 2.0
+	- Compatibility with the xlanguage module
+	- Integration of url rewriting (formuss & mage)
+	- The description (SEO) of the index page is now generated automatically
+	- If you edit content in the administration, the filters activated before the modification are kept 
+
+Security:
+	- Switching from index.html to index.php
+	
+Correction de bogues:	
+	- Correction d'erreurs PHP 8
+	- Erreur de define de langue anglais
+	- Correction d'une erreur si aucun contenu n'est demandé dans les options du bloc 
+	- correction si xmsocial n'est pas activé et qu'un contenu autorise la notation, le templates de notation était affiché
+	- Si un utilisateur modifiait un contenu sans être administrateur, les permissions étaient supprimées
+
+Améliorations:
+	- Compatibilité avec xmsocial 2.0
+	- Compatibilité avec le module xlanguage
+	- Intégration de la réécriture d'url (formuss & mage)
+	- La description (SEO) de la page d'index est maintenant générée automatiquement
+	- Si on édite un contenu dans l'administration, les filtres activés avant la modification sont conservés
+
+Sécurités:
+	- Passage de index.html à index.php
+	
+Important: Le module à besoin de la version 2.0 de xmsocial (si vous utilisez ce module)
+
+-------------------------------------------------
 Version: 1.5 Final
 Date:    14.03.2021
 -------------------------------------------------
