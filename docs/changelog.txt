@@ -1,4 +1,32 @@
 ﻿-------------------------------------------------
+Version: 1.61 Alpha
+Date:    16.12.2022
+-------------------------------------------------
+Bug fixes:	
+	- sql error when installing the module
+	- Redirection error after posting content from the admin (only if on a subdomain)
+
+Improvements:
+	- /
+
+Security:
+	- /
+	
+Correction de bogues:	
+	- Erreur sql lors de l'installation du module
+	- Erreur de redirection après avoir posté un contenu depuis l'admin (uniquement si sur un sous domaine)
+
+Améliorations:
+	- /
+
+Sécurités:
+	- /
+	
+Important: La série 1.6X est la dernière série compatible xoops 2.5.10.
+
+
+
+-------------------------------------------------
 Version: 1.6 Stable
 Date:    29.01.2022
 -------------------------------------------------
