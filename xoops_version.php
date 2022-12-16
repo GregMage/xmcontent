@@ -19,7 +19,7 @@
 
 $modversion['dirname']        = basename(__DIR__);
 $modversion['name']           = ucfirst(basename(__DIR__));
-$modversion['version']        = '1.6';
+$modversion['version']        = '1.61';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
 $modversion['author']         = 'G. Mage';
@@ -37,7 +37,7 @@ $modversion['help']           = 'page=help';
 $modversion['release_date']        = '2022/01/29';
 $modversion['module_website_url']  = 'www.monxoops.fr/';
 $modversion['module_website_name'] = 'MonXoops';
-$modversion['module_status']       = 'Stable';
+$modversion['module_status']       = 'Alpha';
 $modversion['min_php']             = '7.1';
 $modversion['min_xoops']           = '2.5.10';
 $modversion['min_db']              = array('mysql' => '5.0.7', 'mysqli' => '5.0.7');
