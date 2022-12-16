@@ -144,16 +144,20 @@ $modversion['config'][] = array(
     'options'     => array(1 => 1, 2 => 2, 3 => 3, 4 => 4)
 );
 
-$contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
-// Criteria
-$criteria = new CriteriaCompo();
-$criteria->setSort('content_weight ASC, content_title');
-$criteria->setOrder('ASC');
-$criteria->add(new Criteria('content_status', 1));
-$content_arr = $contentHandler->getall($criteria);
-$content[0] = _MI_XMCONTENT_PREF_CONTENTINDEX_ALL;
-foreach (array_keys($content_arr) as $i) {
-	$content[$content_arr[$i]->getVar('content_id')] = $content_arr[$i]->getVar('content_title');
+if (xoops_isActiveModule('xmcontent')) {
+	$contentHandler = xoops_getModuleHandler('xmcontent_content', 'xmcontent');
+	// Criteria
+	$criteria = new CriteriaCompo();
+	$criteria->setSort('content_weight ASC, content_title');
+	$criteria->setOrder('ASC');
+	$criteria->add(new Criteria('content_status', 1));
+	$content_arr = $contentHandler->getall($criteria);
+	$content[0] = _MI_XMCONTENT_PREF_CONTENTINDEX_ALL;
+	foreach (array_keys($content_arr) as $i) {
+		$content[$content_arr[$i]->getVar('content_id')] = $content_arr[$i]->getVar('content_title');
+	}
+} else {
+	$content[0] = _MI_XMCONTENT_PREF_CONTENTINDEX_ALL;
 }
 $modversion['config'][] = array(
     'name'        => 'index_content',
