@@ -284,7 +284,7 @@ switch ($op) {
         } else {
             $obj = $contentHandler->get($content_id);
         }
-        $error_message = $obj->saveContent($contentHandler, '/modules/xmcontent/admin/content.php?fcontent_status=' . $fcontent_status . '&title=' . $title);
+        $error_message = $obj->saveContent($contentHandler, XOOPS_URL . '/modules/xmcontent/admin/content.php?fcontent_status=' . $fcontent_status . '&title=' . $title);
         if ($error_message != ''){
             $xoopsTpl->assign('message_error', $error_message);
 			$form = $obj->getForm();
