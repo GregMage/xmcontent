@@ -22,12 +22,12 @@ require __DIR__ . '/admin_header.php';
 
 $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('index.php');
-$moduleAdmin->addConfigModuleVersion('system', 212);
+$moduleAdmin->addConfigModuleVersion('system', '2.1.2');
 
 // xmdoc
 if (xoops_isActiveModule('xmdoc')){
 	if ($helper->getConfig('options_xmdoc', 0) == 1) {
-		$moduleAdmin->addConfigModuleVersion('xmdoc', 100);
+		$moduleAdmin->addConfigModuleVersion('xmdoc', '1.4.0');
 	} else {
 		$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMDOC_WARNINGNOTACTIVATE);
 	}
@@ -37,7 +37,7 @@ if (xoops_isActiveModule('xmdoc')){
 // xmsocial
 if (xoops_isActiveModule('xmsocial')){
 	if ($helper->getConfig('options_xmsocial', 0) == 1 && $helper->getConfig('options_xmsocial_social', 0) == 1){
-		$moduleAdmin->addConfigModuleVersion('xmsocial', 100);
+		$moduleAdmin->addConfigModuleVersion('xmsocial', '2.1.0');
 	} else {
 		if ($helper->getConfig('options_xmsocial', 0) != 1) {
 			$moduleAdmin->addConfigWarning(_MA_XMCONTENT_INDEXCONFIG_XMSOCIAL_WARNINGNOTACTIVATE);
