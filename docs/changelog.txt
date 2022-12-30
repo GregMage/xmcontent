@@ -1,5 +1,5 @@
 ﻿-------------------------------------------------
-Version: 1.61 Alpha
+Version: 1.7.0 Alpha
 Date:    16.12.2022
 -------------------------------------------------
 Bug fixes:	
@@ -7,22 +7,26 @@ Bug fixes:
 	- Redirection error after posting content from the admin (only if on a subdomain)
 
 Improvements:
-	- /
+	- Compatibility with smarty 3 (xoops 2.5.11).
 
 Security:
 	- /
+	
+Important:	- The 1.7.0 series is only compatible under xoops 2.5.11.
+			- The default templates are only compatible with a bootstrap 4 theme, the templates for version 3 of boostrap are in the extra folder.
 	
 Correction de bogues:	
 	- Erreur sql lors de l'installation du module
 	- Erreur de redirection après avoir posté un contenu depuis l'admin (uniquement si sur un sous domaine)
 
 Améliorations:
-	- /
+	- Compatibilité avec smarty 3 (xoops 2.5.11).
 
 Sécurités:
 	- /
 	
-Important: La série 1.6X est la dernière série compatible xoops 2.5.10.
+Important:	- La série 1.7.0 est compatible uniquement sous xoops 2.5.11.
+			- Les templates par défaut sont compatibles uniquement avec un thème bootstrap 4, les templates pour la version 3 de boostrap sont dans le dossier extra.
 
 
 
