@@ -1,10 +1,10 @@
 <script type="text/javascript">
-    IMG_ON = '<{xoAdminIcons success.png}>';
-    IMG_OFF = '<{xoAdminIcons cancel.png}>';
+    IMG_ON = '<{xoAdminIcons 'success.png'}>';
+    IMG_OFF = '<{xoAdminIcons 'cancel.png'}>';
 </script>
 <{if $message_tips|default:false == true}>
 	<div class="tips ui-corner-all">
-        <img class="floatleft tooltip" src="<{xoAdminIcons tips.png}>" alt="<{$smarty.const._AM_SYSTEM_TIPS}>" title="<{$smarty.const._AM_SYSTEM_TIPS}>"/>
+        <img class="floatleft tooltip" src="<{xoAdminIcons 'tips.png'}>" alt="<{$smarty.const._AM_SYSTEM_TIPS}>" title="<{$smarty.const._AM_SYSTEM_TIPS}>"/>
 
         <div class="floatleft"><{$smarty.const._AM_XMCONTENT_CONTENT_TIPS}></div>
         <div class="clear">&nbsp;</div>
@@ -18,7 +18,6 @@
         <{$message_error}>
     </div>
 <{/if}>
-
 <div class="xmcontent">
     <{$form|default:''}>
 </div>
@@ -49,29 +48,29 @@
         </tr>
         </thead>
         <tbody>
-        <{foreach item=content from=$content}>
+        <{foreach item=itemcontent from=$content}>
             <tr class="<{cycle values='even,odd'}> alignmiddle">
-                <td class="txtleft"><a href="<{$content.link}>" title="<{$content.title}>"><{$content.title}></a></td>
-                <td class="txtcenter"><{$content.weight}></td>
+                <td class="txtleft"><a href="<{$itemcontent.link}>" title="<{$itemcontent.title}>"><{$itemcontent.title}></a></td>
+                <td class="txtcenter"><{$itemcontent.weight}></td>
                 <td class="xo-actions txtcenter">
-                    <img id="loading_sml<{$content.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
-                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"/><img class="cursorpointer tooltip" id="sml<{$content.id}>"
-                    onclick="system_setStatus( { op: 'content_update_status', content_id: <{$content.id}> }, 'sml<{$content.id}>', 'content.php' )"
-                    src="<{if $content.status}><{xoAdminIcons success.png}><{else}><{xoAdminIcons cancel.png}><{/if}>"
-                    alt="<{if $content.status}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_A}><{/if}>"
-                    title="<{if $content.status}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_A}><{/if}>"/>
+                    <img id="loading_sml<{$itemcontent.id}>" src="../assets/images/spinner.gif" style="display:none;" title="<{$smarty.const._AM_SYSTEM_LOADING}>"
+                    alt="<{$smarty.const._AM_SYSTEM_LOADING}>"/><img class="cursorpointer tooltip" id="sml<{$itemcontent.id}>"
+                    onclick="system_setStatus( { op: 'content_update_status', content_id: <{$itemcontent.id}> }, 'sml<{$itemcontent.id}>', 'content.php' )"
+                    src="<{if $itemcontent.status}><{xoAdminIcons 'success.png'}><{else}><{xoAdminIcons 'cancel.png'}><{/if}>"
+                    alt="<{if $itemcontent.status}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_A}><{/if}>"
+                    title="<{if $itemcontent.status}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_NA}><{else}><{$smarty.const._AM_XMCONTENT_CONTENT_STATUS_A}><{/if}>"/>
                 </td>
-				<td class="txtcenter"><{$content.maindisplay}></td>
-				<td class="txtcenter"><{$content.dotitle}></td>
+				<td class="txtcenter"><{$itemcontent.maindisplay}></td>
+				<td class="txtcenter"><{$itemcontent.dotitle}></td>
                 <td class="xo-actions txtcenter">
-                    <a class="tooltip" href="content.php?op=view&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
-					<a class="tooltip" href="content.php?op=clone&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_CLONE}>">
-						<img src="<{xoAdminIcons clone.png}>" alt="<{$smarty.const._AM_XMCONTENT_CLONE}>"></a>
-                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content.id}>&amp;fcontent_status=<{$fcontent_status}>&amp;&title=<{$title}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
-                    <a class="tooltip" href="content.php?op=del&amp;content_id=<{$content.id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/></a>
+                    <a class="tooltip" href="content.php?op=view&amp;content_id=<{$itemcontent.id}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
+                        <img src="<{xoAdminIcons 'view.png'}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
+					<a class="tooltip" href="content.php?op=clone&amp;content_id=<{$itemcontent.id}>" title="<{$smarty.const._AM_XMCONTENT_CLONE}>">
+						<img src="<{xoAdminIcons 'clone.png'}>" alt="<{$smarty.const._AM_XMCONTENT_CLONE}>"></a>
+                    <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$itemcontent.id}>&amp;fcontent_status=<{$fcontent_status}>&amp;&title=<{$title}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
+                        <img src="<{xoAdminIcons 'edit.png'}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
+                    <a class="tooltip" href="content.php?op=del&amp;content_id=<{$itemcontent.id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
+                        <img src="<{xoAdminIcons 'delete.png'}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/></a>
                 </td>
             </tr>
         <{/foreach}>
@@ -102,11 +101,11 @@
                 <td><{$smarty.const._AM_XMCONTENT_ACTION}></td>
                 <td class="xo-actions txtleft">
 					<a class="tooltip" href="<{$link}>" title="<{$smarty.const._AM_XMCONTENT_VIEW}>">
-                        <img src="<{xoAdminIcons view.png}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
+                        <img src="<{xoAdminIcons 'view.png'}>" alt="<{$smarty.const._AM_XMCONTENT_VIEW}>"/></a>
                     <a class="tooltip" href="content.php?op=edit&amp;content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_EDIT}>">
-                        <img src="<{xoAdminIcons edit.png}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
+                        <img src="<{xoAdminIcons 'edit.png'}>" alt="<{$smarty.const._AM_XMCONTENT_EDIT}>"/></a>
                     <a class="tooltip" href="content.php?op=del&amp;content_id=<{$content_id}>" title="<{$smarty.const._AM_XMCONTENT_DEL}>">
-                        <img src="<{xoAdminIcons delete.png}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/></a>
+                        <img src="<{xoAdminIcons 'delete.png'}>" alt="<{$smarty.const._AM_XMCONTENT_DEL}>"/></a>
                 </td>
             </tr>
         </tbody>

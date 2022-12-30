@@ -3,12 +3,12 @@
 	<h2><{$block.title}></h2>
 	<{/if}>
 	<{foreach item=b_template from=$block.template}>
-		<{includeq file="$b_template"}>
+		<{include file="$b_template"}>
 	<{/foreach}>
 <{else}>
 	<{if $block.warning != ''}>
 	<div class="row">
-		<div class="col-xs-12 alert alert-warning">
+		<div class="col-sm-12 alert alert-warning">
 			<{$block.warning}>
 		</div>
 	</div>
@@ -25,7 +25,7 @@
 	</div>
 	<{if $block.error != ''}>
 	<div class="row">
-		<div class="col-xs-12 alert alert-danger">
+		<div class="col-sm-12 alert alert-danger">
 			<{$block.error}>
 		</div>
 	</div>
@@ -40,8 +40,6 @@
 <{/if}>
 <{if $block.perm_edit == true}>
 <div align="center">
-	<a href="<{$xoops_url}>/modules/xmcontent/action.php?op=edit&content_id=<{$block.id}>">
-		<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><{$smarty.const._AM_XMCONTENT_EDIT}></button>
-	</a>
+	<a class="btn btn-secondary" href="<{$xoops_url}>/modules/xmcontent/action.php?op=edit&content_id=<{$block.id}>"><i class="fa fa-edit" aria-hidden="true"></i> <{$smarty.const._AM_XMCONTENT_EDIT}></a>
 </div>
 <{/if}>

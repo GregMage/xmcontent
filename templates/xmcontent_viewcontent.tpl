@@ -2,11 +2,11 @@
 	<{if $content_dotitle == 1}>
 	<h2><{$content_title}></h2>
 	<{/if}>
-	<{includeq file="$content_template"}>
+	<{include file="$content_template"}>
 <{else}>
 	<{if $content_warning != ''}>
 		<div class="row">
-			<div class="col-xs-12 alert alert-warning">
+			<div class="col-12 alert alert-warning">
 				<{$content_warning}>
 			</div>
 		</div>
@@ -21,33 +21,30 @@
 			</p>
 		</div>
 	</div>
-
 	<{if $content_error != ''}>
 		<div class="row">
-			<div class="col-xs-12 alert alert-danger">
+			<div class="col-12 alert alert-danger">
 				<{$content_error}>
 			</div>
 		</div>
 	<{/if}>
 <{/if}>
-	<{if $dorating == 1}>
-		<div class="row">
-			<div class="col-xs-12">
-				<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
-			</div>
+<{if $dorating == 1}>
+	<div class="row">
+		<div class="col-12">
+			<{include file="db:xmsocial_rating.tpl" down_xmsocial=$xmsocial_arr}>
 		</div>
-	<{/if}>
-	<{if $social == true}>
-		<{include file="db:xmsocial_social.tpl"}>
-		<br>
-	<{/if}>
-	<{if $perm_edit == true}>
-	<div align="center">
-		<a href="<{$xoops_url}>/modules/xmcontent/action.php?op=edit&content_id=<{$content_id}>">
-			<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><{$smarty.const._AM_XMCONTENT_EDIT}></button>
-		</a>
 	</div>
-	<{/if}>	
+<{/if}>
+<{if $social == true}>
+	<{include file="db:xmsocial_social.tpl"}>
+	<br>
+<{/if}>
+<{if $perm_edit == true}>
+	<div align="center">
+		<a class="btn btn-secondary" href="<{$xoops_url}>/modules/xmcontent/action.php?op=edit&content_id=<{$content_id}>"><i class="fa fa-edit" aria-hidden="true"></i> <{$smarty.const._AM_XMCONTENT_EDIT}></a>
+	</div>
+<{/if}>
 <{if $xmdoc_viewdocs|default:false == true}>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -55,7 +52,7 @@
         </div>
         <div class="panel-body">
             <{include file="db:xmdoc_viewdoc.tpl"}>
-        </div>	
+        </div>
     </div>
 <{/if}>
 <{if $content_docomment == 1}>
