@@ -65,7 +65,7 @@ if ($op == 'edit' || $op == 'save') {
             } else {
                 $obj = $contentHandler->get($content_id);
             }
-            $error_message = $obj->saveContent($contentHandler, 'viewcontent.php');
+            $error_message = $obj->saveContent($contentHandler, XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $content_id);
             if ($error_message != '') {
                 $xoopsTpl->assign('error_message', $error_message);
 				$form = $obj->getForm();

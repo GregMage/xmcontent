@@ -388,7 +388,7 @@ class xmcontent_content extends XoopsObject
 					$error_message .= XmsocialUtility::saveSocial('xmcontent', $content_id);
 				}
 				if ($action == 'viewcontent.php'){
-					redirect_header('viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
+					redirect_header(XOOPS_URL . '/modules/xmcontent/viewcontent.php?content_id=' . $content_id, 2, _AM_XMCONTENT_REDIRECT_SAVE);
 				} else {
 					redirect_header($action, 2, _AM_XMCONTENT_REDIRECT_SAVE);
 				}
