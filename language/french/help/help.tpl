@@ -2,7 +2,7 @@
     <h1 class="head">Aide:
         <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/xmcontent/admin/index.php"
            title="Retour à l'administration de xmcontent"> xmcontent
-            <img src="<{xoAdminIcons home.png}>"
+            <img src="<{xoAdminIcons 'home.png'}>"
                  alt="Back to the Administration of xmcontent"/>
         </a></h1>
 
