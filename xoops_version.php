@@ -34,7 +34,7 @@ $modversion['icons32']        = 'Frameworks/moduleclasses/icons/32';
 $modversion['help']           = 'page=help';
 
 //about
-$modversion['release_date']        = '2022/01/29';
+$modversion['release_date']        = '2022/12/16';
 $modversion['module_website_url']  = 'www.monxoops.fr/';
 $modversion['module_website_name'] = 'MonXoops';
 $modversion['min_php']             = '7.1';
