@@ -27,8 +27,8 @@ $moduleAdmin->displayNavigation('content.php');
 $op = Request::getCmd('op', 'list');
 //title
 $title = Request::getString('title', '');
-$xoopsTpl->assign('title', $title);		
-// Status		
+$xoopsTpl->assign('title', $title);
+// Status
 $fcontent_status = Request::getInt('fcontent_status', 10);
 $xoopsTpl->assign('fcontent_status', $fcontent_status);
 
@@ -60,7 +60,7 @@ switch ($op) {
 		}
 		if ($fcontent_status != 10){
 			$criteria->add(new Criteria('content_status', $fcontent_status));
-		} 
+		}
         $criteria->setSort('content_weight ASC, content_title');
         $criteria->setOrder('ASC');
         $criteria->setStart($start);
@@ -87,7 +87,7 @@ switch ($op) {
                 } else {
                     $content['dotitle'] = '<span style="color: green; font-weight:bold;">' . _AM_XMCONTENT_YES . '</span>';
                 }
-                $xoopsTpl->append_by_ref('content', $content);
+                $xoopsTpl->appendByRef('content', $content);
                 unset($content);
             }
             // Display Page Navigation
@@ -188,7 +188,7 @@ switch ($op) {
 		// Module admin
         $moduleAdmin->addItemButton(_AM_XMCONTENT_CONTENT_LIST, 'content.php', 'list');
         $xoopsTpl->assign('renderbutton', $moduleAdmin->renderButton());
-		
+
 		if (xoops_isActiveModule('xlanguage')){
 			$xoopsTpl->assign('message_tips', true);
 		}
@@ -289,7 +289,7 @@ switch ($op) {
             $xoopsTpl->assign('message_error', $error_message);
 			$form = $obj->getForm();
             $xoopsTpl->assign('form', $form->render());
-        }        
+        }
         break;
 
     // clone

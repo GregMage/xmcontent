@@ -77,7 +77,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 					$content['text'] = substr($text,0,strpos($text,'[break_dsc]'));
 					$description_SEO .= XmcontentUtility::generateDescriptionTagSafe($content['text'], 20);
 				}
-			}	
+			}
 			$content['count'] = $count;
 			if ($count_row == $count) {
 				$content['row'] = true;
@@ -90,7 +90,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 			} else {
 				$content['end'] = false;
 			}
-			$xoopsTpl->append_by_ref('content', $content);
+			$xoopsTpl->appendByRef('content', $content);
 			$count++;
 			$keywords .= XmcontentUtility::TagSafe($content['title']) . ',';
 			unset($content);
@@ -112,7 +112,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	$keywords = \Xmf\Metagen::generateKeywords($keywords, 10);
 	$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
-	
+
 	$content_id = $helper->getConfig('index_content', 0);
 	$xoopsTpl->assign('content_id', $content_id);
 	if (0 == $content_id) {
@@ -162,7 +162,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	$xoopsTpl->assign('content_dosocial', $content->getVar('content_dosocial'));
 	$xoopsTpl->assign('content_domail', $content->getVar('content_domail'));
 	$xoopsTpl->assign('content_dotitle', $content->getVar('content_dotitle'));
-	
+
 	//xmsocial
 	if (xoops_isActiveModule('xmsocial') && $helper->getConfig('options_xmsocial', 0) == 1) {
 		xoops_load('utility', 'xmsocial');
@@ -191,7 +191,7 @@ if (0 == $helper->getConfig('index_content', 0)) {
 	}
 	//keywords
 	if ('' == $content->getVar('content_mkeyword')) {
-		$keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);    
+		$keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);
 		$xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 	} else {
 		$xoTheme->addMeta('meta', 'keywords', XmcontentUtility::TagSafe($content->getVar('content_mkeyword')));
