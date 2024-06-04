@@ -1,8 +1,8 @@
 ﻿-------------------------------------------------
-Version: 1.7.0 Alpha
-Date:    16.12.2022
+Version: 1.7.0 Stable
+Date:    04.06.2024
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- sql error when installing the module
 	- Redirection error after posting content from the admin (only if on a subdomain)
 
@@ -11,11 +11,11 @@ Improvements:
 
 Security:
 	- /
-	
+
 Important:	- The 1.7.0 series is only compatible under xoops 2.5.11.
 			- The default templates are only compatible with a bootstrap 4 theme, the templates for version 3 of boostrap are in the extra folder.
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Erreur sql lors de l'installation du module
 	- Erreur de redirection après avoir posté un contenu depuis l'admin (uniquement si sur un sous domaine)
 
@@ -24,7 +24,7 @@ Améliorations:
 
 Sécurités:
 	- /
-	
+
 Important:	- La série 1.7.0 est compatible uniquement sous xoops 2.5.11.
 			- Les templates par défaut sont compatibles uniquement avec un thème bootstrap 4, les templates pour la version 3 de boostrap sont dans le dossier extra.
 
@@ -34,27 +34,27 @@ Important:	- La série 1.7.0 est compatible uniquement sous xoops 2.5.11.
 Version: 1.6 Stable
 Date:    29.01.2022
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- Fixed PHP 8 errors
 	- English language define error
 	- Fixed an error if no content is requested in the options of the block
 	- correction if xmsocial is not activated and a content allows rating, the rating templates were displayed
-	- If a user modified content without being an administrator, the permissions were removed 
+	- If a user modified content without being an administrator, the permissions were removed
 
 Improvements:
 	- Compatibility with xmsocial 2.0
 	- Compatibility with the xlanguage module
 	- Integration of url rewriting (formuss & mage)
 	- The description (SEO) of the index page is now generated automatically
-	- If you edit content in the administration, the filters activated before the modification are kept 
+	- If you edit content in the administration, the filters activated before the modification are kept
 
 Security:
 	- Switching from index.html to index.php
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Correction d'erreurs PHP 8
 	- Erreur de define de langue anglais
-	- Correction d'une erreur si aucun contenu n'est demandé dans les options du bloc 
+	- Correction d'une erreur si aucun contenu n'est demandé dans les options du bloc
 	- correction si xmsocial n'est pas activé et qu'un contenu autorise la notation, le templates de notation était affiché
 	- Si un utilisateur modifiait un contenu sans être administrateur, les permissions étaient supprimées
 
@@ -67,18 +67,18 @@ Améliorations:
 
 Sécurités:
 	- Passage de index.html à index.php
-	
+
 Important: Le module à besoin de la version 2.0 de xmsocial (si vous utilisez ce module)
 
 -------------------------------------------------
 Version: 1.5 Final
 Date:    14.03.2021
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- The search ignored permissions.
 	- Tempaltes encoding problem.
 	- Fixed an error with xmdoc.
-	- Fixed an error with the content filter (admin). 
+	- Fixed an error with the content filter (admin).
 
 Improvements:
 	- Code optimization.
@@ -87,13 +87,13 @@ Improvements:
 	- The content is now editable from the user part.
 	- PHP8 compatibility.
 	- Integration of xmsocial to rate content and add social media.
-	- We can now include a page in another page. 
+	- We can now include a page in another page.
 
 Security:
 	- Users who had the rights to edit content could change the permissions.
-	  Now only those who have the right to administer the module can do it. 
-	
-Correction de bogues:	
+	  Now only those who have the right to administer the module can do it.
+
+Correction de bogues:
 	- La recherche ne tenait pas compte des permissions.
 	- Problème d'encodage des tempaltes.
 	- Correction d'une eerreur avec xmdoc.
@@ -116,7 +116,7 @@ Sécurités:
 Version: 1.0 Final
 Date:    10.05.2020
 -------------------------------------------------
-Bug fixes:	
+Bug fixes:
 	- Paypal did not work for donations (about.php).
 
 Improvements:
@@ -130,8 +130,8 @@ Improvements:
 
 Security:
 	/
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Paypal ne fonctionnait pas pour les donations (about.php).
 
 Améliorations:
@@ -152,16 +152,16 @@ Version: 0.5 final
 Date:    22.11.2019
 -------------------------------------------------
 
-Bug fixes:	
+Bug fixes:
 	- Display problem after the action logos in the admin.
 	- Trolley return problem after cloning content.
 
 Improvements:
 	- Change the name of the module (Xmcontent).
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Problème d'affichage après les logos d'action dans l'admin.
-	- Problème de retour de chariot après avoir cloné un contenu.	
+	- Problème de retour de chariot après avoir cloné un contenu.
 
 Améliorations:
 	- Changement du nom du module (Xmcontent).
@@ -171,7 +171,7 @@ Version: 0.5 RC 1
 Date:    19.02.2019
 -------------------------------------------------
 
-Bug fixes:	
+Bug fixes:
 	- Fix: Warning count() with php 7.2.
 	- The contents appear in the history of each member.
 	- The information on xmdoc did not work (index admin).
@@ -180,10 +180,10 @@ Bug fixes:
 Improvements:
 	- Table optimization (perf.) Warning, only for a new installation.
 	- Addition of the French translation
-	
-Correction de bogues:	
+
+Correction de bogues:
 	- Correction: Warning count() avect php 7.2.
-	- Les contenus apparaissent dans l'historique de chaque membre.	
+	- Les contenus apparaissent dans l'historique de chaque membre.
 	- Les informations sur xmdoc ne fonctionnait pas (index admin).
 	- Erreur de traduction (_AM_XMCONTENT_CONTENT_TEMPLATE)language/english/admin.php
 
