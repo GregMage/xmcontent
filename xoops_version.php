@@ -19,7 +19,7 @@
 
 $modversion['dirname']        = basename(__DIR__);
 $modversion['name']           = ucfirst(basename(__DIR__));
-$modversion['version']        = '1.7.0-Stable';
+$modversion['version']        = '1.7.1-Alpha';
 $modversion['description']    = _MI_XMCONTENT_DESC;
 $modversion['credits']        = 'G. Mage';
 $modversion['author']         = 'G. Mage';
