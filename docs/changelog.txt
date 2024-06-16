@@ -1,4 +1,30 @@
 ﻿-------------------------------------------------
+Version: 1.7.1 Alpha
+Date:    04.06.2024
+-------------------------------------------------
+Bug fixes:
+	- Fixed PHP 8 errors
+
+Improvements:
+	- /
+
+Security:
+	- /
+
+Important:	- The 1.7.0 series is only compatible under xoops 2.5.11.
+
+Correction de bogues:
+	- Correction d'erreurs PHP 8
+
+Améliorations:
+	- /
+
+Sécurités:
+	- /
+
+Important:	- La série 1.7.0 est compatible uniquement sous xoops 2.5.11.
+
+-------------------------------------------------
 Version: 1.7.0 Stable
 Date:    04.06.2024
 -------------------------------------------------

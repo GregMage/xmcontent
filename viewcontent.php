@@ -90,6 +90,9 @@ if (xoops_isActiveModule('xmsocial')){
 	} else {
 		$xoopsTpl->assign('social', false);
 	}
+} else {
+	$xoopsTpl->assign('dorating', 0);
+	$xoopsTpl->assign('social', false);
 }
 
 //SEO
@@ -98,14 +101,14 @@ $xoopsTpl->assign('xoops_pagetitle', strip_tags($content->getVar('content_title'
 //description
 if ('' == $content->getVar('content_mdescription')) {
 	$xoTheme->addMeta('meta', 'description', XmcontentUtility::generateDescriptionTagSafe($content->getVar('content_text'), 80));
-	
+
 } else {
     $xoTheme->addMeta('meta', 'description', strip_tags($content->getVar('content_mdescription')));
 }
 
 //keywords
 if ('' == $content->getVar('content_mkeyword')) {
-    $keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);    
+    $keywords = \Xmf\Metagen::generateKeywords(XmcontentUtility::TagSafe($content->getVar('content_text')), 10);
     $xoTheme->addMeta('meta', 'keywords', implode(', ', $keywords));
 } else {
     $xoTheme->addMeta('meta', 'keywords', XmcontentUtility::TagSafe($content->getVar('content_mkeyword')));
